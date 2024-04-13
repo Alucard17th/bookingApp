@@ -1,0 +1,92 @@
+:root {
+    --cs-blue: #1642B9;
+    --cs-indigo: #6610f2;
+    --cs-purple: #6f42c1;
+    --cs-pink: #e83e8c;
+    --cs-red: #dc3545;
+    /* --cs-orange: #fd7e14; */
+    --cs-orange: #EE7B11;
+    --cs-yellow: #ffc107;
+    --cs-green: #28a745;
+    --cs-teal: #20c997;
+    --cs-grey: #6c757d;
+}
+.bg-blue{
+    background-color: #1642B9
+}
+/* Navbar CSS */
+.navbar-nav .nav-item.active a.nav-link {
+    color: #ffffff; /* Change text color */
+    background-color: var(--cs-blue); /* Change background color */
+    border-radius: 5px;
+}
+.navbar-nav .nav-item:not(.active) a.nav-link:hover {
+    color: #ffffff; /* Change text color */
+    background-color: var(--cs-orange); /* Change background color */
+    border-radius: 5px;
+}
+#secondary-navbar{
+    border-bottom: 3px solid #ee7b11;
+}
+
+/* Events CSS */
+.select-type{
+    width: 90%;
+    text-align: center;
+    color:#fff;
+    padding: 20px;
+    background-color: var(--cs-blue);
+    border-radius: 5px;
+}
+.select-type:hover{
+    background-color: var(--cs-orange);
+}
+.btn-secondery{
+    background-color: #ee7b11 !important;
+}
+.btn-secondery:hover {
+    background-color: #000;
+    color: #fff;
+}
+.form-group{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.image-preview{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+.add-btn{
+    background-color: var(--cs-orange) !important;
+    color: #fff !important;
+}
+.add-btn:hover{
+    background-color: var(--cs-blue) !important;
+    color: #fff !important;
+}
+
+/* Pignose Calendar CSS Start */
+.pignose-calendar-unit-mon > a{
+    color:#000 !important;
+}
+.pignose-calendar-unit-tue > a{
+    color:#000 !important;
+}
+.pignose-calendar-unit-wed > a{
+    color:#000 !important;
+}
+.pignose-calendar-unit-thu > a{
+    color:#000 !important;
+}
+.pignose-calendar-unit-fri > a{
+    color:#000 !important;
+}
+.pignose-calendar-unit-sat > a{
+    color:#ee7b11 !important;
+}
+.pignose-calendar-unit-sun > a{
+    color:#ee7b11 !important;
+}
+/* Pignose Calendar CSS End */
+
