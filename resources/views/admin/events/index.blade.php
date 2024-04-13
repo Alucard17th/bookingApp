@@ -19,6 +19,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Date</th>
@@ -32,6 +33,7 @@
                 <tbody>
                     @foreach($events as $event)
                     <tr>
+                        <td>{{ $event->id }}</td>
                         <td>{{ $event->name }}</td>
                         <td>{{ $event->description }}</td>
                         <td>{{ $event->date }}</td>

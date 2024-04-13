@@ -115,6 +115,7 @@ class ServiceController extends Controller
         $service->cost = $validatedData['cost'];
         $service->location = $validatedData['location'];
         $service->buffer_time = $request->buffer_time;
+        $service->is_active = $request->is_active;
     
         // Handle image upload if provided
         if ($request->hasFile('image')) {

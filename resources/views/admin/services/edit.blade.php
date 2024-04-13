@@ -14,7 +14,7 @@
             Update Service
         </div>
 
-        <div class="card-body">
+        <div class="card-body p-2">
             <form method="POST" action="{{ route('services.update', $service->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -30,7 +30,7 @@
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="duration">Duration</label>
+                            <label for="duration">Duration (in minutes)</label>
                             <input type="number" class="form-control" id="duration" name="duration"
                                 value="{{ $service->duration }}" required>
                         </div>
@@ -46,8 +46,8 @@
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="buffer_time">Buffer Time</label>
-                            <input type="number" class="form-control" id="buffer_time" name="buffer_time" value="{{ $service->buffer_time }}" required>
+                            <label for="buffer_time">Buffer Time (in minutes)</label>
+                            <input type="number" class="form-control" id="buffer_time" value="{{ $service->buffer_time }}" name="buffer_time" required>
                             @error('buffer_time')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -67,11 +67,21 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label for="location">Location</label>
-                            <select class="form-control" id="location" name="location" required>
+                            <select class="form-select" id="location" name="location" required>
                                 <option value="remote" {{ $service->location == 'remote' ? 'selected' : '' }}>Remote
                                 </option>
                                 <option value="in-person" {{ $service->location == 'in-person' ? 'selected' : '' }}>
                                     In-person</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="is_active">Status</label>
+                            <select name="is_active" id="is_active" class="form-select">
+                                <option value="1" {{ $service->is_active ? 'selected' : '' }}>Active</option>
+                                <option value="0" {{ !$service->is_active ? 'selected' : '' }}>Inactive</option>
                             </select>
                         </div>
                     </div>
@@ -84,10 +94,8 @@
                     </div>
                 </div>
 
-                <div class="col-6 mt-3">
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </div>
+                <div class="col-12 mt-2">
+                    <button type="submit" class="btn btn-primary mt-1">Update</button>
                 </div>
             </form>
         </div>

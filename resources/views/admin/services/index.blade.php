@@ -19,6 +19,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Duration</th>
@@ -30,6 +31,7 @@
                 <tbody>
                     @foreach($services as $service)
                     <tr>
+                        <td>{{ $service->id }}</td>
                         <td>{{ $service->name }}</td>
                         <td>{{ \Illuminate\Support\Str::limit($service->description,20) }}</td>
                         <td>{{ $service->duration }} min</td>

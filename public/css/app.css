@@ -11,6 +11,10 @@
     --cs-teal: #20c997;
     --cs-grey: #6c757d;
 }
+
+.bk-custom-orange{
+    color: #EE7B11;
+}
 .bg-blue{
     background-color: #1642B9
 }

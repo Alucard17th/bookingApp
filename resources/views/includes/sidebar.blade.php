@@ -22,7 +22,7 @@
                 <li class="nav-item dropdown {{ request()->is('events*') || request()->is('bookings*') ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-calendar-alt"></i>
+                        <i class="fas fa-calendar"></i>
                         Events
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="eventsDropdown">

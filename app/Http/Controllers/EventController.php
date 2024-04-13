@@ -16,7 +16,6 @@ class EventController extends Controller
     {
         //
         $events = auth()->user()->events()->orderBy('id', 'desc')->get();
-
         return view('admin.events.index', compact('events'));
     }
 
@@ -40,15 +39,15 @@ class EventController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'date' => 'required|date',
-            'time' => 'required|date_format:H:i',
+            // 'time' => 'required|date_format:H:i',
             // 'location' => 'required|string|max:255',
             // 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if($request->hasFile('image')) {
-            $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            ]);
+            // $request->validate([
+            //     'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // ]);
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('images/events/'.auth()->user()->id), $imageName);
         }
@@ -57,12 +56,14 @@ class EventController extends Controller
             'name' => $request->name,
             'description' => $request->description,
             'date' => $request->date,
-            'time' => $request->time,
+            'time' => $request->time ?? '00:00:00',
             'location' => $request->location,
             'image' => $imageName ?? '',
             'status' => 'active',
             'user_id' => auth()->id(),
             'type' => $request->event_type,
+            'cost' => $request->cost ?? 0,
+            'max_participants' => $request->max_participants
         ]);
 
         if ($request->has('availabilities')) {
@@ -108,14 +109,16 @@ class EventController extends Controller
         $event->date = $request->input('date');
         $event->time = $request->input('time');
         $event->location = $request->input('location');
+        $event->cost = $request->input('cost');
         $event->status = $request->input('status');
+        $event->max_participants = $request->input('max_participants');
 
-        // Handle image upload if provided
-        if ($request->hasFile('image')) {
-            // Upload the image and update the image path
-            $imagePath = $request->file('image')->store('images/events', 'public');
-            $event->image = $imagePath;
+        if($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images/events/'.auth()->user()->id), $imageName);
         }
+
+        $event->image = $imageName ?? $event->image;
 
         // Save the updated event data
         $event->save();

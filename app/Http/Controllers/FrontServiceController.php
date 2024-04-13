@@ -14,7 +14,7 @@ class FrontServiceController extends Controller
     public function index($id, $serviceId){
         //
         $user = User::findOrFail($id);
-        $service = service::findOrFail($serviceId);
+        $service = Service::findOrFail($serviceId);
         return view('booking.index', compact('user', 'service'));
     }
 

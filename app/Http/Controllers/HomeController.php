@@ -37,10 +37,7 @@ class HomeController extends Controller
 
         // Loop through each service
         foreach ($services as $service) {
-            // Retrieve the appointments associated with the current service
-            $appointmentsCount = $service->appointments()->count();
-            // Add the number of appointments to the total
-            $totalAppointments += $appointmentsCount;
+            $totalAppointments += $service->appointments()->count();
         }
 
         // Loop through each event and sum up the bookings count

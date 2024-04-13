@@ -2,19 +2,19 @@
 
 @push('styles')
 <style>
-    .day-label {
-        cursor: pointer;
-        padding: 0.5rem;
-        margin-right: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        user-select: none;
-    }
+.day-label {
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    user-select: none;
+}
 
-    .day-label.selected {
-        background-color: #007bff;
-        color: #fff;
-    }
+.day-label.selected {
+    background-color: #007bff;
+    color: #fff;
+}
 </style>
 @endpush
 
@@ -26,11 +26,12 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <a href="#" class="me-3" id="back-button" style="display: none" role="button"><i class="fas fa-arrow-left"></i></a>
+            <a href="#" class="me-3" id="back-button" style="display: none" role="button"><i
+                    class="fas fa-arrow-left"></i></a>
             New Services
         </div>
 
-        <div class="card-body" id="service-form-container">
+        <div class="card-body p-2" id="service-form-container">
             <form method="POST" action="{{ route('services.store') }}" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="event_type" value="service">
@@ -46,10 +47,10 @@
                             @enderror
                         </div>
                     </div>
-                    
+
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="duration">Duration</label>
+                            <label for="duration">Duration (in minutes)</label>
                             <input type="number" class="form-control" id="duration" name="duration" required>
                             @error('duration')
                             <span class="invalid-feedback" role="alert">
@@ -74,8 +75,8 @@
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="buffer_time">Buffer Time</label>
-                            <input type="number" class="form-control" id="buffer_time" name="buffer_time" required>
+                            <label for="buffer_time">Buffer Time (in minutes)</label>
+                            <input type="number" class="form-control" id="buffer_time" name="buffer_time">
                             @error('buffer_time')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -122,23 +123,10 @@
                             @enderror
                         </div>
                     </div>
-                    
-                    <!-- 
-                    <div class="form-group col-12">
-                        <label class=mb-2>Days:</label><br>
-                            <span class="day-label" data-day="Monday" role="button">Monday</span>
-                            <span class="day-label" data-day="Tuesday">Tuesday</span>
-                            <span class="day-label" data-day="Wednesday">Wednesday</span>
-                            <span class="day-label" data-day="Thursday">Thursday</span>
-                            <span class="day-label" data-day="Friday">Friday</span>
-                            <span class="day-label" data-day="Saturday">Saturday</span>
-                            <span class="day-label" data-day="Sunday">Sunday</span>
-                        <input type="hidden" name="availabilities[0][days][]" value="">
-                    </div> -->
-                    
-                    <div class="col-6 mt-3">
+
+                    <div class="col-12">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Create</button>
+                            <button type="submit" class="btn btn-primary float-start">Create</button>
                         </div>
                     </div>
                 </div>
@@ -153,7 +141,7 @@
 <script>
 // when the document is ready
 $(document).ready(function() {
-  
+
 
     // Select the event type
     $('.select-event-type').on('click', function() {

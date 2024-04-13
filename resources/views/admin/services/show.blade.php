@@ -48,12 +48,29 @@
 
             <hr>
 
-            <div class="row mt-3 availabilities">
+            <!-- <div class="row mt-3 availabilities">
                 <div class="col-12">
                     <p class="card-text"><strong>Availabilities:</strong></p>
                     <ul class="list-unstyled">
                         @foreach($service->availabilities as $availabilitie)
                         <li>{{$availabilitie->start_at}} - {{$availabilitie->end_at}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div> -->
+
+            <div class="row mt-3 availabilities">
+                <div class="col-12">
+                    <p class="card-text"><strong>Appointments:</strong></p>
+                    <ul class="list-unstyled">
+                        @foreach($service->appointments as $appointment)
+                        <li class="mb-2">{{$appointment->name}} : 
+                            <span class="badge bg-warning text-dark"><i class="fa fa-clock me-2"></i>{{$appointment->date}} | {{$appointment->time}}</span>
+
+                            
+                            <span class="badge bg-warning text-dark"><i class="fa fa-envelope me-2"></i>{{$appointment->email}}</span>
+                            <span class="badge bg-warning text-dark"><i class="fa fa-phone me-2"></i>{{$appointment->phone}}</span>
+                        </li>
                         @endforeach
                     </ul>
                 </div>

@@ -19,6 +19,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
@@ -31,6 +32,7 @@
                 <tbody>
                     @foreach($bookings as $booking)
                     <tr>
+                        <td>{{ $booking->id }}</td>
                         <td>{{ $booking->name }}</td>
                         <td>{{ $booking->email }}</td>
                         <td>{{ $booking->phone }}</td>

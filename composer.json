@@ -11,6 +11,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.4",
+        "stripe/stripe-php": "^14.1",
         "yoeunes/toastr": "^2.3"
     },
     "require-dev": {

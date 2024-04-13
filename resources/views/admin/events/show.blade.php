@@ -34,6 +34,9 @@
                     <p class="card-text"><strong>Time:</strong> {{ $event->time }}</p>
                     <p class="card-text"><strong>Location:</strong> {{ $event->location }}</p>
                     <p class="card-text"><strong>Status:</strong> {{ $event->status }}</p>
+                    <p class="card-text"><strong>Cost:</strong> {{ $event->cost }}</p>
+                    <p class="card-text"><strong>Max Participants:</strong> {{ $event->max_participants ? $event->max_participants : 'Unlimited' }}</p>
+                    <p class="card-text"><strong>Participants:</strong> {{ $event->bookings->count() }} / {{ $event->max_participants }}</p>
                 </div>
 
                 <div class="col-6">
@@ -52,7 +55,11 @@
                     <p class="card-text"><strong>Attendees:</strong></p>
                     <ul class="list-unstyled">
                         @foreach($event->bookings as $attendee)
-                        <li>{{$attendee->name}}</li>
+                        <li>
+                            {{$attendee->name}} : 
+                            <span class="badge bg-warning text-dark"><i class="fa fa-envelope me-2"></i>{{$attendee->email}}</span>
+                            <span class="badge bg-warning text-dark"><i class="fa fa-phone me-2"></i>{{$attendee->phone}}</span>
+                        </li>
                         @endforeach
                     </ul>
                 </div>
