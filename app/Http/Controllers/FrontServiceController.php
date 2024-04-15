@@ -11,7 +11,7 @@ class FrontServiceController extends Controller
 {
     //
 
-    public function index($id, $serviceId){
+    public function index($id, $serviceId, Request $request){
         //
         $user = User::findOrFail($id);
         $service = Service::findOrFail($serviceId);

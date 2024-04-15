@@ -107,7 +107,7 @@
 
         <!-- BOOKING -->
         <div class="col-3">
-        @if($service->is_active)
+            @if($service->is_active)
             <div class="booking-info">
                 <div class="box"></div>
                 <div class="availabilities mt-3"></div>
@@ -156,7 +156,7 @@
                     </div>
                 </form>
             </div>
-        @else
+            @else
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
@@ -166,10 +166,9 @@
                     <p class="text-center">Unfortunately, this service is unavailable at this time. Please check back later for updates or explore our other events.</p>
                 </div>
             </div>
-        @endif
+            @endif
         </div>
     </div>
-
     <div id="overlay" style="display: none;">
         <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
             <img src="/assets/images/loading.svg" alt="" style="max-width: 200px;">
@@ -220,7 +219,7 @@ async function generateAvailabilities(selectedDate) {
 
     while (startTime.isBefore(endTime)) {
         // Adjust the end time to account for the buffer time
-        var endTimeAdjusted = startTime.clone().add(40, 'minutes');
+        var endTimeAdjusted = startTime.clone().add(eventDuration, 'minutes');
 
         // Check if the current time slot is available
         var isAvailable = await checkAvailability(selectedDate, startTime.format('HH:mm') + ' - ' + endTimeAdjusted.format('HH:mm'));

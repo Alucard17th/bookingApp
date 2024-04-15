@@ -65,4 +65,32 @@ class User extends Authenticatable
     public function subscription(){
         return $this->hasOne(Subscription::class, 'user_id');
     }
+
+    public function canReceiveBookings(){
+        $events = $this->events;
+        $bookings = collect();
+        // Loop through each service
+        foreach ($events as $event) {
+            // Retrieve the bookings associated with the current event using eager loading
+            $eventBookings = $event->bookings()->get();
+            // Merge the bookings into the $bookings collection
+            $bookings = $bookings->merge($eventBookings);
+        }
+        $services = $this->services;
+        $appointments = collect();
+        // Loop through each service
+        foreach ($services as $service) {
+            // Retrieve the appointments associated with the current service using eager loading
+            $serviceAppointments = $service->appointments()->get();
+            // Merge the appointments into the $appointments collection
+            $appointments = $appointments->merge($serviceAppointments);
+        }
+        $consommation = $bookings->count() + $appointments->count();
+        $consommation_limit = $this->subscription->bookings;
+
+        if($consommation < $consommation_limit){
+            return true;
+        }
+        return false;
+    }
 }

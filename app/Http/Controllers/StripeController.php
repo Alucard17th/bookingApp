@@ -11,10 +11,11 @@ class StripeController extends Controller
     public function getUserSubscription()
     {
         $stripe = new \Stripe\StripeClient('sk_test_51EJCAtA7dIeuDMDjpcXwlW5JfQztClyx1mWFFMX2dpSOn1TqEzvo1RmQGGtRobw79v0Xa7mNmwNWjrxC5pgEuHas00YbvetyAZ');
-        return $stripe->customers->retrieve('cus_PupH4hk0ubmTXq', [])->email;
-        // return $stripe->subscriptions->retrieve('sub_1P4ytmA7dIeuDMDj6JyehIZC', []);
+        // return $stripe->customers->retrieve('cus_PupH4hk0ubmTXq', [])->email;
+        return $stripe->subscriptions->retrieve('sub_1P4ytmA7dIeuDMDj6JyehIZC', []);
 
         // return $stripe->subscriptions->all(['limit' => 3]);
+        
     }
 
     public function customerSubscriptionCreated(Request $request)

@@ -21,40 +21,77 @@
         @csrf
         @method('PUT')
 
-        <div class="card">
-            <div class="card-header">
-                Profile Settings
-            </div>
-
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}"
-                                required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}"
-                                required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="avatar">Avatar</label>
-                            <input type="file" class="form-control-file" id="avatar" name="avatar" accept="image/*">
-                        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Profile Settings
                     </div>
-                    <div class="col-6 d-flex align-items-center justify-content-center">
-                        <div class="form-group image-preview">
-                            <label>Avatar Preview</label>
-                            <img class="img-thumbnail img-fluid profile-image" src="{{ Storage::url($user->avatar) }}"
-                                alt="{{ $user->name }}">
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        value="{{ $user->name }}" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        value="{{ $user->email }}" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="avatar">Avatar</label>
+                                    <input type="file" class="form-control-file" id="avatar" name="avatar"
+                                        accept="image/*">
+                                </div>
+                            </div>
+                            <div class="col-6 d-flex align-items-center justify-content-center">
+                                <div class="form-group image-preview">
+                                    <label>Avatar Preview</label>
+                                    <img class="img-thumbnail img-fluid profile-image"
+                                        src="{{ Storage::url($user->avatar) }}" alt="{{ $user->name }}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            @if($user->subscription)
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Subscription Details
+                    </div>
+
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <label class="fw-bold me-2">Subscription</label>
+                            {{ $user->subscription->subscription_id }}
+                        </div>
+                        <div class="mb-2">
+                            <label class="fw-bold me-2">Start Date</label>
+                            {{ $user->subscription->start_date }}
+                        </div>
+                        <div class="mb-2">
+                            <label class="fw-bold me-2">End Date</label>
+                            {{ $user->subscription->end_date }}
+                        </div>
+                        <div class="mb-2">
+                            <label class="fw-bold me-2">Next Billing Date</label>
+                            {{ $user->subscription->end_date }}
+                        </div>
+                        <div class="mb-2">
+                            <label class="fw-bold me-2">Plan</label>
+                            {{ $user->subscription->plan_id }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
 
         <div class="card my-3">
@@ -105,7 +142,6 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Update Profile</button>
-
     </form>
 </div>
 @endsection

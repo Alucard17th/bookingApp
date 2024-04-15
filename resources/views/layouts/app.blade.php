@@ -93,6 +93,14 @@
         @endauth
 
         <main class="py-4 @if(request()->route()->getName() === 'login') bg-blue @endif" style="min-height: 100vh;">
+            @if(auth()->user() && !auth()->user()->canReceiveBookings())
+            <div class="container">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Oh snap!</strong> You can't receive any bookings.
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                </div>
+            </div>
+            @endif
             @yield('content')
         </main>
     </div>
