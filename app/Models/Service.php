@@ -9,6 +9,10 @@ class Service extends Model
 {
     use HasFactory;
 
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function availabilities()
     {
         return $this->hasMany(Availability::class, 'service_id');

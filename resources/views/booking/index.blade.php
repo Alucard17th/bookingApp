@@ -102,68 +102,76 @@
 
         <!-- CALENDAR -->
         <div class="col-6">
+            <div class="constructions text-small mb-3">
+                <div class="alert" role="alert">
+                    Please select or click on a day to book.
+                </div>
+            </div>
             <div class="calender"></div>
         </div>
 
         <!-- BOOKING -->
         <div class="col-3">
-            @if($service->is_active)
-            <div class="booking-info">
-                <div class="box"></div>
-                <div class="availabilities mt-3"></div>
-                <div class="select-availability my-3"  style="display: none">
-                    <button type="button" class="btn btn-primary">Select Availability</button>
+            @if($service->user->canBeBooked())
+                @if($service->is_active)
+                <div class="booking-info">
+                    <div class="box"></div>
+                    <div class="availabilities mt-3"></div>
+                    <div class="select-availability my-3"  style="display: none">
+                        <button type="button" class="btn btn-primary">Select Availability</button>
+                    </div>
+
+                    <form method="POST" id="bookingForm" action="{{ route('front.service.booking.store') }}" style="display: none">
+                        @csrf
+                        <a id="selectAnotherAvailability" type="button" class="link-primary my-2">
+                            <i class="fas fa-chevron-left me-2"></i>    
+                            Select Another Availability
+                        </a>
+                        <input type="hidden" name="service_id" id="service_id" value="{{ $service->id }}">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input type="text" class="form-control" id="time" name="time" required readonly>
+                        </div>
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
-                
-
-                <form method="POST" id="bookingForm" action="{{ route('front.service.booking.store') }}" style="display: none">
-                    @csrf
-
-                    <a id="selectAnotherAvailability" type="button" class="link-primary my-2">
-                        <i class="fas fa-chevron-left me-2"></i>    
-                        Select Another Availability
-                    </a>
-
-                    <input type="hidden" name="service_id" id="service_id" value="{{ $service->id }}">
-
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                @else
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center">
+                            <i class="fas fa-sad-tear fa-5x bk-custom-orange"></i>
+                        </div>
+                        <h4 class="text-center mt-3">We're Sorry!</h4>
+                        <p class="text-center">Unfortunately, this service is unavailable at this time. Please check back later for updates or explore our other events.</p>
                     </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="date">Date</label>
-                        <input type="date" class="form-control" id="date" name="date" required readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="time">Time</label>
-                        <input type="text" class="form-control" id="time" name="time" required readonly>
-                    </div>
-
-                    <div class="form-group mt-3">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-            @else
+                </div>
+                @endif
+            @else 
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
                         <i class="fas fa-sad-tear fa-5x bk-custom-orange"></i>
                     </div>
                     <h4 class="text-center mt-3">We're Sorry!</h4>
-                    <p class="text-center">Unfortunately, this service is unavailable at this time. Please check back later for updates or explore our other events.</p>
+                    <p class="text-center">Unfortunately, this event owner can not receive bookings. Please check back later for updates.</p>
                 </div>
             </div>
             @endif
@@ -207,11 +215,9 @@ $(document).ready(function() {
 async function generateAvailabilities(selectedDate) {
     $('#overlay').show();
     $('.availabilities').empty().off('click', '.availability-option');
-
     // Set the start and end time for availabilities, starting from 08:00
     var startTime = moment('{{ $service->start_time }}', 'HH:mm');
     var endTime = moment('{{ $service->end_time }}', 'HH:mm');
-
     // Define the buffer time (in minutes)
     var eventDuration = '{{ $service->duration }}';
     console.log('eventDuration', eventDuration)
@@ -220,27 +226,21 @@ async function generateAvailabilities(selectedDate) {
     while (startTime.isBefore(endTime)) {
         // Adjust the end time to account for the buffer time
         var endTimeAdjusted = startTime.clone().add(eventDuration, 'minutes');
-
         // Check if the current time slot is available
         var isAvailable = await checkAvailability(selectedDate, startTime.format('HH:mm') + ' - ' + endTimeAdjusted.format('HH:mm'));
-        
         var option = $('<div class="availability-option"></div>').text(startTime.format('HH:mm') + ' - ' + endTimeAdjusted.format('HH:mm'));
         // If the time slot is not available, disable the option
-        console.log('isAvailable', isAvailable)
         if (!isAvailable) {
             option.addClass('unavailable');
             option.attr('title', 'This time slot is not available');
         }
         // Append the option to the list of availabilities
         $('.availabilities').append(option);
-
         // Move to the next start time, accounting for the buffer time
-        // startTime.add(1, 'hour').add(bufferTime, 'minutes');
         startTime.add(eventDuration, 'minutes').add(bufferTime, 'minutes');
     }
 
     $('#overlay').hide();
-
     // Add click event to the availability options
     $('.availabilities').on('click', '.availability-option', function() {
         // Remove bg-primary from all options
@@ -251,42 +251,6 @@ async function generateAvailabilities(selectedDate) {
         $('#time').val($(this).text());
     });
 }
-
-// async function generateAvailabilities(selectedDate) {
-//     $('#overlay').show();
-//     $('.availabilities').empty().off('click', '.availability-option');
-
-//     // Set the start and end time for availabilities
-//     var startTime = moment('08:00', 'HH:mm');
-//     var endTime = moment('17:00', 'HH:mm');
-
-//     while (startTime.isBefore(endTime)) {
-//         // Check if the current time slot is available
-//         var isAvailable = await checkAvailability(selectedDate, startTime.format('HH:mm') + ' - ' + startTime.add(1, 'hour').format('HH:mm'));
-//         startTime.subtract(1, 'hour');
-//         var option = $('<div class="availability-option"></div>').text(startTime.format('HH:mm') + ' - ' + startTime.add(1, 'hour').format('HH:mm'));
-//         // If the time slot is not available, disable the option
-//         console.log('isAvailable', isAvailable)
-//         if (!isAvailable) {
-//             option.addClass('unavailable');
-//             option.attr('title', 'This time slot is not available');
-//         }
-//         // Append the option to the list of availabilities
-//         $('.availabilities').append(option);
-//     }
-
-//     $('#overlay').hide();
-
-//     // Add click event to the availability options
-//     $('.availabilities').on('click', '.availability-option', function() {
-//         // Remove bg-primary from all options
-//         $('.availability-option').removeClass('availability-option-selected');
-//         // Add availability-option-selected to the clicked option
-//         $(this).addClass('availability-option-selected');
-//         $('.select-availability').show();
-//         $('#time').val($(this).text());
-//     });
-// }
 
 async function checkAvailability(date, time) {
     try {

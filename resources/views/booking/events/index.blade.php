@@ -70,22 +70,20 @@
                 </div>
             </div>
         </div>
-
         <!-- CALENDAR -->
         <div class="col-6">
             <div class="constructions text-small mb-3">
-                <div class="alert alert-light" role="alert">
+                <div class="alert" role="alert">
                     Please select or click on a day to book.
                 </div>
             </div>
             <div class="calender"></div>
         </div>
-
         <!-- BOOKING FORM -->
-
         <div class="col-3">
-            @if($event->status == 'active')
-                @if($event->bookings->count() < $event->max_participants)
+            @if($event->user->canBeBooked())
+                @if($event->status == 'active')
+                    @if($event->bookings->count() <= $event->max_participants)
                     <div class="booking-info">
                         <div class="box"></div>
                         <div class="availabilities mt-3"></div>
@@ -95,47 +93,40 @@
 
                         <form method="POST" id="bookingForm" action="{{ route('front.event.booking.store') }}" style="display: none">
                             @csrf
-
                             <input type="hidden" name="event_id" id="event_id" value="{{ $event->id }}">
-
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
                             </div>
-
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
                             </div>
-
                             <div class="form-group">
                                 <label for="phone">Phone</label>
                                 <input type="text" class="form-control" id="phone" name="phone" required>
                             </div>
-
                             <div class="form-group">
                                 <label for="date">Date</label>
                                 <input type="date" class="form-control" id="date" name="date" required readonly>
                             </div>
-
                             <div class="form-group mt-3">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>
                     </div>
-                @else
-                    
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-sad-tear fa-5x bk-custom-orange"></i>
+                    @else
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <i class="fas fa-sad-tear fa-5x bk-custom-orange"></i>
+                            </div>
+                            <h4 class="text-center mt-3">We're Sorry!</h4>
+                            <p class="text-center">Unfortunately, all available spots for this event have been filled. Please check back later for updates or explore our other events.</p>
                         </div>
-                        <h4 class="text-center mt-3">We're Sorry!</h4>
-                        <p class="text-center">Unfortunately, all available spots for this event have been filled. Please check back later for updates or explore our other events.</p>
                     </div>
-                </div>
-                @endif
-            @else
+                    @endif
+                @else
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-center">
@@ -145,6 +136,17 @@
                         <p class="text-center">Unfortunately, this event has been cancelled. Please check back later for updates or explore our other events.</p>
                     </div>
                 </div>
+                @endif
+            @else 
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+                        <i class="fas fa-sad-tear fa-5x bk-custom-orange"></i>
+                    </div>
+                    <h4 class="text-center mt-3">We're Sorry!</h4>
+                    <p class="text-center">Unfortunately, this event owner can not receive bookings. Please check back later for updates.</p>
+                </div>
+            </div>
             @endif
         </div>
     </div>

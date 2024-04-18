@@ -92,5 +92,27 @@
 .pignose-calendar-unit-sun > a{
     color:#ee7b11 !important;
 }
+.pignose-calendar-week-sat, .pignose-calendar-week-sun{
+    color:#ee7b11 !important;
+}
+.pignose-calendar-unit-active a {
+    background-color: #1642B9 !important;
+    color: #ffffff !important;
+}
 /* Pignose Calendar CSS End */
+
+
+/* ADMIN TABLES STYLES STAR*/
+thead > tr:nth-child(2) input {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+}
+/* 
+tfoot input {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+} */
+/* ADMIN TABLES STYLES END */
 

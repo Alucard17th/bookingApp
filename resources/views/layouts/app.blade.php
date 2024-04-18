@@ -112,11 +112,43 @@
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
     <script>
         $(document).ready(function () {
-            $('.table').DataTable(
-                {
-                    "order": [[0, "desc"]],
-                }
-            );
+            // $('.table').DataTable(
+            //     {
+            //         "order": [[0, "desc"]],
+            //     }
+            // );
+            new DataTable('.table', {
+            initComplete: function () {
+                this.api()
+                    .columns()
+                    .every(function () {
+                        let column = this;
+                        let title = column.footer().textContent;
+        
+                        // Create input element
+                        let input = document.createElement('input');
+                        input.placeholder = title;
+                        column.footer().replaceChildren(input);
+        
+                        // Event listener for user input
+                        input.addEventListener('keyup', () => {
+                            if (column.search() !== this.value) {
+                                column.search(input.value).draw();
+                            }
+                        });
+                        input.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                        });
+                    });
+
+                var r = $('.table tfoot tr');
+                r.find('th').each(function(){
+                    $(this).css('padding', 8);
+                });
+                $('.table thead').append(r);
+                $('#search_0').css('text-align', 'center');
+            }
+        });
         })
     </script>
 

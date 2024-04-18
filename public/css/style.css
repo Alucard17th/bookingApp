@@ -11775,4 +11775,10 @@ textarea.form-control {
   color: #92ACF2;
   text-decoration: underline;
 }
+
+tfoot input {
+  width: 100%;
+  padding: 3px;
+  box-sizing: border-box;
+}
 /*END OF NRD STYLES */

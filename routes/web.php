@@ -59,3 +59,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/user-subscription', [App\Http\Controllers\StripeController::class, 'getUserSubscription'])->name('get.user.subscription');
 // STRIPE WEBHOOKS
 Route::post('/webhook/customer-subscription-created', [App\Http\Controllers\StripeController::class, 'customerSubscriptionCreated'])->name('stripe.customer.subscription.created.webhook');
+
+Route::any('/stripe-webhook', [App\Http\Controllers\StripeController::class, 'handle'])->name('stripe.subscription.created.webhook');
+Route::get('/subscribe', [App\Http\Controllers\StripeController::class, 'createCheckoutSession'])->name('subscribe');
+Route::get('/checkout/success', [App\Http\Controllers\StripeController::class, 'checkoutSessionSuccess'])->name('checkout.success');
+Route::get('/checkout/cancel', [App\Http\Controllers\StripeController::class, 'checkoutSessionCancel'])->name('checkout.cancel');

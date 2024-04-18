@@ -76,6 +76,7 @@ class User extends Authenticatable
             // Merge the bookings into the $bookings collection
             $bookings = $bookings->merge($eventBookings);
         }
+
         $services = $this->services;
         $appointments = collect();
         // Loop through each service
@@ -85,6 +86,7 @@ class User extends Authenticatable
             // Merge the appointments into the $appointments collection
             $appointments = $appointments->merge($serviceAppointments);
         }
+        
         $consommation = $bookings->count() + $appointments->count();
         $consommation_limit = $this->subscription->bookings;
 
@@ -92,5 +94,14 @@ class User extends Authenticatable
             return true;
         }
         return false;
+    }
+
+    public function canBeBooked(){
+        $currentPlanBookings = $this->subscription->bookings;
+        $currentConsommation = $this->subscription->consommation;
+        if($currentConsommation == 0){
+            return false;
+        }
+        return true;
     }
 }
