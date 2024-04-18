@@ -118,6 +118,7 @@
             //     }
             // );
             new DataTable('.table', {
+            "order": [[0, "desc"]],
             initComplete: function () {
                 this.api()
                     .columns()

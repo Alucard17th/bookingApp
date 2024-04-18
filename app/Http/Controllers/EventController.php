@@ -136,4 +136,10 @@ class EventController extends Controller
         $event->delete();
         return redirect()->route('events.index')->with('success','Event deleted successfully.');
     }
+
+    public function indexJson()
+    {
+        $events = auth()->user()->events;
+        return response()->json($events);
+    }
 }

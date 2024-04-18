@@ -101,7 +101,22 @@ class AppointmentController extends Controller
     {
         //
         $appointment->delete();
-
         return redirect()->route('appointments.index')->with('success', 'Appointment deleted successfully.');
+    }
+    
+    public function indexJson()
+    {
+        $services = auth()->user()->services;
+        $appointments = collect();
+
+        // Loop through each service
+        foreach ($services as $service) {
+            // Retrieve the appointments associated with the current service using eager loading
+            $serviceAppointments = $service->appointments()->get();
+            
+            // Merge the appointments into the $appointments collection
+            $appointments = $appointments->merge($serviceAppointments);
+        }
+        return response()->json($appointments);
     }
 }

@@ -54,6 +54,12 @@
                                     <button type="submit" class="btn btn-danger btn-sm"
                                         onclick="return confirm('Are you sure you want to delete this event?')"><i class="fas fa-trash"></i></button>
                                 </form>
+                                <button class="btn btn-light btn-sm ms-3 copy-link-btn" 
+                                    data-link="{{ url('/') }}/book-event/{{ $event->user->id }}/{{ $event->id }}" 
+                                    data-toggle="tooltip" title="Tooltip text">
+                                    <i class="fas fa-link me-2"></i>
+                                    Get link
+                                </button>
                             </td>
                         </tr>
                         @endforeach
@@ -79,4 +85,32 @@
 @endsection
 
 @push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var copyLinkBtns = document.querySelectorAll('.copy-link-btn');
+
+        copyLinkBtns.forEach(function(copyLinkBtn) {
+            copyLinkBtn.addEventListener('click', function() {
+                var link = this.getAttribute('data-link');
+                
+                // Create a temporary input element
+                var tempInput = document.createElement('input');
+                tempInput.value = link;
+                document.body.appendChild(tempInput);
+                
+                // Select the input field
+                tempInput.select();
+                tempInput.setSelectionRange(0, 99999); /* For mobile devices */
+                
+                // Copy the text inside the input field
+                document.execCommand('copy');
+                
+                // Remove the temporary input element
+                document.body.removeChild(tempInput);
+
+                console.log('Link copied to clipboard: ' + link);
+            });
+        });
+    });
+</script>
 @endpush

@@ -15,7 +15,16 @@ class BookingController extends Controller
     public function index()
     {
         //
-        $bookings = Booking::all();
+        $events = auth()->user()->events;
+        $bookings = collect();
+        // Loop through each service
+        foreach ($events as $event) {
+            // Retrieve the appointments associated with the current event using eager loading
+            $eventBookings = $event->bookings()->get();
+            
+            // Merge the Bookings into the $Bookings collection
+            $bookings = $bookings->merge($eventBookings);
+        }
         return view('admin.bookings.index', compact('bookings'));
     }
 
@@ -102,17 +111,5 @@ class BookingController extends Controller
         //
         $booking->delete();
         return redirect()->back()->with('success', 'Booking deleted successfully!');
-    }
-
-
-    // FRONT 
-
-    public function indexFront($id, $eventId)
-    {
-        //
-        $user = User::findOrFail($id);
-
-        $event = Event::findOrFail($eventId);
-        return view('booking.index', compact('user', 'event'));
     }
 }

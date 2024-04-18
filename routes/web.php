@@ -8,6 +8,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\CalendarController;
 
 //Front Controllers
 use App\Http\Controllers\FrontServiceController;
@@ -28,8 +29,6 @@ Route::get('/', function () {
     return view('front.index');
 });
 
-Route::get('/booking/{id}/{eventId}', [App\Http\Controllers\BookingController::class, 'indexFront'])->name('booking');
-
 // Admin
 Route::resource('events', EventController::class);
 Route::resource('services', ServiceController::class);
@@ -37,6 +36,13 @@ Route::resource('bookings', BookingController::class);
 Route::resource('profile', ProfileController::class);
 Route::resource('reviews', ReviewController::class);
 Route::resource('appointments', AppointmentController::class);
+Route::resource('calendars', CalendarController::class);
+
+Route::get('/appointments-calendar', [App\Http\Controllers\CalendarController::class, 'indexAppointments'])->name('user.appointments.calendar');
+Route::get('/user-appointments-json', [App\Http\Controllers\AppointmentController::class, 'indexJson'])->name('user.appointments.json');
+
+Route::get('/events-calendar', [App\Http\Controllers\CalendarController::class, 'indexEvents'])->name('user.events.calendar');
+Route::get('/user-events-json', [App\Http\Controllers\EventController::class, 'indexJson'])->name('user.events.json');
 
 // Front 
 Route::middleware(['middleware' => 'canUserReceiveBookings'])->group(function () {

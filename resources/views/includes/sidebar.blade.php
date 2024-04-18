@@ -8,6 +8,12 @@
                         Dashboard
                     </a>
                 </li>
+                <li class="nav-item me-1 {{ request()->is('calendar*') ? 'active' : '' }}">
+                    <a class="nav-link" href="">
+                        <i class="fas fa-calendar"></i>
+                        Calendar
+                    </a>
+                </li>
                 <li class="nav-item dropdown {{ request()->is('services*') || request()->is('appointments*') ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
