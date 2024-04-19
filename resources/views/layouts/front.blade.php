@@ -52,10 +52,18 @@
                             <input type="text" class="form-control border-0 bg-transparent ps-2" placeholder="search"
                                 aria-label="Example text with button addon" aria-describedby="button-addon1">
                         </div> -->
-                        <a class="text-capitalize me-4 login-btn" 
+                        @if(!auth()->check())
+                        <a class="text-capitalize me-3 login-btn" 
                             href="{{route('login')}}">login</a>
                         <a class="btn btn-warning btn-hover-secondery text-capitalize "
                             href="{{route('register')}}">register</a>
+                        @else
+                        <a class="text-capitalize me-3 login-btn" href="{{route('dashboard')}}">dashboard</a>
+                        <form action="{{route('logout')}}" method="POST" id="logout-form">
+                            @csrf
+                            <button type="submit" class="btn btn-warning btn-hover-secondery text-capitalize ">logout</button>
+                        </form>
+                        @endif
                     </div>
                 </div>
             </nav>

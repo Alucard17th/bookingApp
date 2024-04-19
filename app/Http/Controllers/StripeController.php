@@ -56,15 +56,16 @@ class StripeController extends Controller
     }
     
     //
-    public function createCheckoutSession(){
+    public function createCheckoutSession($product_id){
         \Stripe\Stripe::setApiKey('sk_test_51EJCAtA7dIeuDMDjpcXwlW5JfQztClyx1mWFFMX2dpSOn1TqEzvo1RmQGGtRobw79v0Xa7mNmwNWjrxC5pgEuHas00YbvetyAZ');
         header('Content-Type: application/json');
         $checkout_session = \Stripe\Checkout\Session::create([
         'line_items' => [[
             # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-            'price' => 'price_1P6So1A7dIeuDMDjG4mA8UJx',
+            'price' => $product_id,
             'quantity' => 1,
         ]],
+        'payment_method_collection' => 'if_required',
         'mode' => 'subscription',
         'success_url' => route('checkout.success'),
         'cancel_url' => route('checkout.cancel'),
@@ -78,7 +79,7 @@ class StripeController extends Controller
     }
 
     public function checkoutSessionSuccess(){
-        dd('success');
+        return view('front.checkout.success');
     }
 
     public function checkoutSessionCancel(){

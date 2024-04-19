@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h5 class="card-title">Appointments</h5>
+                        <h5 class="card-title">Events</h5>
                     </div>
                 </div>
                 <div class="card-body">

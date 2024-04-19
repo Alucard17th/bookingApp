@@ -101,12 +101,30 @@
 }
 /* Pignose Calendar CSS End */
 
+#app > main > div > div.card{
+    border-color: rgb(0 0 0 / 0%) !important;
+}
+#app > main > div > div > div.card-body{
+    background-color: #F1F3F5;
+}
 
 /* ADMIN TABLES STYLES STAR*/
 thead > tr:nth-child(2) input {
     width: 100%;
     padding: 3px;
     box-sizing: border-box;
+}
+.table > tbody > tr{
+    background-color: #fff !important;
+    border: 8px solid #f1f3f5;
+}
+.table > tbody > tr:hover{
+    background-color: #f1f3f5 !important;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+.table > :not(caption) > * > * {
+    padding: 1.5rem .5rem !important;
 }
 /* 
 tfoot input {

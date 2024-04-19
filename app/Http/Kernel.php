@@ -48,6 +48,10 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\canUserReceiveBookings::class,
             // Other middleware entries...
         ],
+
+        'checkSubscription' => [
+            \App\Http\Middleware\CheckSubscription::class,
+        ],
     ];
 
     /**

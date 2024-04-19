@@ -28,19 +28,25 @@ use App\Http\Controllers\FrontServiceController;
 Route::get('/', function () {
     return view('front.index');
 });
+Route::get('/pricing', function () {
+    return view('front.pricing');
+})->name('pricing');
 
 // Admin
-Route::resource('events', EventController::class);
-Route::resource('services', ServiceController::class);
-Route::resource('bookings', BookingController::class);
-Route::resource('profile', ProfileController::class);
-Route::resource('reviews', ReviewController::class);
-Route::resource('appointments', AppointmentController::class);
-Route::resource('calendars', CalendarController::class);
+Route::middleware(['middleware' => 'checkSubscription'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+    Route::resource('events', EventController::class);
+    Route::resource('services', ServiceController::class);
+    Route::resource('bookings', BookingController::class);
+    Route::resource('profile', ProfileController::class);
+    Route::resource('reviews', ReviewController::class);
+    Route::resource('appointments', AppointmentController::class);
+    Route::resource('calendars', CalendarController::class);
+});
+
 
 Route::get('/appointments-calendar', [App\Http\Controllers\CalendarController::class, 'indexAppointments'])->name('user.appointments.calendar');
 Route::get('/user-appointments-json', [App\Http\Controllers\AppointmentController::class, 'indexJson'])->name('user.appointments.json');
-
 Route::get('/events-calendar', [App\Http\Controllers\CalendarController::class, 'indexEvents'])->name('user.events.calendar');
 Route::get('/user-events-json', [App\Http\Controllers\EventController::class, 'indexJson'])->name('user.events.json');
 
@@ -60,13 +66,12 @@ Route::get('/get-appointments/{day}', [App\Http\Controllers\FrontServiceControll
 Route::post('/book-event', [App\Http\Controllers\FrontEventController::class, 'store'])->name('front.event.booking.store');
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 Route::get('/user-subscription', [App\Http\Controllers\StripeController::class, 'getUserSubscription'])->name('get.user.subscription');
 // STRIPE WEBHOOKS
 Route::post('/webhook/customer-subscription-created', [App\Http\Controllers\StripeController::class, 'customerSubscriptionCreated'])->name('stripe.customer.subscription.created.webhook');
-
+Route::get('/subscribe/{product_id}', [App\Http\Controllers\StripeController::class, 'createCheckoutSession'])->name('subscribe.create.checkout.session');
 Route::any('/stripe-webhook', [App\Http\Controllers\StripeController::class, 'handle'])->name('stripe.subscription.created.webhook');
-Route::get('/subscribe', [App\Http\Controllers\StripeController::class, 'createCheckoutSession'])->name('subscribe');
+// Route::get('/subscribe', [App\Http\Controllers\StripeController::class, 'createCheckoutSession'])->name('subscribe');
 Route::get('/checkout/success', [App\Http\Controllers\StripeController::class, 'checkoutSessionSuccess'])->name('checkout.success');
 Route::get('/checkout/cancel', [App\Http\Controllers\StripeController::class, 'checkoutSessionCancel'])->name('checkout.cancel');

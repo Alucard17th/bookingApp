@@ -12,7 +12,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    
@@ -86,23 +89,28 @@
                 </div>
             </div>
         </nav>
-
-        <!-- if user is logged in -->
-        @auth 
-        @include('includes.sidebar')
-        @endauth
-
-        <main class="py-4 @if(request()->route()->getName() === 'login') bg-blue @endif" style="min-height: 100vh;">
-            @if(auth()->user() && !auth()->user()->canReceiveBookings())
-            <div class="container">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Oh snap!</strong> You can't receive any bookings.
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2">
+                    @auth 
+                    @include('includes.sidebar')
+                    @endauth
+                </div>
+                <div class="col-10">
+                    <main class="py-4 @if(request()->route()->getName() === 'login') bg-blue @endif" style="min-height: 100vh;">
+                        @if(auth()->user() && !auth()->user()->canReceiveBookings())
+                        <div class="container">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Oh snap!</strong> You can't receive any bookings.
+                                <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                            </div>
+                        </div>
+                        @endif
+                        @yield('content')
+                    </main>
                 </div>
             </div>
-            @endif
-            @yield('content')
-        </main>
+        </div>
     </div>
 
     @stack('scripts')
