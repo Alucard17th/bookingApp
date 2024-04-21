@@ -9,7 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CalendarController;
-
+use App\Models\Product;
 //Front Controllers
 use App\Http\Controllers\FrontServiceController;
 
@@ -28,9 +28,11 @@ use App\Http\Controllers\FrontServiceController;
 Route::get('/', function () {
     return view('front.index');
 });
-Route::get('/pricing', function () {
-    return view('front.pricing');
-})->name('pricing');
+Route::get('/choose-plan', function () {
+    $products = Product::where('name', '!=', 'Free')->orderBy('bookings', 'asc')->get();
+    $freeProducts = Product::where('name', 'Free')->get();
+    return view('front.choose-plan', compact('products', 'freeProducts'));
+})->name('choose.plan');
 
 // Admin
 Route::middleware(['middleware' => 'checkSubscription'])->group(function () {
@@ -75,3 +77,57 @@ Route::any('/stripe-webhook', [App\Http\Controllers\StripeController::class, 'ha
 // Route::get('/subscribe', [App\Http\Controllers\StripeController::class, 'createCheckoutSession'])->name('subscribe');
 Route::get('/checkout/success', [App\Http\Controllers\StripeController::class, 'checkoutSessionSuccess'])->name('checkout.success');
 Route::get('/checkout/cancel', [App\Http\Controllers\StripeController::class, 'checkoutSessionCancel'])->name('checkout.cancel');
+
+
+// IMPORT PRODUCTS FEATURES
+Route::get('/import-plans-features', function () {
+    $freeProducts = Product::where('name', 'Free')->get();
+    $features = [
+        [   
+            "id" => 2,
+            "name" => "Free",
+            "admin_dashboard" => 1,
+            "white_label" => 0,
+            "list_in_booked_directory" => 0,
+            "widget" => 1,
+            "services_and_events_providers" => 1
+        ],
+        [
+            "id" => 3,
+            "name" => "Basic",
+            "admin_dashboard" => 1,
+            "white_label" => 0,
+            "list_in_booked_directory" => 1,
+            "widget" => 1,
+            "services_and_events_providers" => 5
+        ],
+        [
+            "id" => 1,
+            "name" => "Standard",
+            "admin_dashboard" => 1,
+            "white_label" => 0,
+            "list_in_booked_directory" => 1,
+            "widget" => 1,
+            "services_and_events_providers" => 15
+        ],
+        [
+            "id" => 4,
+            "name" => "Premium",
+            "admin_dashboard" => 1,
+            "white_label" => 1,
+            "list_in_booked_directory" => 1,
+            "widget" => 1,
+            "services_and_events_providers" => 30
+        ]
+    ];
+    try{
+        foreach($features as $feature) {
+            $product = Product::find($feature['id']);
+            $product->features = json_encode($feature);
+            $product->save();
+        }
+        dd('ok');
+    }catch(Exception $e) {
+        dd($e);
+    }
+});

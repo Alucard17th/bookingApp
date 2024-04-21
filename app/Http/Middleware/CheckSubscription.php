@@ -23,6 +23,6 @@ class CheckSubscription
         }
 
         // User does not have a subscription, redirect to the pricing page
-        return redirect()->route('pricing');
+        return redirect()->route('choose.plan');
     }
 }

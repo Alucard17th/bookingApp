@@ -18,6 +18,7 @@ class StripeController extends Controller
                 $subscriptionData = $request->data['object'];
                 Log::debug('Stripe product ID: ', ['Product ID' => $request->data['object']['items']['data'][0]['plan']['product']]);
                 $stripeProductID = $request->data['object']['items']['data'][0]['plan']['product'];
+                Log::debug($request->data['object']['items']['data']);
                 $product = Product::where('stripe_product_id', $stripeProductID)->first('bookings');
                 $subscription = Subscription::updateOrCreate(
                     ['customer_id' => $subscriptionData['customer']],
@@ -70,7 +71,7 @@ class StripeController extends Controller
         'success_url' => route('checkout.success'),
         'cancel_url' => route('checkout.cancel'),
         'metadata' => [
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
         ],
         ]);
         return redirect()->to($checkout_session->url);

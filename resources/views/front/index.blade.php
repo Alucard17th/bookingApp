@@ -10,7 +10,7 @@
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="position-relative left-hero-color">
                     <h1 class="mb-0 fw-bold">
-                        Unlock Effortless Appointment Scheduling
+                        Unlock <span class="bk-orange">Effortless</span> Appointment Scheduling
                     </h1>
                     <p>Simplify appointment scheduling for both you and your customers.<br> With our user-friendly
 

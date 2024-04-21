@@ -11159,7 +11159,8 @@ textarea.form-control-lg {
   background-position: center;
 }
 .pricing .price-plan {
-  padding-top: 70px;
+  /* padding-top: 70px; */
+  padding-top: 35px;
 }
 .pricing .price-plan .badge {
   border-radius: 0px 0px 8px 8px;
@@ -11763,8 +11764,29 @@ textarea.form-control {
 }/*# sourceMappingURL=style.css.map */
 
 /* NRD STYLES */
+.bk-blue{
+  color: #1642B9 !important;
+}
+.bk-bg-blue{
+  background-color: #1642B9 !important;
+}
+.bk-orange{
+  color: #EE7B11 !important;
+}
+.bk-bg-orange{
+  background-color: #1642B9 !important;
+}
+
 #navbarSupportedContent > ul > li > a.active {
   color: #92ACF2;
+}
+.bk-shadow{
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  border-color:rgba(0, 0, 0, 0) !important;
+}
+.login-image, .register-image {
+  height: 200px;
+  width: 200px;
 }
 
 .login-btn{
@@ -11777,10 +11799,29 @@ textarea.form-control {
   color: #92ACF2;
   text-decoration: underline;
 }
+.login-container, .register-container {
+  margin-top: 23vh !important;
+  margin-bottom: 5vh !important;
+}
 
 tfoot input {
   width: 100%;
   padding: 3px;
   box-sizing: border-box;
+}
+
+.highlighted-card {
+  border: 10px solid #EE7B11 !important;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px !important;
+}
+.highlighted-card > div.card-body{
+  padding-right:2rem;
+  padding-left:2rem;
+  text-align: left;
 }
 /*END OF NRD STYLES */

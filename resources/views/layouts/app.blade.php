@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,11 +15,14 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Styles -->
     <link href="{{asset('/css/app.css')}}" rel="stylesheet">
     @stack('styles')
@@ -30,7 +34,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
-<body >
+
+<body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -38,7 +43,9 @@
                     <!-- {{ config('app.name', 'Laravel') }} -->
                     <img src="../assets/images/logo.png" alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -52,38 +59,40 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="btn btn-secondery text-capitalize text-white me-3" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="btn btn-secondery text-capitalize text-white me-3"
+                                href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
 
-                            @if (Route::has('register'))
-                                <!-- <li class="nav-item">
+                        @if (Route::has('register'))
+                        <!-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li> -->
-                                <li class="nav-item">
-                                    <a class="btn btn-secondery text-capitalize text-white" href="{{route('register')}}">register</a>
-                                </li>
-                            @endif
+                        <li class="nav-item">
+                            <a class="btn btn-secondery text-capitalize text-white"
+                                href="{{route('register')}}">register</a>
+                        </li>
+                        @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -91,13 +100,17 @@
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-2">
-                    @auth 
-                    @include('includes.sidebar')
-                    @endauth
+                <div class="col-2 sidebar-collapsed">
+                    <div class="sidebar">
+                        @auth
+                        @include('includes.sidebar')
+                        @endauth
+                    </div>
                 </div>
-                <div class="col-10">
-                    <main class="py-4 @if(request()->route()->getName() === 'login') bg-blue @endif" style="min-height: 100vh;">
+
+                <div class="col-10 content-collapsed">
+                    <main class="py-4 @if(request()->route()->getName() === 'login') bg-blue @endif"
+                        style="min-height: 100vh;">
                         @if(auth()->user() && !auth()->user()->canReceiveBookings())
                         <div class="container">
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -119,47 +132,63 @@
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
     <script>
-        $(document).ready(function () {
-            // $('.table').DataTable(
-            //     {
-            //         "order": [[0, "desc"]],
-            //     }
-            // );
-            new DataTable('.table', {
-            "order": [[0, "desc"]],
-            initComplete: function () {
-                this.api()
-                    .columns()
-                    .every(function () {
-                        let column = this;
-                        let title = column.footer().textContent;
-        
-                        // Create input element
-                        let input = document.createElement('input');
-                        input.placeholder = title;
-                        column.footer().replaceChildren(input);
-        
-                        // Event listener for user input
-                        input.addEventListener('keyup', () => {
-                            if (column.search() !== this.value) {
-                                column.search(input.value).draw();
+    $(document).ready(function() {
+
+        var tableElement = document.querySelector('.table');
+        // Check if there is an element with the table class
+        var tableElement = document.querySelector('.table');
+
+        // Proceed with initialization if the element exists
+        if (tableElement) {
+            new DataTable(tableElement, {
+                "order": [
+                    [0, "desc"]
+                ],
+                initComplete: function() {
+                    this.api()
+                        .columns()
+                        .every(function() {
+                            let column = this;
+                            // Check if column footer exists
+                            if (column.footer()) {
+                                let title = column.footer().textContent;
+
+                                // Create input element
+                                let input = document.createElement('input');
+                                input.placeholder = title;
+                                column.footer().replaceChildren(input);
+
+                                // Event listener for user input
+                                input.addEventListener('keyup', () => {
+                                    if (column.search() !== this.value) {
+                                        column.search(input.value).draw();
+                                    }
+                                });
+                                input.addEventListener('click', (e) => {
+                                    e.stopPropagation();
+                                });
                             }
                         });
-                        input.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                        });
-                    });
 
-                var r = $('.table tfoot tr');
-                r.find('th').each(function(){
-                    $(this).css('padding', 8);
-                });
-                $('.table thead').append(r);
-                $('#search_0').css('text-align', 'center');
-            }
+                    var r = $('.table tfoot tr');
+                    r.find('th').each(function() {
+                        $(this).css('padding', 8);
+                    });
+                    $('.table thead').append(r);
+                    $('#search_0').css('text-align', 'center');
+                }
+            });
+        } else {
+            console.log('No element with class "table" found.');
+        }
+
+        $('.toggle-sidebar').click(function() {
+            $('.sidebar-collapsed').toggleClass('sidebar-expanded');
+            $('.content-collapsed').toggleClass('content-expanded');
         });
-        })
+    })
     </script>
 
 </body>
+
 </html>

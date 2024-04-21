@@ -134,3 +134,17 @@ tfoot input {
 } */
 /* ADMIN TABLES STYLES END */
 
+/* SIDEBAR STYLES START */
+.sidebar-expanded {
+    width: 5% !important; 
+}
+.content-expanded {
+    width: 95% !important;
+}
+
+.content-expanded table{
+    width: 100% !important;
+}
+
+/* SIDEBAR STYLES END */
+

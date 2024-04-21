@@ -23,7 +23,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-xl py-0">
                 <div class="logo">
-                    <a class="navbar-brand py-0 me-0" href="#"><img src="../assets/images/logo.png"
+                    <a class="navbar-brand py-0 me-0" href="{{url('/')}}"><img src="../assets/images/logo.png"
                             alt=""></a>
                 </div>
                 <a class="d-inline-block d-lg-block d-xl-none d-xxl-none  nav-toggler text-decoration-none"
@@ -33,25 +33,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-capitalize" aria-current="page" href="#howitworks">How it works</a>
+                            <a class="nav-link text-capitalize" aria-current="page" href="{{url('/')}}#howitworks">How it works</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-capitalize" href="#services">Services</a>
+                            <a class="nav-link text-capitalize" href="{{url('/')}}#services">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-capitalize" href="#pricing">Pricing</a>
+                            <a class="nav-link text-capitalize" href="{{url('/')}}#pricing">Pricing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-capitalize" href="#faq">FAQ</a>
+                            <a class="nav-link text-capitalize" href="{{url('/')}}#faq">FAQ</a>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center">
-                        <!-- <div class="input-group  search">
-                            <button class="btn border-0 p-0" type="button" id="button-addon1"><i
-                                    class="ti ti-search text-white"></i></button>
-                            <input type="text" class="form-control border-0 bg-transparent ps-2" placeholder="search"
-                                aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        </div> -->
                         @if(!auth()->check())
                         <a class="text-capitalize me-3 login-btn" 
                             href="{{route('login')}}">login</a>
