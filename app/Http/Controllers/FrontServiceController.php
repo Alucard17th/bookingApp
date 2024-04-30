@@ -18,6 +18,12 @@ class FrontServiceController extends Controller
         return view('booking.index', compact('user', 'service'));
     }
 
+    public function indexNew($id){
+        //
+        $user = User::findOrFail($id);
+        return view('booking.service', compact('user'));
+    }
+
     public function store(Request $request){
         //
         $service = Service::find($request->service_id);
@@ -48,13 +54,21 @@ class FrontServiceController extends Controller
         return redirect()->route('front.service.booking.thanks');
     }
 
-    public function getAppointmentByDayAndTime($day){
+    public function checkAvailability($day){
         //
+        $user = auth()->user();
+        $timeoff = $user->timeoff;
         $appointment = Appointment::where('date', $day)->get();
-        return response()->json($appointment);
+        $data = compact('appointment', 'timeoff');
+        return response()->json($data);
     }
 
     public function thanks(){
         return view('booking.thanks');
+    }
+
+    public function getUserService(Request $request){
+        $service = Service::findOrFail($request->service_id);
+        return response()->json($service);
     }
 }

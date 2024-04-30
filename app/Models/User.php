@@ -66,6 +66,18 @@ class User extends Authenticatable
         return $this->hasOne(Subscription::class, 'user_id');
     }
 
+    public function workingHours(){
+        return $this->hasMany(WorkingHours::class, 'user_id');
+    }
+
+    public function breaks(){
+        return $this->hasMany(Pause::class, 'user_id');
+    }
+
+    public function timeoff(){
+        return $this->hasMany(TimeOff::class, 'user_id');  
+    }
+
     public function canReceiveBookings(){
         $events = $this->events;
         $bookings = collect();

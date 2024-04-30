@@ -31,6 +31,15 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         //
+        $review = new Review;
+        $review->user_id = $request->user_id;
+        $review->name = $request->name;
+        $review->email = $request->email;
+        $review->rating = $request->rating;
+        $review->review = $request->review;
+        $review->save();
+
+        return redirect()->back()->with('success', 'Review added successfully!');
     }
 
     /**

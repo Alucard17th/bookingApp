@@ -13,11 +13,6 @@ class Service extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function availabilities()
-    {
-        return $this->hasMany(Availability::class, 'service_id');
-    }
-
     public function appointments()
     {
         return $this->hasMany(Appointment::class, 'service_id');

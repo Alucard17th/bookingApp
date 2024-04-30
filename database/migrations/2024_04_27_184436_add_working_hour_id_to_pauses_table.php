@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('workings_hours', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('pauses', function (Blueprint $table) {
+            //
+            $table->unsignedBigInteger('working_hour_id');
+            $table->foreign('working_hour_id')->references('id')->on('working_hours')->onDelete('cascade');
         });
     }
 
@@ -22,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('workings_hours');
+        Schema::table('pauses', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -1,24 +1,24 @@
-@extends('layouts.front')
+@extends('layouts.auth')
 
 @section('content')
-<div class="container login-container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="container login-container vh-100 d-grid">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-lg-6">
             <div class="card bk-shadow">
-                <div class="card-body px-2 py-3">
+                <div class="card-body py-3">
                     <div class="row mb-2">
                         <div class="col-md-12 text-center">
-                            <img src="../assets/images/login.svg" class="img-fluid login-image">
+                            <img src="../assets/images/logo.png" class="img-fluid login-image">
                         </div>
                     </div>
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" class="mt-5">
                         @csrf
 
                         <div class="row mb-2">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end text-muted">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="h-75 form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -29,10 +29,10 @@
                         </div>
 
                         <div class="row mb-2">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end text-muted">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="h-75 form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -56,11 +56,14 @@
 
                         <div class="row mt-3">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-warning btn-hover-secondery text-capitalize w-75">
+                                <button type="submit" class="btn bk-bg-orange text-capitalize w-75 mb-2">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
+                                    <a class="btn btn-link bk-blue" href="{{ route('register') }}">
+                                            Register now
+                                    </a>
                                     <a class="btn btn-link bk-blue" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>

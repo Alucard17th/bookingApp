@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use App\Models\Availability;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 
@@ -65,16 +64,6 @@ class EventController extends Controller
             'cost' => $request->cost ?? 0,
             'max_participants' => $request->max_participants
         ]);
-
-        if ($request->has('availabilities')) {
-            foreach ($request->availabilities as $availabilityData) {
-                $availability = new Availability();
-                $availability->start_at = $availabilityData['start_date_time'];
-                $availability->end_at = $availabilityData['end_date_time'];
-                $availability->event_id = $event->id; // Associate the availability with the event
-                $availability->save();
-            }
-        }
 
         return redirect()->route('events.index')->with('success','Event created successfully.');
     }

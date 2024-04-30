@@ -172,22 +172,5 @@ $(document).ready(function() {
         $(this).siblings('input').val(selectedDays);
     });
 })
-
-function addAvailability() {
-    var container = document.getElementById('availabilities-container');
-    var row = document.createElement('div');
-    row.className = 'availability-row row';
-    row.innerHTML = `
-        <div class="form-group col-3">
-            <label for="start_date_time">Start Date and Time:</label>
-            <input type="time" class="form-control" name="availabilities[${container.childElementCount}][start_date_time]" required>
-        </div>
-        <div class="form-group col-3">
-            <label for="end_date_time">End Date and Time:</label>
-            <input type="time" class="form-control" name="availabilities[${container.childElementCount}][end_date_time]" required>
-        </div>
-    `;
-    container.appendChild(row);
-}
 </script>
 @endpush

@@ -9,6 +9,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\BreakController;
+use App\Http\Controllers\TimeOffController;
 use App\Models\Product;
 //Front Controllers
 use App\Http\Controllers\FrontServiceController;
@@ -28,6 +30,7 @@ use App\Http\Controllers\FrontServiceController;
 Route::get('/', function () {
     return view('front.index');
 });
+
 Route::get('/choose-plan', function () {
     $products = Product::where('name', '!=', 'Free')->orderBy('bookings', 'asc')->get();
     $freeProducts = Product::where('name', 'Free')->get();
@@ -41,20 +44,26 @@ Route::middleware(['middleware' => 'checkSubscription'])->group(function () {
     Route::resource('services', ServiceController::class);
     Route::resource('bookings', BookingController::class);
     Route::resource('profile', ProfileController::class);
-    Route::resource('reviews', ReviewController::class);
     Route::resource('appointments', AppointmentController::class);
     Route::resource('calendars', CalendarController::class);
+    Route::resource('breaks', BreakController::class);
+    Route::resource('timeoffs', TimeOffController::class);
+
+    Route::put('workinghours/{id}', 'App\Http\Controllers\WorkingHoursController@update')->name('workinghours.update');
 });
 
+Route::resource('reviews', ReviewController::class);
 
 Route::get('/appointments-calendar', [App\Http\Controllers\CalendarController::class, 'indexAppointments'])->name('user.appointments.calendar');
 Route::get('/user-appointments-json', [App\Http\Controllers\AppointmentController::class, 'indexJson'])->name('user.appointments.json');
 Route::get('/events-calendar', [App\Http\Controllers\CalendarController::class, 'indexEvents'])->name('user.events.calendar');
 Route::get('/user-events-json', [App\Http\Controllers\EventController::class, 'indexJson'])->name('user.events.json');
+Route::post('/user-service-json', [App\Http\Controllers\FrontServiceController::class, 'getUserService'])->name('getUserService');
 
 // Front 
 Route::middleware(['middleware' => 'canUserReceiveBookings'])->group(function () {
     // SERVICES BOOKING 
+    Route::get('/service-demo/{id}', [App\Http\Controllers\FrontServiceController::class, 'indexNew'])->name('front.service.new.book');
     Route::get('/book-service/{id}/{serviceId}', [App\Http\Controllers\FrontServiceController::class, 'index'])->name('front.service.book');
     // EVENTS BOOKING
     Route::get('/book-event/{id}/{eventId}', [App\Http\Controllers\FrontEventController::class, 'index'])->name('front.event.book');
@@ -63,7 +72,7 @@ Route::middleware(['middleware' => 'canUserReceiveBookings'])->group(function ()
 // SERVICES BOOKING 
 Route::post('/book-service', [App\Http\Controllers\FrontServiceController::class, 'store'])->name('front.service.booking.store');
 Route::get('/service-booked-thanks-page', [App\Http\Controllers\FrontServiceController::class, 'thanks'])->name('front.service.booking.thanks');
-Route::get('/get-appointments/{day}', [App\Http\Controllers\FrontServiceController::class, 'getAppointmentByDayAndTime'])->name('front.service.get.appointment');
+Route::get('/check-availability/{day}', [App\Http\Controllers\FrontServiceController::class, 'checkAvailability'])->name('front.service.get.appointment');
 // EVENTS BOOKING
 Route::post('/book-event', [App\Http\Controllers\FrontEventController::class, 'store'])->name('front.event.booking.store');
 

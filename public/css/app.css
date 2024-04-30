@@ -30,7 +30,7 @@
     border-radius: 5px;
 }
 #secondary-navbar{
-    border-bottom: 3px solid #ee7b11;
+    border-bottom: 3px solid var(--cs-orange);
 }
 
 /* Events CSS */
@@ -141,9 +141,22 @@ tfoot input {
 .content-expanded {
     width: 95% !important;
 }
-
 .content-expanded table{
     width: 100% !important;
+}
+
+#pills-tab > li > button.active{
+    background-color: #29212100 !important;
+    color: #000 !important;
+    text-decoration: underline !important;
+    text-decoration-color: var(--cs-orange) !important;
+    text-decoration-thickness: 2px !important;
+}
+
+.time-off-card:hover{
+    cursor: pointer;
+    background-color: #f1f3f5 !important;
+    border-radius: 5px;
 }
 
 /* SIDEBAR STYLES END */

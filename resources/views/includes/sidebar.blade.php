@@ -54,8 +54,8 @@
             </li>
             <li class="nav-item mb-1 {{ request()->is('profile*') ? 'active' : '' }}">
                 <a class="nav-link p-2 " href="{{ route('profile.index') }}"  role="button">
-                    <i class="me-1 fas fa-user"></i>
-                    Profile
+                    <i class="me-1 fas fa-cog"></i>
+                    Settings
                 </a>
             </li>
         </ul>

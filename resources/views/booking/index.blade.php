@@ -64,19 +64,37 @@
     z-index: 9999; /* Make sure it's above other content */
 }
 
+.logo {
+    border-radius: 50%;
+    border: 1px solid #fff0f0;
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+
+
+}
+
 </style>
 @endpush
 
 @section('content')
 <div class="container-fluid">
     <div class="row">
+        <div class="col-12">
+            
+        </div>
         <!-- EVENTS & SERVICES -->
-        <div class="col-3">
-            <div class="card">
-                <table class="table table-borderless">
+        <div class="col-lg-3">
+            <div class="card p-3">
+                <table class="">
                     <tbody>
                         <tr>
-                            <td><h5 class="fw-bold text-uppercase">{{ ucfirst($service->name) }}</h5></td>
+                            <td>
+                                <img class="logo me-2" src="{{ Storage::url($service->user->logo) }}" alt="">
+                                <h5 class="fw-bold text-uppercase">{{ ucfirst($service->name) }}</h5>
+                            </td>
                         </tr>
                         <tr>
                             <td>Location:</td>
@@ -101,7 +119,7 @@
         </div>
 
         <!-- CALENDAR -->
-        <div class="col-6">
+        <div class="col-lg-6">
             <div class="constructions text-small mb-3">
                 <div class="alert" role="alert">
                     Please select or click on a day to book.
@@ -111,10 +129,10 @@
         </div>
 
         <!-- BOOKING -->
-        <div class="col-3">
+        <div class="col-lg-3">
             @if($service->user->canBeBooked())
                 @if($service->is_active)
-                <div class="booking-info">
+                <div class="booking-info mt-sm-3">
                     <div class="box"></div>
                     <div class="availabilities mt-3"></div>
                     <div class="select-availability my-3"  style="display: none">
@@ -191,16 +209,23 @@
 <script src="{{ asset('js/pg-calendar-master/dist/js/pignose.calendar.js') }}"></script>
 <script>
 // when the document is ready
+const userTimeOff = {!! json_encode($service->user->timeoff) !!};
+const userBreaks = {!! json_encode($service->user->breaks) !!};
+const serviceAppointments = {!! json_encode($service->appointments) !!};
+console.log(userTimeOff, userBreaks, serviceAppointments);
 $(document).ready(function() {
+    const workingHours = {!! json_encode($service->user->workingHours) !!};
     $(function() {
         $('.calender').pignoseCalendar({
             multiple: false,
             select: function(date, obj) {
+                $('.select-availability').hide();
                 if(date[0] != null) {
-                    $('.box').text('You selected ' +
-                    (date[0] === null ? ' ' : date[0].format('MM-DD-YYYY')) +
-                    '.');
-                    generateAvailabilities(date[0].format('YYYY-MM-DD'));
+                    $('.box').text('You selected ' + (date[0] === null ? ' ' : date[0].format('MM-DD-YYYY')) + '.');
+                    var selectedDayWorkingHours = workingHours.filter(function(item) {
+                        return item.day === date[0].format('dddd');
+                    });
+                    generateAvailabilities(date[0].format('YYYY-MM-DD'), selectedDayWorkingHours[0]);
                     $('#date').val(date[0].format('YYYY-MM-DD'));
                 }else{
                     $('.box').text('');
@@ -212,15 +237,13 @@ $(document).ready(function() {
     });
 });
 
-async function generateAvailabilities(selectedDate) {
+async function generateAvailabilities(selectedDate, workingDay) {
     $('#overlay').show();
     $('.availabilities').empty().off('click', '.availability-option');
-    // Set the start and end time for availabilities, starting from 08:00
-    var startTime = moment('{{ $service->start_time }}', 'HH:mm');
-    var endTime = moment('{{ $service->end_time }}', 'HH:mm');
+    var startTime = moment(workingDay.start_hour, 'HH:mm');
+    var endTime = moment(workingDay.end_hour, 'HH:mm');
     // Define the buffer time (in minutes)
     var eventDuration = '{{ $service->duration }}';
-    console.log('eventDuration', eventDuration)
     var bufferTime = '{{ $service->buffer_time }}';
 
     while (startTime.isBefore(endTime)) {
@@ -252,26 +275,113 @@ async function generateAvailabilities(selectedDate) {
     });
 }
 
-async function checkAvailability(date, time) {
+const isTimeInRange = (timePart1, timePart2, timeoffStartTime, timeoffEndTime) => {
+    return timeoffStartTime.isBetween(timePart1, timePart2) 
+    || timeoffEndTime.isBetween(timePart1, timePart2)
+    || timePart1.isBetween(timeoffStartTime, timeoffEndTime)
+    || timePart2.isBetween(timeoffStartTime, timeoffEndTime);
+};
+async function checkAvailability(date, time){
     try {
-        const response = await fetch(`/get-appointments/${date}`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        // Check if any appointment matches the selected time
         let availability = true;
-        data.forEach(appointment => {
-            if (appointment.time === time) {
+        serviceAppointments.forEach(appointment => {
+            if (appointment.time == time && appointment.date == date) {
                 availability = false;
             }
         });
+        userTimeOff.forEach(timeoff => {
+            const startDate = new Date(timeoff.start_date);
+            const endDate = new Date(timeoff.end_date);
+            const targetDate = new Date(date);
+            const timeoffStartTime = moment(timeoff.start_time, 'HH:mm');
+            const timeoffEndTime = moment(timeoff.end_time, 'HH:mm');
+            const timePart1 = moment(time.split(' -')[0]+':00', 'HH:mm');
+            const timePart2 = moment(time.split('- ')[1]+':00', 'HH:mm');
+            if(timeoff.end_time != null){
+                if (targetDate >= startDate && targetDate <= endDate) {
+                    if(isTimeInRange(timePart1, timePart2, timeoffStartTime, timeoffEndTime)){
+                        availability = false;
+                        console.log('Target time is within the range date and time');
+                    }
+                }
+            }
+            // if(timeoff.start_time != null){
+            //     if (targetDate >= startDate && targetDate <= endDate) {
+            //         console.log('Target date is within the range date (with time not null)');
+            //         if (targetTime.isBetween(startTime, endTime)) {
+            //             console.log('Target time is within the range date and time');
+            //             availability = false;
+            //         } else {
+            //             console.log('Target time is NOT within the range time');
+            //         }
+            //     } else {
+            //         console.log('Target date is NOT within the range date and time');
+            //     }
+            // }else{
+            //     if (targetDate >= startDate && targetDate <= endDate) {
+            //         availability = false;
+            //     } else {
+            //         console.log('Target date is NOT within the range');
+            //     }
+            // }
+        });
+
         return availability;
-    } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
-        return false; // Handle the error case appropriately
+    }
+    catch (error) {
+        console.error('There was a problem with the check availability operation:', error);
     }
 }
+
+// async function checkAvailability(date, time) {
+//     try {
+//         const response = await fetch(`/check-availability/${date}`);
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         const data = await response.json();
+//         // Check if any appointment matches the selected time
+//         let availability = true;
+//         data.appointment.forEach(appointment => {
+//             if (appointment.time === time) {
+//                 availability = false;
+//             }
+//         });
+//         userTimeOff.forEach(timeoff => {
+//             const startDate = new Date(timeoff.start_date);
+//             const endDate = new Date(timeoff.end_date);
+//             const targetDate = new Date(date);
+//             const startTime = moment(timeoff.start_time, 'HH:mm');
+//             const endTime = moment(timeoff.end_time, 'HH:mm');
+//             const targetTime = moment(time, 'HH:mm');
+
+//             // console.log('timeoff', timeoff);
+//             if(timeoff.start_time != null){
+//                 if (targetDate >= startDate && targetDate <= endDate) {
+//                     console.log('Target date is within the range date (with time not null)');
+//                     if (targetTime.isBetween(startTime, endTime)) {
+//                         console.log('Target time is within the range date and time');
+//                         availability = false;
+//                     } else {
+//                         console.log('Target time is NOT within the range time');
+//                     }
+//                 } else {
+//                     console.log('Target date is NOT within the range date and time');
+//                 }
+//             }else{
+//                 if (targetDate >= startDate && targetDate <= endDate) {
+//                     availability = false;
+//                 } else {
+//                     console.log('Target date is NOT within the range');
+//                 }
+//             }
+//         });
+//         return availability;
+//     } catch (error) {
+//         console.error('There was a problem with the fetch operation:', error);
+//         return false; // Handle the error case appropriately
+//     }
+// }
 
 $('.select-availability').on('click', function() {
     $('#bookingForm').show();

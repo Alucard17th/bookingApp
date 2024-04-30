@@ -11,7 +11,8 @@ class ProfileController extends Controller
     public function index()
     {
         $user = User::findOrFail(auth()->id());
-        return view('admin.profile.index', compact('user'));
+        $workingHours = $user->workingHours;
+        return view('admin.profile.index', compact('user', 'workingHours'));
     }
 
     public function update(Request $request, $id)

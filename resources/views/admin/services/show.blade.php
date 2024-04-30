@@ -1,18 +1,6 @@
 @extends('layouts.app')
 
 @push('styles')
-<style>
-    .availabilities {
-        overflow-y: auto;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .service-image{
-        height: 200px !important;
-    }
-</style>
-
 @endpush
 
 @section('content')
@@ -48,18 +36,7 @@
 
             <hr>
 
-            <!-- <div class="row mt-3 availabilities">
-                <div class="col-12">
-                    <p class="card-text"><strong>Availabilities:</strong></p>
-                    <ul class="list-unstyled">
-                        @foreach($service->availabilities as $availabilitie)
-                        <li>{{$availabilitie->start_at}} - {{$availabilitie->end_at}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div> -->
-
-            <div class="row mt-3 availabilities">
+            <div class="row mt-3">
                 <div class="col-12">
                     <p class="card-text"><strong>Appointments:</strong></p>
                     <ul class="list-unstyled">
