@@ -50,4 +50,9 @@ class ProfileController extends Controller
 
         return redirect()->back()->with('success', 'Profile updated successfully.');
     }
+
+    public function markAllNotificationsAsRead(){
+        auth()->user()->unreadNotifications->markAsRead();
+        return redirect()->back();
+    }
 }

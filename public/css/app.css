@@ -87,13 +87,13 @@
     color:#000 !important;
 }
 .pignose-calendar-unit-sat > a{
-    color:#ee7b11 !important;
+    color:#1642B9 !important;
 }
 .pignose-calendar-unit-sun > a{
-    color:#ee7b11 !important;
+    color:#1642B9 !important;
 }
 .pignose-calendar-week-sat, .pignose-calendar-week-sun{
-    color:#ee7b11 !important;
+    color:#1642B9 !important;
 }
 .pignose-calendar-unit-active a {
     background-color: #1642B9 !important;
@@ -101,12 +101,76 @@
 }
 /* Pignose Calendar CSS End */
 
+/*  AVAILAbilities STARTS */
+.availability-option {
+    width: fit-content;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.availability-option {
+    color: black;
+    background-color: #d5e0ff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    border: 1px solid #a4b0d3;
+}
+
+.availability-option:hover {
+    background-color: #1642B9;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.availability-option-selected {
+    background-color: #1642B9;
+    border-radius: 5px;
+    border: 1px solid #1642B9;
+    color: #fff;
+}
+
+.unavailable {
+    text-decoration: line-through;
+    background-color: #f2f2f2;
+    /* Grey background color */
+    color: #999;
+    pointer-events: none;
+}
+
+/* AVAILAbilities ENDS */
+
 #app > main > div > div.card{
     border-color: rgb(0 0 0 / 0%) !important;
 }
 #app > main > div > div > div.card-body{
     background-color: #F1F3F5;
 }
+
+/* FULL CALENDARS STYLES START */
+.fc-today-button{
+    background-color: #1642B9 !important;
+    border: 1px solid #a4b0d3 !important;
+}
+.fc-dayGridMonth-button, .fc-timeGridWeek-button, .fc-timeGridDay-button, .fc-listMonth-button{
+    background-color: #1642B9 !important;
+    border: 1px solid #a4b0d3 !important;
+    margin-left: 6px !important;
+    margin-right: 6px !important;
+    border-radius: 5px !important;
+}
+.fc-prev-button, .fc-next-button{
+    background-color: #1642B9 !important;
+    border: 1px solid #a4b0d3 !important;
+    margin-left: 6px !important;
+    margin-right: 6px !important;
+    margin-top:5px;
+}
+.fc-button::first-letter {
+    text-transform: uppercase;
+  }
+/* FULL CALENDARS STYLES END */
+
 
 /* ADMIN TABLES STYLES STAR*/
 thead > tr:nth-child(2) input {
@@ -120,7 +184,6 @@ thead > tr:nth-child(2) input {
 }
 .table > tbody > tr:hover{
     background-color: #f1f3f5 !important;
-    border: 2px solid #fff;
     cursor: pointer;
 }
 .table > :not(caption) > * > * {
@@ -161,3 +224,17 @@ tfoot input {
 
 /* SIDEBAR STYLES END */
 
+.bk-blue{
+    color: #1642B9 !important;
+}
+
+.iconClass{
+    position: relative;
+  }
+.iconClassCircle{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    font-size: 7px !important;
+}

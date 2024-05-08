@@ -27,39 +27,6 @@
     width: fit-content;
 }
 
-.availability-option {
-    width: fit-content;
-    cursor: pointer;
-    padding: 5px 10px;
-}
-
-.availability-option {
-    background-color: #ee7b11;
-    border-radius: 5px;
-    color: #fff;
-    margin-bottom: 10px;
-}
-
-.availability-option:hover {
-    background-color: #1642B9;
-    border-radius: 5px;
-    color: #fff;
-}
-
-.availability-option-selected {
-    background-color: #1642B9;
-    border-radius: 5px;
-    border: 1px solid #1642B9;
-    color: #fff;
-}
-
-.unavailable {
-    text-decoration: line-through;
-    background-color: #f2f2f2;
-    /* Grey background color */
-    color: #999;
-    pointer-events: none;
-}
 
 #overlay {
     position: fixed;
@@ -267,7 +234,7 @@
                                 </div>
                             </div>
                             <div class="bs-stepper-content">
-                                <form class="needs-validation" novalidate="" method="POST" id="bookingForm"
+                                <form class="needs-validation" method="POST" id="bookingForm"
                                     action="{{ route('front.service.booking.store') }}">
                                     @csrf
                                     <div id="test-form-1" role="tabpanel"
@@ -331,16 +298,24 @@
                                                 <input type="text" class="form-control" id="phone" name="phone"
                                                     required>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="date">Date</label>
-                                                <input type="date" class="form-control" id="date" name="date" required
-                                                    readonly>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="date">Date</label>
+                                                        <input type="date" class="form-control" id="date" name="date" required
+                                                            readonly>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="time">Time</label>
+                                                        <input type="text" class="form-control" id="time" name="time" required
+                                                            readonly>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="time">Time</label>
-                                                <input type="text" class="form-control" id="time" name="time" required
-                                                    readonly>
-                                            </div>
+                                           
                                             <button
                                                 class="btn btn-primary btn-previous-form mt-5 bk-bg-blue">Previous</button>
                                             <button type="submit"
@@ -378,11 +353,11 @@
                                 </div>
                                 <ul class="list-unstyled mt-5">
                                     @foreach($user->reviews as $review)
-                                    <li class="media">
+                                    <li class="media my-4">
                                         <div class="media-body">
                                             <h5 class="mt-0 mb-1">{{$review->name}}</h5>
                                             <div class="text-muted">{{$review->created_at}}</div>
-                                            <div>{{$review->rating}}</div>
+                                            <div>{{$review->review}}</div>
                                             <div>
                                                 @for($i = 0; $i < 5; $i++)
                                                     @if($i < $review->rating)

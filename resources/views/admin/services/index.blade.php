@@ -48,7 +48,7 @@
                         </form>
                         <button class="btn btn-light btn-sm ms-3 copy-link-btn"
                             data-link="{{ url('/') }}/book-service/{{ $service->user->id }}/{{ $service->id }}"
-                            data-toggle="tooltip" title="Tooltip text">
+                            data-toggle="tooltip" title="Copy link to this service to share with customers.">
                             <i class="fas fa-link me-2"></i>
                             Get link
                         </button>

@@ -105,28 +105,20 @@ class HomeController extends Controller
 
         // SERVICE CHART DATA OPTIONS START______________
         // Retrieve events of the current month
-        $services = auth()->user()->services()
-                   ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
-                   ->get();
 
-        // Initialize an array to store event counts by day
-        $serviceCountsByDay = [];
-    
-        // Loop through each event and count events by day
-        foreach ($services as $service) {
-            $day = Carbon::parse($service->created_at)->format('Y-m-d');
-            if (!isset($serviceCountsByDay[$day])) {
-                $serviceCountsByDay[$day] = 1;
-            } else {
-                $serviceCountsByDay[$day]++;
-            }
-        }
 
         // Format data for ApexCharts
+        $services = auth()->user()->services;
         $categories = [];
         $data = [];
-
-        foreach ($serviceCountsByDay as $day => $count) {
+          
+        $serviceCounts = $services->groupBy(function ($service) {
+            return Carbon::parse($service->created_at)->format('Y-m-d');
+        });
+        $serviceCountsArray = $serviceCounts->map(function ($collection) {
+            return $collection->count();
+          })->toArray();
+        foreach ($serviceCountsArray as $day => $count) {
             $categories[] = $day;
             $data[] = $count;
         }
@@ -214,36 +206,66 @@ class HomeController extends Controller
 
         // APPPOINTMENT CHART DATA OPTIONS START______________
         // Retrieve events of the current user with bookings within the current month
+        // $services = auth()->user()->services()
+        // ->with(['appointments' => function ($query) use ($startOfMonth, $endOfMonth) {
+        //     $query->whereBetween('created_at', [$startOfMonth, $endOfMonth]);
+        // }])
+        // ->get();
+
+        // // Initialize an array to store booking counts by day
+        // $appointmentCountsByDay = [];
+        // $lastServices = [];
+
+        // // Loop through each event and count Services by day
+        // foreach ($services as $service) {
+        //     foreach ($service->appointments as $appointment) {
+        //         $day = Carbon::parse($appointment->created_at)->format('Y-m-d');
+        //         if (!isset($appointmentCountsByDay[$day])) {
+        //             $appointmentCountsByDay[$day] = 1;
+        //         } else {
+        //             $appointmentCountsByDay[$day]++;
+        //         }
+        //     }
+        // }
+      
+        // // Format data for ApexCharts
+        // $categories = [];
+        // $data = [];
+
+        // foreach ($appointmentCountsByDay as $day => $count) {
+        //     $categories[] = $day;
+        //     $data[] = $count;
+        // }
+
         $services = auth()->user()->services()
-        ->with(['appointments' => function ($query) use ($startOfMonth, $endOfMonth) {
-            $query->whereBetween('created_at', [$startOfMonth, $endOfMonth]);
-        }])
+            ->with(['appointments' => function ($query) use ($startOfMonth, $endOfMonth) {
+                $query->whereBetween('created_at', [$startOfMonth, $endOfMonth]);
+            }])
         ->get();
 
-        // Initialize an array to store booking counts by day
-        $appointmentCountsByDay = [];
-        $lastServices = [];
 
-        // Loop through each event and count Services by day
+        $appointmentCountsByDate = [];
+
+        // Loop through services and collect appointment counts
         foreach ($services as $service) {
-            foreach ($service->appointments as $appointment) {
-                $day = Carbon::parse($appointment->created_at)->format('Y-m-d');
-                if (!isset($appointmentCountsByDay[$day])) {
-                    $appointmentCountsByDay[$day] = 1;
-                } else {
-                    $appointmentCountsByDay[$day]++;
-                }
-            }
+            $appointments = $service->appointments; // Access appointments collection
+
+            // Group appointments by date (Y-m-d)
+            $appointmentCounts = $appointments->groupBy(function ($appointment) {
+                return Carbon::parse($appointment->created_at)->format('Y-m-d');
+            })->map(function ($collection) {
+                return $collection->count(); // Count appointments per day
+            })->toArray();
+
+            // Merge appointment counts for this service into the main array
+            $appointmentCountsByDate = array_merge($appointmentCountsByDate, $appointmentCounts);
         }
 
-        // Format data for ApexCharts
-        $categories = [];
-        $data = [];
+        // dd($appointmentCountsByDate);
 
-        foreach ($appointmentCountsByDay as $day => $count) {
-            $categories[] = $day;
-            $data[] = $count;
-        }
+        // Prepare categories and data arrays (optional)
+        $categories = array_keys($appointmentCountsByDate);
+        $data = array_values($appointmentCountsByDate);
 
         // Construct options for ApexCharts
         $optionsAppointments = [

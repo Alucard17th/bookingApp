@@ -37,6 +37,8 @@ Route::get('/choose-plan', function () {
     return view('front.choose-plan', compact('products', 'freeProducts'));
 })->name('choose.plan');
 
+Route::get('markAllNotificationsAsRead', [ProfileController::class, 'markAllNotificationsAsRead'])->name('markAllNotificationsAsRead');
+
 // Admin
 Route::middleware(['middleware' => 'checkSubscription'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

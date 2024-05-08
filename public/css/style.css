@@ -624,7 +624,7 @@ progress {
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
-  border: 1px solid var(--bs-border-color);
+  /* border: 1px solid var(--bs-border-color); */
   border-radius: 5px;
   max-width: 100%;
   height: auto;
@@ -10876,7 +10876,7 @@ textarea.form-control-lg {
 }
 .hero-banner .left-hero-color {
   /* padding-top: 250px; */
-  padding-top: 150px;
+  padding-top: 20px;
   z-index: 1;
 }
 .hero-banner .left-hero-color::before {
@@ -11824,5 +11824,58 @@ tfoot input {
   padding-right:2rem;
   padding-left:2rem;
   text-align: left;
+}
+
+.col-service { /* Target all col-serviceumns */
+  position: relative; /* Enable positioning for child elements */
+  color: #EE7B11;
+}
+
+.col-service .card-body img { /* Target images inside card-body */
+  opacity: 0.5; /* Set initial opacity to 50% */
+  transition: opacity 0.3s ease-in-out; /* Define transition for hover effect */
+}
+
+.col-service:hover .card-body img { /* Animate image on hover */
+  opacity: 1; /* Change opacity to 100% on hover */
+  animation: shake 0.3s ease-in-out; /* Add animation */
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
+.teams-card {
+  /* Combine transitions into a single rule for better efficiency */
+  transition: background-color 0.7s, color 0.3s ease-in-out !important;  
+}
+
+.teams-card:hover {
+  background-color: #EE7B11 !important;
+  /* Change text color to white on hover */
+  color: white !important;
+}
+
+.teams-card:hover p{
+  color: white !important;
+}
+
+.teams-card:hover .ti{
+  color: #EE7B11 !important;
+}
+
+.teams-card .icon{
+  /* Combine transitions into a single rule for better efficiency */
+  transition: background-color 0.5s ease-in-out !important;  
+}
+
+
+.teams-card:hover .icon{
+  background-color: #fff !important;
 }
 /*END OF NRD STYLES */

@@ -19,36 +19,56 @@
                 @csrf
                 @method('PUT')
 
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ $appointment->name }}" required>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name"
+                                value="{{ $appointment->name }}" required>
+                        </div>
+
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                value="{{ $appointment->email }}" required>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone" name="phone"
+                                value="{{ $appointment->phone }}" required>
+                        </div>
+                    </div>
+
+                    <div class="col-6"></div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="date">Event</label>
+                            <input type="text" class="form-control" name="service_id" value="{{ $appointment->service->name }}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date" name="date"
+                                value="{{ $appointment->date }}" required>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input type="time" class="form-control" id="time" name="time"
+                                value="{{ $appointment->time[0] }}" required>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" value="{{ $appointment->email }}"
-                        required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="text" class="form-control" id="phone" name="phone" value="{{ $appointment->phone }}"
-                        required>
-                </div>
-
-                <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" class="form-control" id="date" name="date" value="{{ $appointment->date }}" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="time">Time</label>
-                    <input type="time" class="form-control" id="time" name="time" value="{{ $appointment->time }}" required>
-                </div>
-
-                <input type="hidden" name="service_id" value="{{ $appointment->service_id }}">
-
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary mt-3">Update</button>
             </form>
         </div>
     </div>

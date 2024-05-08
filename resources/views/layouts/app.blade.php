@@ -59,23 +59,54 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                        @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="btn btn-secondery text-capitalize text-white me-3"
-                                href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @endif
+                            @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="btn btn-secondery text-capitalize text-white me-3"
+                                    href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @endif
 
-                        @if (Route::has('register'))
-                        <!-- <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li> -->
-                        <li class="nav-item">
-                            <a class="btn btn-secondery text-capitalize text-white"
-                                href="{{route('register')}}">register</a>
-                        </li>
-                        @endif
+                            @if (Route::has('register'))
+                            <!-- <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li> -->
+                            <li class="nav-item">
+                                <a class="btn btn-secondery text-capitalize text-white"
+                                    href="{{route('register')}}">register</a>
+                            </li>
+                            @endif
                         @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="" aria-expanded="false" v-pre>
+                                <i class="fas fa-bell iconClass">
+                                    @if(Auth()->user()->unreadNotifications->count() > 0)
+                                    <i class="fas fa-circle text-danger iconClassCircle"></i>
+                                    @endif
+                                </i>
+                            </a>
+
+                            @if(Auth()->user()->unreadNotifications->count() > 0)
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="min-width: 15rem;">
+                                <div class="d-flex justify-content-between align-items-center px-2 py-0">
+                                    <h6 class="mb-0">Notifications</h6>
+                                    <a href="{{route('markAllNotificationsAsRead')}}"><i class="fas fa-check"></i> Mark all as read</a>
+                                </div>
+                                <hr class="dropdown-divider">
+                                @foreach(Auth()->user()->unreadNotifications as $notification)
+                                <a class="dropdown-item" href="{{ $notification->data['url'] }}"> 
+                                    {{ $notification->data['message'] }}
+                                </a>
+                                @endforeach
+                            </div>
+                            @else
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="min-width: 15rem;">
+                                <div class="d-flex justify-content-between align-items-center px-2 py-0">
+                                    <h6 class="mb-0">No new notifications</h6>
+                                </div>
+                            </div>
+                            @endif
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -127,8 +158,8 @@
     </div>
     
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script> -->
     @stack('scripts')
     <!-- DataTables Scripts -->
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AppointmentCreated;
+use App\Notifications\AppointmentCreated as AppointmentCreatedNotification;
 
 class AppointmentController extends Controller
 {
@@ -45,17 +48,24 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         //
-         //
-        $appointment = new Appointment;
-        $appointment->name = $request->name;
-        $appointment->email = $request->email;
-        $appointment->phone = $request->phone;
-        $appointment->date = $request->date;
-        $appointment->time = $request->time;
-        $appointment->service_id = $request->service_id;
-        $appointment->save();
+        try{
+            $appointment = new Appointment;
+            $appointment->name = $request->name;
+            $appointment->email = $request->email;
+            $appointment->phone = $request->phone;
+            $appointment->date = $request->date;
+            $appointment->time = $request->time;
+            $appointment->service_id = $request->service_id;
+            $appointment->save();
 
-        return redirect()->route('appointments.index')->with('success', 'Appointment created successfully.');
+            // Mail::to($appointment->email)->send(new AppointmentCreated($appointment));
+            $user = auth()->user();
+            $user->notify(new AppointmentCreatedNotification($appointment));
+
+            return redirect()->route('appointments.index')->with('success', 'Appointment created successfully.');
+        }catch(Exception $e){
+            return redirect()->back()->with('error', 'An error occurred while creating the appointment.');
+        }
     }
 
     /**

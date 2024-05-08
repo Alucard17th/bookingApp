@@ -7,7 +7,11 @@
 }
 
 .company-image {
-    height: 200px !important;
+    background-size: contain;
+    height: 20rem;
+    width: 20rem;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 </style>
 @endpush
@@ -53,7 +57,7 @@
             @include('components.profile-timeoff', compact('user', 'workingHours'))
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-            Contact
+            @include('components.contact', compact('user'))
         </div>
     </div>
 

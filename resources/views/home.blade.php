@@ -214,7 +214,7 @@
 @endsection
 
 @push('scripts')
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="http://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 <script>
     // when document is ready using javascript not jquery
@@ -232,8 +232,9 @@ document.addEventListener('DOMContentLoaded', function () {
     chartBooking.render();
 
     var optionsAppointments = @json($optionsAppointments);
-    var chartBooking = new ApexCharts(document.querySelector("#appointment-chart"), optionsAppointments);
-    chartBooking.render();
+    console.log(optionsAppointments);
+    var chartAppointment = new ApexCharts(document.querySelector("#appointment-chart"), optionsAppointments);
+    chartAppointment.render();
 })
 </script>
 @endpush

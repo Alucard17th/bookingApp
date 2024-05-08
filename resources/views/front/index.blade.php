@@ -9,19 +9,35 @@
         <div class="row d-flex flex-wrap align-items-center">
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="position-relative left-hero-color">
-                    <h1 class="mb-0 fw-bold">
+                    <h1 class="mb-0 fw-bold fs-3">
                         Unlock <span class="bk-orange">Effortless</span> Appointment Scheduling
                     </h1>
-                    <p>Simplify appointment scheduling for both you and your customers.<br> With our user-friendly
-
-                        interface, appointments can be booked in just a few clicks.</p>
-                    <a href="#" class="btn btn-warning btn-hover-secondery"><span class="d-inline-block me-2"><i
+                    <div class="text-muted py-3">Simplify appointment scheduling for both you and your customers.<br>
+                        With our user-friendly
+                        interface, appointments can be booked in just a few clicks.</div>
+                    <form action="" class="py-2 mb-2">
+                        <div class="row">
+                            <div class="col-8">
+                                <input type="text" class="form-control border-0 shadow-lg"
+                                    placeholder="Enter your Email">
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-warning btn-hover-secondery">Get Started</button>
+                            </div>
+                        </div>
+                    </form>
+                    <a href="#" class="mt-3 pt-3"><span class="d-inline-block me-2"><i
                                 class="ti ti-playstation-triangle"></i></span> Discover this Video</a>
                 </div>
             </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="position-relative right-hero-color">
-                    <img src="../assets/images/hero/8380948_3899260.svg" class="img-fluid">
+                    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                        type="module"></script>
+
+                    <dotlottie-player src="https://lottie.host/f3bf4ccb-bb37-4e08-9625-94c8349613f2/dk2JEAYsGn.json"
+                        background="transparent" speed="1" style="width: 636px; height: 636px;" loop autoplay>
+                    </dotlottie-player>
                     <!-- <img src="../assets/images/hero/right-image.svg" class="img-fluid"> -->
                 </div>
             </div>
@@ -47,7 +63,7 @@
             </div>
         </div>
         <div class="row d-flex flex-wrap justify-content-center step-row">
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center col-service">
                 <div class="card border-0 shadow">
                     <div class="card-body">
                         <img src="../assets/images/icons/calendar.png" alt="">
@@ -58,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center col-service">
                 <div class="card border-0 shadow">
                     <div class="card-body">
                         <img src="../assets/images/icons/social.png" alt="">
@@ -69,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center col-service">
                 <div class="card border-0 shadow">
                     <div class="card-body">
                         <img src="../assets/images/icons/thank-you.png" alt="">
@@ -95,7 +111,10 @@
 
         <div class="row">
             <div class="col-xxl-8 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                <img src="../assets/images/booking-service-2.png" class="img-fluid">
+                <!-- <img src="../assets/images/booking-service-2.png" class="img-fluid"> -->
+                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+    <dotlottie-player src="https://lottie.host/7011a20c-dc54-42c2-a13a-d1886dd9b8ff/K5Y5ZVB9Gn.json" background="transparent" speed="1" style="width: 550px; height: 550px;" loop autoplay></dotlottie-player>
             </div>
             <div
                 class="col-xxl-4 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3">
@@ -145,37 +164,37 @@
         </div>
         <div class="row d-flex flex-wrap justify-content-center step-row">
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
-                <div class="card bg-transparent">
+                <div class="card bg-transparent teams-card">
                     <div class="card-body p-2">
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-briefcase text-white"></i></div>
                         <h3 class="fs-4 text-white">Small Business Owners</h3>
-                        <p class="fs-7 mb-0 fw-500">Small business owners can use your service to manage their
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Small business owners can use your service to manage their
                             appointment bookings. They can schedule meetings with clients, consultations with vendors,
                             and other business-related appointments, ensuring efficient time management.</p>
                     </div>
                 </div>
             </div>
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
-                <div class="card bg-transparent">
+                <div class="card bg-transparent teams-card">
                     <div class="card-body p-2">
                         <div class="icon  mx-auto rounded-circle d-flex justify-content-center align-items-center">
                             <i class="ti ti-user text-white"></i>
                         </div>
                         <h3 class="fs-4 text-white">Freelancers</h3>
-                        <p class="fs-7 mb-0 fw-500">Freelancers can benefit from your platform by scheduling client
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Freelancers can benefit from your platform by scheduling client
                             meetings, project consultations, and other work-related appointments. They can use the
                             service to maintain a professional image and manage their workload effectively.</p>
                     </div>
                 </div>
             </div>
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
-                <div class="card bg-transparent">
+                <div class="card bg-transparent teams-card">
                     <div class="card-body p-2">
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-calendar text-white"></i></div>
                         <h3 class="fs-4 text-white">Event Planners</h3>
-                        <p class="fs-7 mb-0 fw-500">Event planners can use your service to schedule appointments with
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Event planners can use your service to schedule appointments with
                             clients, vendors, and venues. They can manage their event planning tasks more efficiently
                             and ensure timely communication with all stakeholders.</p>
                     </div>
@@ -184,36 +203,36 @@
 
 
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
-                <div class="card bg-transparent">
+                <div class="card bg-transparent teams-card">
                     <div class="card-body p-2">
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-heart text-white"></i></div>
                         <h3 class="fs-4 text-white">Medical Professionals</h3>
-                        <p class="fs-7 mb-0 fw-500">Doctors, therapists, and other healthcare professionals can
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Doctors, therapists, and other healthcare professionals can
                             utilize your platform to manage patient appointments. They can schedule consultations,
                             treatments, and follow-up appointments, improving patient care and satisfaction.</p>
                     </div>
                 </div>
             </div>
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
-                <div class="card bg-transparent">
+                <div class="card bg-transparent teams-card">
                     <div class="card-body p-2">
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-book text-white"></i></div>
                         <h3 class="fs-4 text-white">Educational Institutions</h3>
-                        <p class="fs-7 mb-0 fw-500">Schools, colleges, and universities can use your service to
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Schools, colleges, and universities can use your service to
                             schedule student appointments for academic advising, counseling, and other student
                             services. This can help improve student engagement and retention.</p>
                     </div>
                 </div>
             </div>
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
-                <div class="card bg-transparent">
+                <div class="card bg-transparent teams-card">
                     <div class="card-body p-2">
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-home text-white"></i></div>
                         <h3 class="fs-4 text-white">Real Estate Agents</h3>
-                        <p class="fs-7 mb-0 fw-500">Real estate agents can benefit from your platform by scheduling
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Real estate agents can benefit from your platform by scheduling
                             appointments for property showings, client meetings, and other real estate-related
                             activities. This can help them manage their listings more efficiently and provide better
                             service to their clients.</p>
@@ -226,15 +245,15 @@
     <div class="container position-relative">
         <div class="portfolio-wrap">
             <div class="owl-carousel owl-theme portfolio-slider">
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.jpg" class="w-100"></a>
+                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
                 </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.jpg" class="w-100"></a>
+                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
                 </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.jpg" class="w-100"></a>
+                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
                 </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.jpg" class="w-100"></a>
+                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
                 </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.jpg" class="w-100"></a>
+                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
                 </div>
             </div>
         </div>
@@ -268,7 +287,7 @@
             </div>
         </div>
         <div class="row justify-content-center price-plan">
-           
+
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                 <div class="card position-relative shadow border-0 h-100">
                     <div class="card-body pb-4">

@@ -59,15 +59,19 @@ document.addEventListener('DOMContentLoaded', async function() {
     var calendar = new FullCalendar.Calendar(calendarEl, {
         height: '860px',
         width: '100%',
+        timeZone: 'UTC',
+        themeSystem: 'bootstrap5',
         // slotMinTime: "06:00:00",
         // slotMaxTime: "19:00:00",
+        headerToolbar: {
+            right: 'prev,next today',
+            center: 'title',
+            left: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+        },
+        weekNumbers: true,
+        dayMaxEvents: true,
         initialView: 'dayGridMonth',
         initialDate: today,
-        headerToolbar: {
-            left: 'today',
-            right: 'title,prev,next',
-            center: 'timeGridDay,timeGridWeek,dayGridMonth'
-        },
         events: events,
         eventClick: function(info) {
             // alert('Event: ' + info.event.title);
