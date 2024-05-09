@@ -50,7 +50,6 @@
             <div class="card shadow p-3 mb-5 bg-white rounded border-0">
                 <div class="card-body">
                     <div class="row">
-                        {{$user->canBeBooked()}}
                         <div class="mb-2">
                             <label class="fw-bold me-2">Subscription</label>
                             {{ $user->product() }}
@@ -64,8 +63,8 @@
                             {{ $user->subscription()->created_at->format('d-m-Y') }}
                         </div>
                         <div class="mb-2">
-                            <label class="fw-bold me-2">End Date</label>
-                            {{ $user->subscription()->ends_at }}
+                            <label class="fw-bold me-2">Next Payment Date</label>
+                            {{ $user->subscription()->nextPayment()->date()->format('d-m-Y') }}
                         </div>
                         <div class="mb-2">
                             <label class="fw-bold me-2">Usage</label>
