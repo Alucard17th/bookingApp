@@ -12,7 +12,8 @@
     <link href="{{asset('/libs/OwlCarousel-2/dist/assets/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('/css/iconfont/tabler-icons.css')}}" rel="stylesheet">
     <link href="{{asset('/css/style.css')}}" rel="stylesheet">
-
+    
+    @paddleJS
 </head>
 
 <body>
@@ -200,6 +201,8 @@
         });
     });
     </script>
+
+    @stack('scripts')
 
 
 </body>

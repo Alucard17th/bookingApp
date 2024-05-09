@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        @if($user->subscription)
+        @if($user->subscribed())
         <div class="col-lg-4">
             <div class="card-header mb-3">
                 <h3 class="fw-bold">Subscription</h4>
@@ -50,25 +50,26 @@
             <div class="card shadow p-3 mb-5 bg-white rounded border-0">
                 <div class="card-body">
                     <div class="row">
+                        {{$user->canBeBooked()}}
                         <div class="mb-2">
                             <label class="fw-bold me-2">Subscription</label>
-                            {{ $user->subscription->subscription_id }}
+                            {{ $user->product() }}
+                        </div>
+                        <div class="mb-2">
+                            <label class="fw-bold me-2">Status</label>
+                            {{ ucfirst($user->subscription()->status) }}
                         </div>
                         <div class="mb-2">
                             <label class="fw-bold me-2">Start Date</label>
-                            {{ $user->subscription->start_date }}
+                            {{ $user->subscription()->created_at->format('d-m-Y') }}
                         </div>
                         <div class="mb-2">
                             <label class="fw-bold me-2">End Date</label>
-                            {{ $user->subscription->end_date }}
+                            {{ $user->subscription()->ends_at }}
                         </div>
                         <div class="mb-2">
-                            <label class="fw-bold me-2">Next Billing Date</label>
-                            {{ $user->subscription->end_date }}
-                        </div>
-                        <div class="mb-2">
-                            <label class="fw-bold me-2">Plan</label>
-                            {{ $user->subscription->plan_id }}
+                            <label class="fw-bold me-2">Usage</label>
+                            {{ $user->consommation  }} / {{ $user->max_consommation }}
                         </div>
                     </div>
                 </div>

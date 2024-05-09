@@ -9,6 +9,7 @@ class Subscription extends Model
 {
     use HasFactory;
 
+    protected $table = 'stripe_subscriptions';
     protected $fillable = ['subscription_id', 'plan_id', 'start_date', 'end_date', 'trial_end', 'customer_id', 'bookings', 'consommation', 'user_id'];
 
     public function user()

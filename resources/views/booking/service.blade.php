@@ -496,6 +496,11 @@ $(document).ready(function() {
     const userBreaks = {!!json_encode($service->user->breaks) !!};
     const serviceAppointments = {!!json_encode($service->appointments) !!};
 
+    console.log('Working hours', workingHours);
+    console.log('User time off', userTimeOff);
+    console.log('User breaks', userBreaks);
+    console.log('Service appointments', serviceAppointments);
+
     var stepper = new Stepper(document.querySelector('.bs-stepper'))
     const nextButton = document.querySelectorAll('.btn-next-form');
     const prevButton = document.querySelectorAll('.btn-previous-form');

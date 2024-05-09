@@ -28,10 +28,13 @@ use App\Http\Controllers\FrontServiceController;
 */
 
 Route::get('/', function () {
-    return view('front.index');
-});
+    $products = Product::where('name', '!=', 'Free')->orderBy('bookings', 'asc')->get();
+    $freeProducts = Product::where('name', 'Free')->get();
+    return view('front.index', compact('products', 'freeProducts'));
+})->name('home');
 
 Route::get('/choose-plan', function () {
+    // dd(auth()->user()->subscription()->quantity);
     $products = Product::where('name', '!=', 'Free')->orderBy('bookings', 'asc')->get();
     $freeProducts = Product::where('name', 'Free')->get();
     return view('front.choose-plan', compact('products', 'freeProducts'));
@@ -40,7 +43,7 @@ Route::get('/choose-plan', function () {
 Route::get('markAllNotificationsAsRead', [ProfileController::class, 'markAllNotificationsAsRead'])->name('markAllNotificationsAsRead');
 
 // Admin
-Route::middleware(['middleware' => 'checkSubscription'])->group(function () {
+// Route::middleware(['middleware' => 'checkSubscription'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
     Route::resource('events', EventController::class);
     Route::resource('services', ServiceController::class);
@@ -52,7 +55,7 @@ Route::middleware(['middleware' => 'checkSubscription'])->group(function () {
     Route::resource('timeoffs', TimeOffController::class);
 
     Route::put('workinghours/{id}', 'App\Http\Controllers\WorkingHoursController@update')->name('workinghours.update');
-});
+// });
 
 Route::resource('reviews', ReviewController::class);
 
@@ -142,3 +145,6 @@ Route::get('/import-plans-features', function () {
         dd($e);
     }
 });
+
+Route::get('paddle-pay/{price_id}', [App\Http\Controllers\PaddlePaymentController::class, 'pay'])->name('paddle.pay');
+Route::any('/paddle-webhook', [App\Http\Controllers\PaddlePaymentController::class, 'handle'])->name('paddle.handle');

@@ -40,11 +40,11 @@ class FrontServiceController extends Controller
 
         $service = $appointment->service; 
         $user = $service->user;
-        $subscription = $user->subscription; 
+        $canBeBooked = $user->canBeBooked(); 
 
-        if ($subscription) {
-            $subscription->consommation--;
-            $subscription->save(); // Explicitly save the subscription
+        if ($canBeBooked) {
+            $user->consommation++;
+            $user->save(); // Explicitly save the subscription
             $appointment->save(); // Save the booking after successful decrement
         } else {
           // Handle the case where the user doesn't have a subscription (e.g., error message)

@@ -142,7 +142,7 @@
                 <div class="col-10 content-collapsed">
                     <main class="py-4 @if(request()->route()->getName() === 'login') bg-blue @endif"
                         style="min-height: 100vh;">
-                        @if(auth()->user() && !auth()->user()->canReceiveBookings())
+                        @if(auth()->user() && !auth()->user()->canBeBooked())
                         <div class="container">
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <strong>Oh snap!</strong> You can't receive any bookings.

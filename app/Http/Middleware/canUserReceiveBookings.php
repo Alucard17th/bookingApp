@@ -21,7 +21,7 @@ class canUserReceiveBookings
         $user = User::find($id);
 
         // Perform your authorization logic here
-        if (!$user->canReceiveBookings()) {
+        if (!$user->canBeBooked()) {
             abort(403, 'This user cannot receive bookings.');
         }
 
