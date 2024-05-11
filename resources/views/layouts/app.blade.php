@@ -24,7 +24,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Styles -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('/dscss/app.css')}}" rel="stylesheet">
     @stack('styles')
 
     <!-- DataTable Styles -->
