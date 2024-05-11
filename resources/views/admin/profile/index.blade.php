@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @push('styles')
-<link rel="stylesheet" href="../libs/jonthornton-jquery-timepicker-18c2143/jquery.timepicker.min.css">
+<link rel="stylesheet" href="{{asset('libs/jonthornton-jquery-timepicker-18c2143/jquery.timepicker.min.css')}}">
 <style>
 .profile-image {
     height: 200px !important;
@@ -64,6 +64,8 @@
 </div>
 @endsection
 @push('scripts')
+<script src="{{asset('libs/jonthornton-jquery-timepicker-18c2143/jquery.timepicker.min.js')}}"></script>
+<script src="{{asset('libs/DatePair-2/dist/datepair.js')}}"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Retrieve the last active tab from local storage

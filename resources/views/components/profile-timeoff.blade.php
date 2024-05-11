@@ -159,8 +159,6 @@
     </div>
 
 @push('scripts')
-<script src="../libs/jonthornton-jquery-timepicker-18c2143/jquery.timepicker.min.js"></script>
-<script src="../libs/DatePair-2/dist/datepair.js"></script>
 <script>
 // once page is loaded
 document.addEventListener('DOMContentLoaded', function() {
