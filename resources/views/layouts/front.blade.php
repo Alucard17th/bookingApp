@@ -9,9 +9,9 @@
     <!-- <link rel="stylesheet" href="../assets/libs/OwlCarousel-2/dist/assets/owl.carousel.min.css"> -->
     <!-- <link rel="stylesheet" href="../dist/css/iconfont/tabler-icons.css"> -->
     <!-- <link rel="stylesheet" href="../dist/css/style.css"> -->
-    <link href="{{asset('/libs/OwlCarousel-2/dist/assets/owl.carousel.min.css')}}" rel="stylesheet">
-    <link href="{{asset('/css/iconfont/tabler-icons.css')}}" rel="stylesheet">
-    <link href="{{asset('/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('libs/OwlCarousel-2/dist/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/iconfont/tabler-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
     
     @paddleJS
     @stack('styles')
@@ -173,8 +173,8 @@
 
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('/libs/OwlCarousel-2/dist/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('/js/custom.js')}}"></script>
+    <script src="{{asset('libs/OwlCarousel-2/dist/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('js/custom.js')}}"></script>
     <script>
     // when document is ready
     $(document).ready(function() {

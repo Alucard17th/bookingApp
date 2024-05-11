@@ -10,11 +10,11 @@
 <div class="container-fluid register-container vh-100" style="margin-bottom: -100px;">
     <div class="row justify-content-center">
         <div class="col-lg-6 register-left-col d-flex align-items-center justify-content-center vh-100" style="background: #EE7B11 !important;">
-            <img src="{{asset('/assets/images/register.svg')}}" class="img-fluid w-75">
+            <img src="{{asset('assets/images/register.svg')}}" class="img-fluid w-75">
         </div>
         <div class="col-lg-6 pt-5 px-4 vh-100">
             <div class="welcome-to-register d-flex justify-space-between mb-5">
-                <h1>Welcome to <img src="{{asset('/assets/images/logo.png')}}" class="img-fluid ms-2"></h1>
+                <h1>Welcome to <img src="{{asset('assets/images/logo.png')}}" class="img-fluid ms-2"></h1>
             </div>
             <div class="create-an-accout">
                 <h2>Register</h2>
