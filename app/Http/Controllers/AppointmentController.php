@@ -98,7 +98,8 @@ class AppointmentController extends Controller
             'phone' => $request->phone,
             'date' => $request->date,
             'time' => $request->time,
-            'service_id' => $request->service_id,
+            // 'service_id' => $request->service_id,
+            'status' => $request->status && $request->status == 'on' ? 'active' : 'cancelled',
         ]);
     
         return redirect()->route('appointments.index')->with('success', 'Appointment updated successfully.');

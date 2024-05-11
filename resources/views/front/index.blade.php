@@ -1,4 +1,26 @@
 @extends('layouts.front')
+@push('styles')
+<style>
+.modal-dialog {
+    max-width: 800px;
+    margin: 30px auto;
+}
+.modal-body {
+    position: relative;
+    padding: 0px;
+}
+.close {
+    position: absolute;
+    right: -30px;
+    top: 0;
+    z-index: 999;
+    font-size: 2rem;
+    font-weight: normal;
+    color: #fff;
+    opacity: 1;
+}
+</style>
+@endpush
 
 @section('content')
 <!------------------------------>
@@ -26,8 +48,10 @@
                             </div>
                         </div>
                     </form>
-                    <a href="#" class="mt-3 pt-3"><span class="d-inline-block me-2"><i
-                                class="ti ti-playstation-triangle"></i></span> Discover this Video</a>
+                    <button type="button" class="link-primary border-0 bg-transparent text-decoration-underline video-btn" data-src="https://www.youtube.com/embed/NFWSFbqL0A0"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <span class="d-inline-block me-2"><i class="ti ti-playstation-triangle"></i></span>Discover
+                    </button>
                 </div>
             </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -112,9 +136,12 @@
         <div class="row">
             <div class="col-xxl-8 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <!-- <img src="../assets/images/booking-service-2.png" class="img-fluid"> -->
-                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                    type="module"></script>
 
-    <dotlottie-player src="https://lottie.host/7011a20c-dc54-42c2-a13a-d1886dd9b8ff/K5Y5ZVB9Gn.json" background="transparent" speed="1" style="width: 550px; height: 550px;" loop autoplay></dotlottie-player>
+                <dotlottie-player src="https://lottie.host/7011a20c-dc54-42c2-a13a-d1886dd9b8ff/K5Y5ZVB9Gn.json"
+                    background="transparent" speed="1" style="width: 550px; height: 550px;" loop autoplay>
+                </dotlottie-player>
             </div>
             <div
                 class="col-xxl-4 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3">
@@ -152,7 +179,7 @@
 <!------------------------------>
 <!-- Portfolio section Start---->
 <!------------------------------>
-<section class="portfolio position-relative bg-primary" id="services">
+<section class="portfolio position-relative bg-primary overflow-hidden" id="services">
     <div class="container position-relative">
         <div class="row">
             <div class="col-12"><small class="fs-7 d-block text-warning">For Everyone</small></div>
@@ -169,7 +196,8 @@
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-briefcase text-white"></i></div>
                         <h3 class="fs-4 text-white">Small Business Owners</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Small business owners can use your service to manage their
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Small business owners can use your service to manage
+                            their
                             appointment bookings. They can schedule meetings with clients, consultations with vendors,
                             and other business-related appointments, ensuring efficient time management.</p>
                     </div>
@@ -182,7 +210,8 @@
                             <i class="ti ti-user text-white"></i>
                         </div>
                         <h3 class="fs-4 text-white">Freelancers</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Freelancers can benefit from your platform by scheduling client
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Freelancers can benefit from your platform by
+                            scheduling client
                             meetings, project consultations, and other work-related appointments. They can use the
                             service to maintain a professional image and manage their workload effectively.</p>
                     </div>
@@ -194,7 +223,8 @@
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-calendar text-white"></i></div>
                         <h3 class="fs-4 text-white">Event Planners</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Event planners can use your service to schedule appointments with
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Event planners can use your service to schedule
+                            appointments with
                             clients, vendors, and venues. They can manage their event planning tasks more efficiently
                             and ensure timely communication with all stakeholders.</p>
                     </div>
@@ -208,7 +238,8 @@
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-heart text-white"></i></div>
                         <h3 class="fs-4 text-white">Medical Professionals</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Doctors, therapists, and other healthcare professionals can
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Doctors, therapists, and other healthcare
+                            professionals can
                             utilize your platform to manage patient appointments. They can schedule consultations,
                             treatments, and follow-up appointments, improving patient care and satisfaction.</p>
                     </div>
@@ -220,7 +251,8 @@
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-book text-white"></i></div>
                         <h3 class="fs-4 text-white">Educational Institutions</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Schools, colleges, and universities can use your service to
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Schools, colleges, and universities can use your
+                            service to
                             schedule student appointments for academic advising, counseling, and other student
                             services. This can help improve student engagement and retention.</p>
                     </div>
@@ -232,7 +264,8 @@
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-home text-white"></i></div>
                         <h3 class="fs-4 text-white">Real Estate Agents</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Real estate agents can benefit from your platform by scheduling
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Real estate agents can benefit from your platform by
+                            scheduling
                             appointments for property showings, client meetings, and other real estate-related
                             activities. This can help them manage their listings more efficiently and provide better
                             service to their clients.</p>
@@ -247,13 +280,11 @@
             <div class="owl-carousel owl-theme portfolio-slider">
                 <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
                 </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
+                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio-2.png" class="w-100"></a>
                 </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
+                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio-3.png" class="w-100"></a>
                 </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
-                </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
+                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio-4.png" class="w-100"></a>
                 </div>
             </div>
         </div>
@@ -266,163 +297,29 @@
 <!------------------------------>
 <!-- Pricing section Start------>
 <!------------------------------>
-<!-- <section class="pricing position-relative overflow-hidden" id="pricing">
-    <div class="container position-relative">
-        <div class="row justify-content-center">
-            <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
-                <small class="fs-7 d-block">Pricing Plan</small>
-                <h2 class="fs-3 pricing-head text-black mb-0 position-relative">What’s About Our Pricing
-                    Subscription</h2>
-            </div>
-        </div>
-        <div class="row plans">
-            <div class="col-12 text-center">
-                <div class="form-check form-switch d-flex justify-content-center ps-0 align-items-center">
-                    <label class="form-check-label text-black fs-7" for="flexSwitchCheckChecked">Monthly</label>
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                    <label class="form-check-label text-black fs-7" for="flexSwitchCheckChecked">Yearly</label>
-                </div>
-                <div class="save d-inline-block position-relative text-warning fw-500 fs-9 text-center">Save Up To
-                    58%</div>
-            </div>
-        </div>
-        <div class="row justify-content-center price-plan">
-            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
-                <div class="card position-relative shadow border-0 h-100">
-                    <div class="card-body pb-0">
-                        <small class="fs-7 d-block text-warning text-center">Enterprise</small>
-                        <h2 class="mb-4 text-center position-relative"><sub class="fs-2 text-black">FREE</sub><sup
-                                class="fs-6 position-absolute">$</sup></h2>
-                        <small class="fs-7 d-block text-center">Free</small>
-                        <p class="fs-7 text-center fw-500">For individuals looking for a simple CRM solution</p>
-                    </div>
-                    <div class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
-                        <a href="{{ route('subscribe.create.checkout.session', ['product_id' => 'price_1P6So1A7dIeuDMDjG4mA8UJx']) }}" class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="card position-relative shadow border-0 h-100">
-                    <div class="card-body pb-4">
-                        <small class="fs-7 d-block text-warning text-center">Personal</small>
-                        <h2 class="mb-4 text-center position-relative"><sub class="fs-2 text-black">9</sub><sup
-                                class="fs-6 position-absolute">$</sup></h2>
-                        <small class="fs-7 d-block text-center">Free</small>
-                        <p class="fs-7 text-center fw-500">For individuals looking for a simple CRM solution</p>
-                        <ul class="list-unstyled mb-0 pl-0">
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Basic CRM features</span>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Unlimited Personal Pipelines</span>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Email Power Tools</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
-                        <a href="{{ route('paddle.pay', ['price_id' => 'pri_01hxcvfyfza8sa9pm96jx8d055']) }}" class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="card position-relative shadow border-0 h-100">
-                    <div class="position-absolute badge bg-warning d-inline-block mx-auto">
-                        Most Popular
-                    </div>
-                    <div class="card-body pb-4">
-                        <small class="fs-7 d-block text-warning text-center">Professional</small>
-                        <h2 class="mb-4 text-center position-relative"><sub class="fs-2 text-black">25</sub><sup
-                                class="fs-6 position-absolute">$</sup></h2>
-                        <small class="fs-7 d-block text-center">Free</small>
-                        <p class="fs-7 text-center fw-500">For individuals looking for a simple CRM solution</p>
-                        <ul class="list-unstyled mb-0 pl-0">
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Basic CRM features</span>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Unlimited Personal Pipelines</span>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Email Power Tools</span>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Unlimited Shared Pipelines</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
-                        <a href="{{ route('subscribe.create.checkout.session', ['product_id' => 'price_1P6ltyA7dIeuDMDjdAjiUlJi']) }}" class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="card position-relative shadow border-0 h-100">
-                    <div class="card-body pb-4">
-                        <small class="fs-7 d-block text-warning text-center">Enterprise</small>
-                        <h2 class="mb-4 text-center position-relative"><sub class="fs-2 text-black">49</sub><sup
-                                class="fs-6 position-absolute">$</sup></h2>
-                        <small class="fs-7 d-block text-center">Free</small>
-                        <p class="fs-7 text-center fw-500">For individuals looking for a simple CRM solution</p>
-                        <ul class="list-unstyled mb-0 pl-0">
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Basic CRM features</span>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Unlimited Personal Pipelines</span>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Email Power Tools</span>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black">Unlimited Shared Pipelines</span>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <i class="ti ti-circle-check fs-4 pe-2"></i>
-                                <span class="fs-7 text-black"> Full API Access</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
-                        <a href="{{ route('subscribe.create.checkout.session', ['product_id' => 'price_1P6SGpA7dIeuDMDj7yxYyEzq']) }}" class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section> -->
 <section class="pricing position-relative overflow-hidden" id="pricing">
     <div class="container position-relative">
         <div class="row justify-content-center">
             <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
                 <small class="fs-7 d-block">Pricing Plan</small>
-                <h2 class="fs-3 pricing-head text-black mb-0 position-relative">Please choose your pricing plan</h2>
+                <h2 class="fs-3 pricing-head text-black mb-0 position-relative">Our Packs</h2>
             </div>
         </div>
-      
+
         <div class="row justify-content-center">
             <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
-                <div class="card position-relative shadow border-0 h-100">
-                    <div class="card-body p-2">
+                <div class="card position-relative shadow-lg border-0 h-100">
+                    <div class="card-body p-2" id="price-plan">
                         <small class="fs-7 d-block text-warning text-center">For individuals</small>
                         <h2 class="mb-4 text-center position-relative"><sub class="fs-2 text-black">FREE</sub></h2>
-                        <p class="fs-7 text-center fw-500">Get started for free and get {{$freeProducts[0]->bookings}} bookings</p>
+                        <p class="fs-7 text-center fw-500">Get started for free and get {{$freeProducts[0]->bookings}}
+                            bookings</p>
                     </div>
-                    <div class="card-action text-center pb-2">
-                        <a href="{{ route('paddle.pay', ['price_id' => $freeProducts[0]->paddle_price_id]) }}" class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a>
+                    <div class="card-action text-center pb-2 mb-2">
+                        <!-- <a href="{{ route('paddle.pay', ['price_id' => $freeProducts[0]->paddle_price_id]) }}"
+                            class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a> -->
+                        <a href="{{ route('register') }}"
+                            class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -431,60 +328,67 @@
         <div class="row justify-content-center price-plan">
             @foreach($products as $product)
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="card position-relative shadow border-0 h-100 {{ $product->name == 'Standard' ? 'highlighted-card' : '' }}">
-                    <div class="card-body pb-4">
+                <div
+                    class="card position-relative shadow border-0 h-100 {{ $product->name == 'Standard' ? 'highlighted-card' : '' }}">
+                    <div class="card-body pb-4 pt-4">
                         <small class="fs-7 d-block text-warning text-center">{{$product->name}}</small>
-                        <h2 class="mb-4 text-center position-relative"><sub class="fs-2 text-black">{{$product->price}}</sub><sup
+                        <h2 class="mb-4 text-center position-relative"><sub
+                                class="fs-2 text-black">{{$product->price}}</sub><sup
                                 class="fs-6 position-absolute">$</sup></h2>
                         <p class="fs-7 text-center fw-500">For individuals looking for a simple CRM solution</p>
                         <ul class="list-unstyled mb-0 pl-0">
-                            <li class="d-flex align-items-start">
+                            <li class="d-flex align-items-start pb-2">
                                 <i class="ti ti-circle-check bk-orange fs-4 pe-2"></i>
                                 <span class="fs-7 text-black">{{$product->bookings}} Bookings</span>
                             </li>
                             @foreach(json_decode($product->features) as $key => $feature)
-                            
-                                @switch($key)
-                                    
-                                    @case('admin_dashboard')
-                                        <li class="d-flex align-items-start">
-                                        <i class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
-                                        <span class="fs-7 text-black">Admin Dashboard</span>
-                                        </li>
-                                        @break
-                                    @case('white_label')
-                                        <li class="d-flex align-items-start">
-                                        <i class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
-                                        <span class="fs-7 text-black">White Label</span>
-                                        </li>
-                                        @break
-                                    @case('list_in_booked_directory')
-                                        <li class="d-flex align-items-start">
-                                        <i class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
-                                        <span class="fs-7 text-black">List in Booked</span>
-                                        </li>
-                                        @break
-                                    @case('widget')
-                                        <li class="d-flex align-items-start">
-                                        <i class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
-                                        <span class="fs-7 text-black">Widget</span>
-                                        </li>
-                                        @break
-                                    @case('services_and_events_providers')
-                                        <li class="d-flex align-items-start">
-                                        <i class="ti ti-circle-check bk-orange fs-4 pe-2"></i>
-                                        <span class="fs-7 text-black">Services/Events Providers : {{ $feature }}</span>
-                                        </li>
-                                        @break
-                                    @default
-                                        @break
-                                @endswitch
+
+                            @switch($key)
+
+                            @case('admin_dashboard')
+                            <li class="d-flex align-items-start pb-2">
+                                <i
+                                    class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
+                                <span class="fs-7 text-black">Admin Dashboard</span>
+                            </li>
+                            @break
+                            @case('white_label')
+                            <li class="d-flex align-items-start pb-2">
+                                <i
+                                    class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
+                                <span class="fs-7 text-black">White Label</span>
+                            </li>
+                            @break
+                            @case('list_in_booked_directory')
+                            <li class="d-flex align-items-start pb-2">
+                                <i
+                                    class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
+                                <span class="fs-7 text-black">List in Booked</span>
+                            </li>
+                            @break
+                            @case('widget')
+                            <li class="d-flex align-items-start pb-2">
+                                <i
+                                    class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
+                                <span class="fs-7 text-black">Widget</span>
+                            </li>
+                            @break
+                            @case('services_and_events_providers')
+                            <li class="d-flex align-items-start pb-2">
+                                <i class="ti ti-circle-check bk-orange fs-4 pe-2"></i>
+                                <span class="fs-7 text-black">Services/Events Providers : {{ $feature }}</span>
+                            </li>
+                            @break
+                            @default
+                            @break
+                            @endswitch
                             @endforeach
-                      
+
                         </ul>
                     </div>
                     <div class="card-action text-center pb-xxl-5 pb-xl-5 pb-lg-5 pb-md-4 pb-sm-4 pb-4">
-                        <a href="{{ route('paddle.pay', ['price_id' => $product->paddle_price_id]) }}" class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a>
+                        <a href="{{ route('paddle.pay', ['price_id' => $product->paddle_price_id]) }}"
+                            class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -720,8 +624,69 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog pt-5">
+            <div class="modal-content bg-transparent">
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="" 
+                        id="video"  allowscriptaccess="always" 
+                        allow="autoplay" style="width: 100%; height: 70vh;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </section>
 <!------------------------------>
 <!-----Contact section End----->
 <!------------------------------>
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+    // document.getElementById("loadingscreen").classList.remove("hidden")
+    window.addEventListener('load', onPageLoaded, false );
+    window.addEventListener("pageshow", onPageShown, false);
+
+    /* special event handler for ios Safari */
+    function onPageShown(evt) {
+        // check if the page has been loaded from cache entirely
+        if (evt.persisted) {
+            // emulate the page loaded event
+            onPageLoaded();
+        }
+    }
+
+    function onPageLoaded() {
+        setTimeout(function() {
+            document.getElementById("loadingscreen").classList.add("hidden");
+        }, 1500); // 3000 milliseconds = 3 seconds
+    }
+</script>
+<script>
+$(document).ready(function() {
+    // Gets the video src from the data-src on each button
+
+    var $videoSrc;
+    $('.video-btn').click(function() {
+        $videoSrc = $(this).data("src");
+    });
+    console.log($videoSrc);
+
+    // when the modal is opened autoplay it  
+    $('#exampleModal').on('shown.bs.modal', function(e) {
+        // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+        $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+    })
+
+    // stop playing the youtube video when I close the modal
+    $('#exampleModal').on('hide.bs.modal', function(e) {
+        // a poor man's stop video
+        $("#video").attr('src', $videoSrc);
+    })
+})
+</script>
+@endpush

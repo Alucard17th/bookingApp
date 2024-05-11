@@ -146,5 +146,5 @@ Route::get('/import-plans-features', function () {
     }
 });
 
-Route::get('paddle-pay/{price_id}', [App\Http\Controllers\PaddlePaymentController::class, 'pay'])->name('paddle.pay');
+Route::get('paddle-pay/{price_id}', [App\Http\Controllers\PaddlePaymentController::class, 'pay'])->name('paddle.pay')->middleware('registered');
 Route::any('/paddle-webhook', [App\Http\Controllers\PaddlePaymentController::class, 'handle'])->name('paddle.handle');

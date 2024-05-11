@@ -144,7 +144,7 @@
                         style="min-height: 100vh;">
                         @if(auth()->user() && !auth()->user()->canBeBooked())
                         <div class="container">
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                 <strong>Oh snap!</strong> You can't receive any bookings.
                                 <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                             </div>
@@ -167,53 +167,55 @@
     <script>
     $(document).ready(function() {
 
-        var tableElement = document.querySelector('.table');
         // Check if there is an element with the table class
-        var tableElement = document.querySelector('.table');
+        var tablesElement = document.querySelectorAll('.table');
 
         // Proceed with initialization if the element exists
-        if (tableElement) {
-            new DataTable(tableElement, {
-                "order": [
-                    [0, "desc"]
-                ],
-                initComplete: function() {
-                    this.api()
-                        .columns()
-                        .every(function() {
-                            let column = this;
-                            // Check if column footer exists
-                            if (column.footer()) {
-                                let title = column.footer().textContent;
+        tablesElement.forEach(function(tableElement) {
+            if (tableElement) {
+                new DataTable(tableElement, {
+                    "order": [
+                        [0, "desc"]
+                    ],
+                    initComplete: function() {
+                        this.api()
+                            .columns()
+                            .every(function() {
+                                let column = this;
+                                // Check if column footer exists
+                                if (column.footer()) {
+                                    let title = column.footer().textContent;
 
-                                // Create input element
-                                let input = document.createElement('input');
-                                input.placeholder = title;
-                                column.footer().replaceChildren(input);
+                                    // Create input element
+                                    let input = document.createElement('input');
+                                    input.placeholder = title;
+                                    column.footer().replaceChildren(input);
 
-                                // Event listener for user input
-                                input.addEventListener('keyup', () => {
-                                    if (column.search() !== this.value) {
-                                        column.search(input.value).draw();
-                                    }
-                                });
-                                input.addEventListener('click', (e) => {
-                                    e.stopPropagation();
-                                });
-                            }
+                                    // Event listener for user input
+                                    input.addEventListener('keyup', () => {
+                                        if (column.search() !== this.value) {
+                                            column.search(input.value).draw();
+                                        }
+                                    });
+                                    input.addEventListener('click', (e) => {
+                                        e.stopPropagation();
+                                    });
+                                }
+                            });
+
+                        var r = $('.table tfoot tr');
+                        r.find('th').each(function() {
+                            $(this).css('padding', 8);
                         });
-
-                    var r = $('.table tfoot tr');
-                    r.find('th').each(function() {
-                        $(this).css('padding', 8);
-                    });
-                    $('.table thead').append(r);
-                    $('#search_0').css('text-align', 'center');
-                }
-            });
-        } else {
-            console.log('No element with class "table" found.');
-        }
+                        $('.table thead').append(r);
+                        $('#search_0').css('text-align', 'center');
+                    }
+                });
+            } else {
+                console.log('No element with class "table" found.');
+            }
+        })
+        
 
         $('.toggle-sidebar').click(function() {
             $('.sidebar-collapsed').toggleClass('sidebar-expanded');

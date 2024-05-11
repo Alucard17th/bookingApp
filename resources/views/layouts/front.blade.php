@@ -14,9 +14,16 @@
     <link href="{{asset('/css/style.css')}}" rel="stylesheet">
     
     @paddleJS
+    @stack('styles')
 </head>
 
 <body>
+    <!-- Loadingscreen Start -->
+    <div id="loadingscreen">
+        <div class="spinner"></div>
+        <!-- <a class="cancel" href="#">Canel</a> -->
+    </div>
+    <!-- Loadingscreen End -->
     <!------------------------------>
     <!-- Header Start -->
     <!------------------------------>
@@ -40,7 +47,7 @@
                             <a class="nav-link text-capitalize" href="{{url('/')}}#services">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-capitalize" href="{{url('/')}}#pricing">Pricing</a>
+                            <a class="nav-link text-capitalize" href="{{url('/')}}#price-plan">Pricing</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-capitalize" href="{{url('/')}}#faq">FAQ</a>

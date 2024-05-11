@@ -10876,7 +10876,7 @@ textarea.form-control-lg {
 }
 .hero-banner .left-hero-color {
   /* padding-top: 250px; */
-  padding-top: 20px;
+  padding-top: 100px;
   z-index: 1;
 }
 .hero-banner .left-hero-color::before {
@@ -10908,7 +10908,7 @@ textarea.form-control-lg {
   transform: rotate(90deg);
 }
 .hero-banner .right-hero-color {
-  padding-top: 150px;
+  padding-top: 100px;
   z-index: 1;
 }
 .hero-banner .right-hero-color::after {
@@ -11094,6 +11094,7 @@ textarea.form-control-lg {
 }
 .portfolio .portfolio-slider .item img {
   border-radius: 15px;
+  height: 50vh;
 }
 
 .pricing {
@@ -11114,7 +11115,7 @@ textarea.form-control-lg {
 }
 .pricing small, .pricing .small {
   color: #7A8496;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   font-weight: 600;
 }
 .pricing h2, .pricing .h2 {
@@ -11850,6 +11851,67 @@ tfoot input {
 }
 
 
+.hidden {display: none;}
+#loadingscreen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    z-index: 101;
+}
+#loadingscreen img {
+    position: absolute;
+    max-width: 90%;
+    margin-left: -141px;
+    margin-top: -130px;
+    top: 50%;
+    left: 50%;
+    width: 283px;
+}
+
+#loadingscreen a.cancel {
+    position: absolute;
+    top: 50%;
+    margin-top: 140px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    background-color: #EE7B11;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    left: 50%;
+    margin-left: -20px;
+    border-radius: 100%;  
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+      -webkit-transform: scale(1.0);
+      opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% { 
+      -webkit-transform: scale(0);
+      transform: scale(0);
+  } 100% {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+      opacity: 0;
+  }
+}
+
 .teams-card {
   /* Combine transitions into a single rule for better efficiency */
   transition: background-color 0.7s, color 0.3s ease-in-out !important;  
@@ -11878,4 +11940,6 @@ tfoot input {
 .teams-card:hover .icon{
   background-color: #fff !important;
 }
+
+
 /*END OF NRD STYLES */

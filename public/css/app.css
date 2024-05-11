@@ -238,3 +238,31 @@ tfoot input {
     display: block;
     font-size: 7px !important;
 }
+
+/*SIDEBAR */
+
+/* SIDEBAR STYLES END */
+.dropdown-item.active{
+    color: #ffffff !important;
+    background-color: var(--cs-blue) !important;
+    border-radius: 5px !important;
+    /* width: fit-content; */
+  }
+
+.btn-primary, 
+.form-check-input:checked
+{
+    background-color: var(--cs-blue) !important;
+    border-color: var(--cs-blue) !important;
+}
+
+#app > div > div > div.col-10.content-collapsed > main > div > div.row.mb-3 > a{
+    color: var(--cs-blue) !important;
+}
+
+.bk-table td, .bk-table th {
+    padding-top: 10px;
+    padding-bottom: 0.656rem;
+    padding-left: 5px;
+    padding-right: 5px;
+}

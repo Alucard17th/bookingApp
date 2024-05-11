@@ -43,15 +43,6 @@
                         </div>
                     </div>
 
-                    <div class="col-6"></div>
-
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="date">Event</label>
-                            <input type="text" class="form-control" name="service_id" value="{{ $appointment->service->name }}" readonly>
-                        </div>
-                    </div>
-
                     <div class="col-3">
                         <div class="form-group">
                             <label for="date">Date</label>
@@ -63,9 +54,30 @@
                         <div class="form-group">
                             <label for="time">Time</label>
                             <input type="time" class="form-control" id="time" name="time"
-                                value="{{ $appointment->time[0] }}" required>
+                                value="{{ explode(' - ', $appointment->time)[0] }}" >
                         </div>
                     </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="date">Event</label>
+                            <input type="hidden" class="form-control" name="service_id"
+                                value="{{ $appointment->service->id }}" readonly>
+                            <input type="text" class="form-control" name="service_name"
+                                value="{{ $appointment->service->name }}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="col-6 d-flex align-items-end">
+                        <div class="form-group">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="status"
+                                @if($appointment->status == 'active' ) checked @endif>
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Active</label>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <button type="submit" class="btn btn-primary mt-3">Update</button>
