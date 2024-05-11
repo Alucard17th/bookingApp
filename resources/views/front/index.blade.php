@@ -550,7 +550,7 @@
                             </p>
                             <div class="d-flex align-items-center">
                                 <div class="avtar-img rounded-circle overflow-hidden"><img
-                                        src="../assets/images/contact/testimonial-image.png" class="img-fluid">
+                                        src="{{asset('/assets/images/contact/testimonial-image.png')}}" class="img-fluid">
                                 </div>
                                 <div class="name ps-3">
                                     <h6 class="text-white">Merky Lester</h6>
@@ -567,7 +567,7 @@
                             </p>
                             <div class="d-flex align-items-center">
                                 <div class="avtar-img rounded-circle overflow-hidden"><img
-                                        src="../assets/images/contact/testimonial-image.png" class="img-fluid">
+                                        src="{{asset('/assets/images/contact/testimonial-image.png')}}" class="img-fluid">
                                 </div>
                                 <div class="name ps-3">
                                     <h6 class="text-white">Merky Lester</h6>
