@@ -10870,7 +10870,7 @@ textarea.form-control-lg {
   width: 35%;
   height: 100%;
   background-size: cover;
-  background-image: url(../../assets/images/hero/right-background.svg);
+  background-image: url(../assets/images/hero/right-background.svg);
   background-repeat: no-repeat;
   z-index: -1;
 }
@@ -10887,7 +10887,7 @@ textarea.form-control-lg {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background-image: url(../../assets/images/hero/leftside-backlayer-icons.svg);
+  background-image: url(../assets/images/hero/leftside-backlayer-icons.svg);
   background-repeat: no-repeat;
   z-index: -1;
 }
@@ -10919,7 +10919,7 @@ textarea.form-control-lg {
   width: 35%;
   height: 70%;
   background-size: contain;
-  background-image: url(../../assets/images/hero/rightside-backlayer-icons.svg);
+  background-image: url(../assets/images/hero/rightside-backlayer-icons.svg);
   background-repeat: no-repeat;
   z-index: -1;
 }
@@ -10935,7 +10935,7 @@ textarea.form-control-lg {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background-image: url(../../assets/images/service/service-backlayer.svg);
+  background-image: url(../assets/images/service/service-backlayer.svg);
   background-repeat: no-repeat;
   z-index: -1;
   background-position: center;
@@ -10969,7 +10969,7 @@ textarea.form-control-lg {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background-image: url(../../assets/images/service/service-round-icon-layer.svg);
+  background-image: url(../assets/images/service/service-round-icon-layer.svg);
   background-repeat: no-repeat;
   z-index: 0;
   background-position: center;
@@ -11003,7 +11003,7 @@ textarea.form-control-lg {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background-image: url(../../assets/images/our-service/our-service-background.svg);
+  background-image: url(../assets/images/our-service/our-service-background.svg);
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
@@ -11046,7 +11046,7 @@ textarea.form-control-lg {
   width: 100%;
   height: 92%;
   background-size: contain;
-  background-image: url(../../assets/images/portfolio/portfolio-backoverlay.svg);
+  background-image: url(../assets/images/portfolio/portfolio-backoverlay.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -11108,7 +11108,7 @@ textarea.form-control-lg {
   width: 100%;
   height: 100%;
   background-size: contain;
-  background-image: url(../../assets/images/price-plans/price-plan-background-icons.svg);
+  background-image: url(../assets/images/price-plans/price-plan-background-icons.svg);
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
@@ -11141,7 +11141,7 @@ textarea.form-control-lg {
   width: 130px;
   height: 130px;
   background-size: contain;
-  background-image: url(../../assets/images/price-plans/dot-shape.png);
+  background-image: url(../assets/images/price-plans/dot-shape.png);
   background-repeat: no-repeat;
   z-index: -1;
   background-position: center;
@@ -11155,7 +11155,7 @@ textarea.form-control-lg {
   width: 28px;
   height: 25px;
   background-size: contain;
-  background-image: url(../../assets/images/price-plans/price-arrow.svg);
+  background-image: url(../assets/images/price-plans/price-arrow.svg);
   background-repeat: no-repeat;
   z-index: -1;
   background-position: center;
@@ -11182,7 +11182,7 @@ textarea.form-control-lg {
   width: 12px;
   height: 12px;
   background-size: contain;
-  background-image: url(../../assets/images/price-plans/left-shape.svg);
+  background-image: url(../assets/images/price-plans/left-shape.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -11194,7 +11194,7 @@ textarea.form-control-lg {
   width: 12px;
   height: 12px;
   background-size: contain;
-  background-image: url(../../assets/images/price-plans/right-shape.svg);
+  background-image: url(../assets/images/price-plans/right-shape.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -11206,7 +11206,7 @@ textarea.form-control-lg {
   width: 185px;
   height: 185px;
   background-size: contain;
-  background-image: url(../../assets/images/price-plans/price-overlay.svg);
+  background-image: url(../assets/images/price-plans/price-overlay.svg);
   background-repeat: no-repeat;
   background-position: center;
   left: 0;
@@ -11248,7 +11248,7 @@ textarea.form-control-lg {
   width: 100%;
   height: 90%;
   background-size: contain;
-  background-image: url(../../assets/images/faq/faq-backlayer-icons.svg);
+  background-image: url(../assets/images/faq/faq-backlayer-icons.svg);
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
@@ -11341,7 +11341,7 @@ textarea.form-control-lg {
   width: 50px;
   height: 50px;
   background-size: contain;
-  background-image: url(../../assets/images/contact/quotes.svg);
+  background-image: url(../assets/images/contact/quotes.svg);
   background-repeat: no-repeat;
   background-position: center;
   z-index: 0;
@@ -11459,7 +11459,7 @@ select.form-control {
   font-size: 16px;
   font-weight: 400;
   background: #fff;
-  background-image: url(../../assets/images/contact/icon_caret_down.svg);
+  background-image: url(../assets/images/contact/icon_caret_down.svg);
   background-repeat: no-repeat;
   background-position-x: 94%;
   background-position-y: 50%;
@@ -11477,7 +11477,7 @@ textarea.form-control {
 .section-bg-icons::before {
   position: absolute;
   content: "";
-  background-image: url(../../assets/images/section-bg/team-feature-bg.svg);
+  background-image: url(../assets/images/section-bg/team-feature-bg.svg);
   background-repeat: no-repeat;
   height: 130%;
   width: 100%;
