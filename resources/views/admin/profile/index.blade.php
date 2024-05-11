@@ -24,7 +24,7 @@
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link text-muted"  data-bs-toggle="pill" data-bs-target="#pills-profile"
-                type="button" role="tab" aria-controls="pills-profile" aria-selected="true">Profileee</button>
+                type="button" role="tab" aria-controls="pills-profile" aria-selected="true">Profile</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link text-muted" id="pills-working-hours-tab" data-bs-toggle="pill" data-bs-target="#pills-working-hours"
