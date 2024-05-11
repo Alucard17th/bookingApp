@@ -20,9 +20,6 @@
     opacity: 1;
 }
 
-.contact::before {
-    background-image: url({{ asset('/assets/images/contact/contact-background-layer.svg') }});
-}
 </style>
 @endpush
 
