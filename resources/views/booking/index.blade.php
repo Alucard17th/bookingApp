@@ -92,7 +92,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <img class="logo me-2" src="{{ Storage::url($service->user->logo) }}" alt="">
+                                <img class="logo me-2" src="{{ asset('storage/'.$service->user->avatar) }}" alt="">
                                 <h5 class="fw-bold text-uppercase">{{ ucfirst($service->name) }}</h5>
                             </td>
                         </tr>

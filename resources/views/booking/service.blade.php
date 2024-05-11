@@ -242,7 +242,7 @@
                                         aria-labelledby="stepperFormTrigger1">
                                         <div class="row">
                                             <div class="col-3">
-                                                <img class="img-fluid" src="{{ Storage::url($user->logo) }}" alt="" />
+                                                <img class="img-fluid" src="{{ asset('storage/'.$user->logo) }}" alt="" />
                                             </div>
                                             <div class="col-9">
                                                 <h4 class="text-capitalize">{{$user->name}}</h4>

@@ -33,7 +33,7 @@
                             @if($user->avatar)
                             <div class="form-group image-preview">
                                 <label>Avatar Preview</label>
-                                <img class="img-thumbnail img-fluid profile-image border-0" src="{{ Storage::url($user->avatar) }}"
+                                <img class="img-thumbnail img-fluid profile-image border-0" src="{{asset('storage/'.$user->avatar)}}"
                                     alt="{{ $user->name }}">
                             </div>
                             @endif
@@ -153,10 +153,8 @@
 
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         @if($user->logo)
-                        <div class="form-group image-preview company-image" style="background-image: url({{ Storage::url($user->logo) }});">
+                        <div class="form-group image-preview company-image" style="background-image: url({{ asset('storage/'.$user->logo) }});">
                             <label>Logo Preview</label>
-                            <!-- <img class="img-thumbnail img-fluid company-image" src="{{ Storage::url($user->logo) }}"
-                                alt="{{ $user->company_name }}"> -->
                         </div>
                         @endif
                     </div>
