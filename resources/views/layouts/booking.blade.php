@@ -37,7 +37,7 @@
         <div class="container-fluid">
             <nav class="navbar navbar-expand-xl py-0">
                 <div class="logo">
-                    <a class="navbar-brand py-0 me-0" href="{{url('/')}}"><img src="../assets/images/logo.png"
+                    <a class="navbar-brand py-0 me-0" href="{{url('/')}}"><img src="{{asset('assets/images/logo.png')}}"
                             alt="" class="mt-4"></a>
                 </div>
                 <a class="d-inline-block d-lg-block d-xl-none d-xxl-none  nav-toggler text-decoration-none"

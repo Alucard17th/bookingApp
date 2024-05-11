@@ -331,7 +331,7 @@
                         <div class="row">
                             @if($user->reviews->count() == 0)
                             <div class="col-12 text-center">
-                                <img src="../assets/images/logo.png" class="img-fluid login-image">
+                                <img src="{{asset('assets/images/logo.png')}}" class="img-fluid login-image">
                                 <div class="no-comments mt-5">
                                     <i class="fas fa-frown"></i>
                                     <h4>No reviews yet</h4>

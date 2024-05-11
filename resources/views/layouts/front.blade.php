@@ -31,7 +31,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-xl py-0">
                 <div class="logo">
-                    <a class="navbar-brand py-0 me-0" href="{{url('/')}}"><img src="../assets/images/logo.png"
+                    <a class="navbar-brand py-0 me-0" href="{{url('/')}}"><img src="{{asset('assets/images/logo.png')}}"
                             alt=""></a>
                 </div>
                 <a class="d-inline-block d-lg-block d-xl-none d-xxl-none  nav-toggler text-decoration-none"
@@ -75,7 +75,7 @@
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <div class="logo">
-                    <a class="navbar-brand py-0 me-0" href="#"><img src="../assets/images/Creato-logo.svg" alt=""></a>
+                    <a class="navbar-brand py-0 me-0" href="#"><img src="{{asset('assets/images/logo.png')}}" alt=""></a>
                 </div>
                 <button type="button" class="btn-close text-reset  ms-auto" data-bs-dismiss="offcanvas"
                     aria-label="Close"><i class="ti ti-x text-warning"></i></button>
@@ -118,7 +118,7 @@
             <div class="row">
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <div class="footer-logo-col">
-                        <a href="#"><img src="../assets/images/footer/Logo.svg"></a>
+                        <a href="#"><img src="{{asset('assets/images/logo.png')}}"></a>
                         <p class="blue-light mb-0 fs-7 fw-500">Rakon is a simple, elegant, and secure way to build your
                             bitcoin and crypto portfolio.</p>
                         <div class="callus text-white fw-500 fs-7">

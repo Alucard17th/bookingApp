@@ -78,7 +78,7 @@
 <!------------------------------>
 <section class="service position-relative overflow-hidden" id="howitworks">
     <div class="container position-relative">
-        <img src="../assets/images/service/dot-shape.png" class="shape position-absolute">
+        <img src="{{asset('assets/images/service/dot-shape.png')}}" class="shape position-absolute">
         <div class="row">
             <div class="col-12"><small class="fs-7 d-block">Working Process</small></div>
             <div
@@ -91,7 +91,7 @@
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center col-service">
                 <div class="card border-0 shadow">
                     <div class="card-body">
-                        <img src="../assets/images/icons/calendar.png" alt="">
+                        <img src="{{asset('assets/images/icons/calendar.png')}}" alt="">
                         <h5 class="mb-0 fw-500">Step 1</h5>
                         <h3 class="fs-4">Arrange your availability</h3>
                         <p class="fs-7 mb-0 fw-500">Specify your timetable, synchronize it with your calendar, and
@@ -102,7 +102,7 @@
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center col-service">
                 <div class="card border-0 shadow">
                     <div class="card-body">
-                        <img src="../assets/images/icons/social.png" alt="">
+                        <img src="{{asset('assets/images/icons/social.png')}}" alt="">
                         <h5 class="mb-0 fw-500">Step 2</h5>
                         <h3 class="fs-4">Share your scheduling link</h3>
                         <p class="fs-7 mb-0 fw-500">Disseminate your booking page through email, text, social media
@@ -113,7 +113,7 @@
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center col-service">
                 <div class="card border-0 shadow">
                     <div class="card-body">
-                        <img src="../assets/images/icons/thank-you.png" alt="">
+                        <img src="{{asset('assets/images/icons/thank-you.png')}}" alt="">
                         <h5 class="mb-0 fw-500">Step 3</h5>
                         <h3 class="fs-4">Now Start your Journey</h3>
                         <p class="fs-7 mb-0 fw-500">As individuals commence scheduling time with you, our application
@@ -535,8 +535,8 @@
 <!------------------------------>
 <section class="contact bg-primary position-relative overflow-hidden">
     <div class="container position-relative">
-        <div class="dots-shape-left position-absolute"><img src="../assets/images/icons/dot-shape.png"></div>
-        <div class="dots-shape-right position-absolute"><img src="../assets/images/icons/dot-shape.png"></div>
+        <div class="dots-shape-left position-absolute"><img src="{{asset('assets/images/service/dot-shape.png')}}"></div>
+        <div class="dots-shape-right position-absolute"><img src="{{asset('assets/images/service/dot-shape.png')}}"></div>
         <div class="row">
             <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
                 <small class="fs-7 d-block text-warning">Join us Now</small>

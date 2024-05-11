@@ -8,7 +8,7 @@
                 <div class="card-body py-3">
                     <div class="row mb-2">
                         <div class="col-md-12 text-center">
-                            <img src="../assets/images/logo.png" class="img-fluid login-image">
+                            <img src="{{asset('assets/images/logo.png')}}" class="img-fluid login-image">
                         </div>
                     </div>
                     <form method="POST" action="{{ route('login') }}" class="mt-5">
