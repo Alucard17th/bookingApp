@@ -279,13 +279,13 @@
     <div class="container position-relative">
         <div class="portfolio-wrap">
             <div class="owl-carousel owl-theme portfolio-slider">
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio.png" class="w-100"></a>
+                <div class="item"><a href="#"><img src="{{asset('assets/images/portfolio/Portfolio.png')}}" class="w-100"></a>
                 </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio-2.png" class="w-100"></a>
+                <div class="item"><a href="#"><img src="{{asset('assets/images/portfolio/Portfolio-2.png')}}" class="w-100"></a>
                 </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio-3.png" class="w-100"></a>
+                <div class="item"><a href="#"><img src="{{asset('assets/images/portfolio/Portfolio-3.png')}}" class="w-100"></a>
                 </div>
-                <div class="item"><a href="#"><img src="../assets/images/portfolio/Portfolio-4.png" class="w-100"></a>
+                <div class="item"><a href="#"><img src="{{asset('assets/images/portfolio/Portfolio-4.png')}}" class="w-100"></a>
                 </div>
             </div>
         </div>
