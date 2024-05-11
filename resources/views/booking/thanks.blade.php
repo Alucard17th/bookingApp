@@ -11,7 +11,7 @@
 
                 <div class="card-body">
                     <div class="text-center mb-4">
-                        <img src="../assets/images/hero/8380948_3899260.svg" alt="Thank You" style="max-width: 200px;">
+                        <img src="{{asset('assets/images/hero/8380948_3899260.svg')}}" alt="Thank You" style="max-width: 200px;">
                     </div>
                     <p class="lead">Thank you for your interest in our service!</p>
                     <p>Your submission has been received successfully.</p>
