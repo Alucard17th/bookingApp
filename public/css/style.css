@@ -4333,11 +4333,11 @@ textarea.form-control-lg {
   --bs-accordion-btn-padding-y: 25px;
   --bs-accordion-btn-color: #14141C;
   --bs-accordion-btn-bg: #F1F1F5;
-  --bs-accordion-btn-icon: url("../../assets/images/faq/plus.svg");
+  --bs-accordion-btn-icon: url("../assets/images/faq/plus.svg");
   --bs-accordion-btn-icon-width: 20px;
   --bs-accordion-btn-icon-transform: rotate(-180deg);
   --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
-  --bs-accordion-btn-active-icon: url("../../assets/images/faq/minus.svg");
+  --bs-accordion-btn-active-icon: url("../assets/images/faq/minus.svg");
   --bs-accordion-btn-focus-border-color: #8ba1dc;
   --bs-accordion-btn-focus-box-shadow: 0;
   --bs-accordion-body-padding-x: 30px;
