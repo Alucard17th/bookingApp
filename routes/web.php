@@ -35,6 +35,8 @@ Route::get('/', function () {
 
 Route::get('/choose-plan', function () {
     // dd(auth()->user()->subscription()->quantity);
+
+    dd(Product::all());
     $products = Product::where('name', '!=', 'Free')->orderBy('bookings', 'asc')->get();
     $freeProducts = Product::where('name', 'Free')->get();
     return view('front.choose-plan', compact('products', 'freeProducts'));
@@ -148,3 +150,7 @@ Route::get('/import-plans-features', function () {
 
 Route::get('paddle-pay/{price_id}', [App\Http\Controllers\PaddlePaymentController::class, 'pay'])->name('paddle.pay')->middleware('registered');
 Route::any('/paddle-webhook', [App\Http\Controllers\PaddlePaymentController::class, 'handle'])->name('paddle.handle');
+
+// SOCIALITE 
+Route::get('/google/redirect', [App\Http\Controllers\SocialiteLoginController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('/google/callback', [App\Http\Controllers\SocialiteLoginController::class, 'handleGoogleCallback'])->name('google.callback');
