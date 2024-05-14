@@ -21,12 +21,12 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}"
-                                    required>
+                                    required readonly disabled>
                             </div>
 
                             <div class="form-group">
                                 <label for="avatar">Avatar</label>
-                                <input type="file" class="form-control-file" id="avatar" name="avatar" accept="image/*">
+                                <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*">
                             </div>
                         </div>
                         <div class="col-6 d-flex align-items-center justify-content-center">
@@ -138,17 +138,10 @@
                             <input type="text" class="form-control" id="phone" name="phone" value="{{ $user->phone }}">
                         </div>
 
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="logo">Logo</label>
-                                    <input type="file" class="form-control-file" id="logo" name="logo" accept="image/*">
-                                </div>
-                            </div>
-                        
-                            
+                        <div class="form-group">
+                            <label for="logo">Logo</label>
+                            <input type="file" class="form-control" id="logo" name="logo" accept="image/*">
                         </div>
-
                     </div>
 
                     <div class="col-6 d-flex align-items-center justify-content-center">
@@ -158,7 +151,6 @@
                         </div>
                         @endif
                     </div>
-
                 </div>
             </div>
         </div>

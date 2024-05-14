@@ -78,6 +78,7 @@ class BreakController extends Controller
                     $break->start_time = $startTimes[$i];
                     $break->end_time = $endTimes[$i];
                     $break->working_hour_id = $userWorkingHours->id;
+                    $break->day = $day;
                     // Save the break
                     $break->save();
                 }

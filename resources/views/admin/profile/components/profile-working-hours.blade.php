@@ -12,7 +12,7 @@
                 <div class="col-md-2 fw-bold">
                     {{ $day->day }}
                 </div>
-                <div class="col-md-6 d-flex working-hours-time-picker">
+                <div class="col-md-10 d-flex working-hours-time-picker">
                     <div class="form-group d-flex">
                         <input type="text" class="form-control time start" placeholder="--:--"
                         autocomplete="off" name="startHour[{{ $day->day }}]" id="startTimeInputId" value="{{ $day->start_hour }}">
@@ -36,7 +36,7 @@
                     <div class="col-md-2 fw-bold">
                         {{ $day }}
                     </div>
-                    <div class="col-md-6 d-flex working-hours-time-picker">
+                    <div class="col-md-10 d-flex working-hours-time-picker">
                         <div class="form-group d-flex">
                             <input type="text" class="form-control time start" placeholder="--:--"
                             autocomplete="off" name="startHour[{{ $day }}]" id="startTimeInputId" value="">
@@ -56,11 +56,14 @@
                 @endforeach
             @endif
         </div>
-        <div class="col-6">
-            Days where time is --:-- will be ignored
+        <div class="col-6 pt-3">
+            <a type="button" class="text-decoration-none working-hours-apply-to-all text-secondary">
+                <i class="fas fa-check"></i> Apply to all
+            </a>
         </div>
     </div>
-        
+
+    <div>Days where time is --:-- will be ignored</div>
     <button type="submit" class="btn btn-primary mt-3">Save</button>
 </form>
 
@@ -76,8 +79,8 @@
             'listWidth': 1
         });
 
-        var timePicker = document.querySelector('.working-hours-time-picker');
-        var timeEndDatepair = new Datepair(timePicker);
+        var workingHoursTimePicker = document.querySelector('.working-hours-time-picker');
+        var workingHoursTimeEndDatepair = new Datepair(workingHoursTimePicker);
 
         const resetButtons = document.querySelectorAll('.reset');
         resetButtons.forEach(button => button.addEventListener('click', handleResetClick));
@@ -100,7 +103,6 @@
         $('#workingHoursForm').submit(function(event) {
             // Prevent the default form submission behavior
             event.preventDefault();
-
             // Validate start and end times for each day
             let isValid = true;
             $('.working-hours-time-picker-row').each(function() {
@@ -126,6 +128,28 @@
                 this.submit();
             }
         });
+
+        $('input[name="startHour[Monday]"]').on('change', function() {
+            if($('input[name="startHour[Monday]"]').val() && $('input[name="endHour[Monday]"]').val()) {
+                $('.working-hours-apply-to-all').hide();
+            }else{
+                $('.working-hours-apply-to-all').show();
+            }
+        })
+       
+        $('.working-hours-apply-to-all').click(function() {
+            let startHour = $('input[name="startHour[Monday]"]').val()
+            let endHour = $('input[name="endHour[Monday]"]').val()
+
+            for (let day = 0; day < 5; day++) {
+                const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+                let currentDay = weekDays[day];
+
+                // Update start and end hour inputs for each weekday
+                $('input[name="startHour[' + currentDay + ']"]').val(startHour);
+                $('input[name="endHour[' + currentDay + ']"]').val(endHour);
+            }
+        })
     })
 
 

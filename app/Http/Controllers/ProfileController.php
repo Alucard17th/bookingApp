@@ -19,7 +19,7 @@ class ProfileController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,'.$id,
+            // 'email' => 'required|string|email|max:255|unique:users,email,'.$id,
             'company_name' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'address' => 'nullable|string|max:255',
@@ -28,7 +28,6 @@ class ProfileController extends Controller
 
         $user = User::findOrFail($id);
         $user->name = $request->name;
-        $user->email = $request->email;
         $user->company_name = $request->company_name;
         $user->description = $request->description;
         $user->address = $request->address;
@@ -54,5 +53,19 @@ class ProfileController extends Controller
     public function markAllNotificationsAsRead(){
         auth()->user()->unreadNotifications->markAsRead();
         return redirect()->back();
+    }
+
+    public function contact(Request $request)
+    {
+        $user = auth()->user();
+        $user->website = $request->website;
+        $user->facebook = $request->facebook;
+        $user->instagram = $request->instagram;
+        $user->linkedin = $request->linkedin;
+        $user->twitter = $request->twitter;
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profile updated successfully.');
     }
 }

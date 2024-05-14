@@ -9,20 +9,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class AppointmentCreated extends Mailable
+class UserRegistered extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $appointment;
-    private $receiver;
+    private $user;
     /**
      * Create a new message instance.
      */
-    public function __construct($appointment, $receiver)
+    public function __construct($user)
     {
         //
-        $this->appointment = $appointment;
-        $this->receiver = $receiver;
+        $this->user = $user;
     }
 
     /**
@@ -31,7 +29,7 @@ class AppointmentCreated extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Appointment Created',
+            subject: 'User Registered',
         );
     }
 
@@ -41,12 +39,9 @@ class AppointmentCreated extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.new-appointment',
+            view: 'emails.user-registered',
             with: [
-                'service' => $this->appointment->service,
-                'appointment' => $this->appointment,
-                'user' => $this->appointment->service->user,
-                'receiver' => $this->receiver
+                'user' => $this->user
             ]
         );
     }

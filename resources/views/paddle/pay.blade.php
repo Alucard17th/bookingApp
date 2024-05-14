@@ -2,12 +2,6 @@
 
 
 @section('content')
-<!-- <div class="container mt-5 my-5">
-<x-paddle-button :checkout="$checkout" class="px-8 py-4">
-    Buy Product
-</x-paddle-button>
-
-</div> -->
 <section class="position-relative overflow-hidden p-5 mt-5" id="pricing">
     <div class="container position-relative">
         <div class="row justify-content-center price-plan">

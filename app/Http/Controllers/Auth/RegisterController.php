@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserRegistered;
 
 class RegisterController extends Controller
 {
@@ -68,9 +70,15 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'consommation' => 0,
-            'max_consommation' => 50,
+            // 'consommation' => 0,
+            // 'max_consommation' => 50,
         ]);
+
+        // send an email to the new user
+        // $user->sendEmailVerificationNotification();
+        Mail::to($user->email)->send(new UserRegistered($user));
+
+        
 
         return $user;
     }

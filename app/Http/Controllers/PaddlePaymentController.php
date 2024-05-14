@@ -16,7 +16,7 @@ class PaddlePaymentController extends Controller
 
         $checkout = $request->user()->subscribe($priceId)
         ->customData(['user_id' => $request->user()->id])
-        ->returnTo(route('dashboard'));
+        ->returnTo(route('paddle.success', ['product' => $product]));
 
         return view('paddle.pay', compact('checkout', 'product'));
     }
@@ -25,9 +25,14 @@ class PaddlePaymentController extends Controller
     {
         // log the request data
         $data = $request->all();
-        Log::info($request->all()   );
+        Log::info($request->all());
 
         // handle the payment
+    }
 
+    public function success($product)
+    {   
+        $product = Product::where('id', $product)->first();
+        return view('paddle.success', compact('product'));
     }
 }

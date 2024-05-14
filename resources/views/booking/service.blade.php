@@ -184,7 +184,15 @@
     <div class="row">
 
         <div class="col-lg-3">
-            <div class="my-4 text-capitalize h4 text-center">{{$user->name}}</div>
+            <div class="row d-flex align-items-center g-0 mb-2">
+                <div class="col-4">
+                    <img class="img-fluid rounded" src="{{ asset('storage/'.$user->logo) }}" alt="" />
+                </div>
+                <div class="col-8">
+                    <div class="my-4 text-capitalize h4 text-center">{{$user->company_name}}</div>
+                </div>
+            </div>
+            
             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <button class="nav-link active text-start nav-item" id="v-pills-book-tab" data-bs-toggle="pill"
                     data-bs-target="#v-pills-book" type="button" role="tab" aria-controls="v-pills-book"
@@ -242,12 +250,12 @@
                                         aria-labelledby="stepperFormTrigger1">
                                         <div class="row">
                                             <div class="col-3">
-                                                <img class="img-fluid" src="{{ asset('storage/'.$user->logo) }}" alt="" />
+                                                <img class="img-fluid rounded" src="{{ asset('storage/'.$user->avatar) }}" alt="" />
                                             </div>
                                             <div class="col-9">
                                                 <h4 class="text-capitalize">{{$user->name}}</h4>
                                             </div>
-                                            <div class="col-12">
+                                            <div class="col-12 mt-3">
                                                 <div class="list-group">
                                                     @foreach($user->services as $service)
                                                     <a href="#" data-serviceid="{{$service->id}}"
@@ -491,15 +499,17 @@
 <script>
 // when the document is ready
 $(document).ready(function() {
-    const workingHours = {!!json_encode($service->user->workingHours) !!};
-    const userTimeOff = {!!json_encode($service->user->timeoff) !!};
-    const userBreaks = {!!json_encode($service->user->breaks) !!};
-    const serviceAppointments = {!!json_encode($service->appointments) !!};
+    let workingHours = {!!json_encode($service->user->workingHours) !!};
+    let userTimeOff = {!!json_encode($service->user->timeoff) !!};
+    let userBreaks = {!!json_encode($service->user->breaks) !!};
+    let serviceAppointments = {!!json_encode($service->appointments) !!};
+    let allUserAppointments = {!!json_encode($allUserAppointments) !!};
 
     console.log('Working hours', workingHours);
     console.log('User time off', userTimeOff);
     console.log('User breaks', userBreaks);
     console.log('Service appointments', serviceAppointments);
+    console.log('All Service appointments', allUserAppointments);
 
     var stepper = new Stepper(document.querySelector('.bs-stepper'))
     const nextButton = document.querySelectorAll('.btn-next-form');
@@ -520,15 +530,18 @@ $(document).ready(function() {
     });
 
     const serviceItem = document.querySelectorAll('.service-item');
+    let serviceItemID;
     serviceItem.forEach(element => {
         element.addEventListener('click', async function() {
+            serviceItemID = element.dataset.serviceid
+            $('#service_id').val(serviceItemID);
             const response = await fetch(`/user-service-json/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    service_id: element.dataset.serviceid,
+                    service_id: serviceItemID,
                     _token: "{{ csrf_token() }}"
                 })
             });
@@ -566,8 +579,8 @@ $(document).ready(function() {
                     var selectedDayWorkingHours = workingHours.filter(function(item) {
                         return item.day === date[0].format('dddd');
                     });
-                    generateAvailabilities(date[0].format('YYYY-MM-DD'), selectedDayWorkingHours[
-                    0]);
+                    generateAvailabilities(date[0].format('YYYY-MM-DD'), selectedDayWorkingHours[0], serviceItemID);
+                    
                     $('#date').val(date[0].format('YYYY-MM-DD'));
                 } else {
                     $('.box').text('');
@@ -579,7 +592,7 @@ $(document).ready(function() {
         stepper.next()
     }
 
-    async function generateAvailabilities(selectedDate, workingDay) {
+    async function generateAvailabilities(selectedDate, workingDay, serviceID) {
         $('#overlay').show();
         $('.availabilities').empty().off('click', '.availability-option');
         var startTime = moment(workingDay.start_hour, 'HH:mm');
@@ -593,7 +606,7 @@ $(document).ready(function() {
             var endTimeAdjusted = startTime.clone().add(eventDuration, 'minutes');
             // Check if the current time slot is available
             var isAvailable = await checkAvailability(selectedDate, startTime.format('HH:mm') + ' - ' +
-                endTimeAdjusted.format('HH:mm'));
+                endTimeAdjusted.format('HH:mm'), serviceID);
             var option = $('<div class="availability-option"></div>').text(startTime.format('HH:mm') +
                 ' - ' + endTimeAdjusted.format('HH:mm'));
             // If the time slot is not available, disable the option
@@ -624,10 +637,13 @@ $(document).ready(function() {
             timePart2.isBetween(timeoffStartTime, timeoffEndTime);
     };
 
-    async function checkAvailability(date, time) {
+    async function checkAvailability(date, time, serviceID) {
         try {
             let availability = true;
-            serviceAppointments.forEach(appointment => {
+            var filteredAppointments = allUserAppointments.filter(function(appointment) {
+                return appointment.service_id == serviceID;
+            });
+            filteredAppointments.forEach(appointment => {
                 if (appointment.time == time && appointment.date == date) {
                     availability = false;
                 }
@@ -653,6 +669,23 @@ $(document).ready(function() {
                     }
                 }
             });
+
+            userBreaks.forEach(breaks => {
+                const startTime = moment(breaks.start_time, 'HH:mm');
+                const endTime = moment(breaks.end_time, 'HH:mm');
+                const breakDayName = breaks.day;
+                const targetDate = new Date(date);
+                const timePart1 = moment(time.split(' -')[0] + ':00', 'HH:mm');
+                const timePart2 = moment(time.split('- ')[1] + ':00', 'HH:mm');
+                const fullDayName = targetDate.toLocaleDateString('en-US', { weekday: 'long' });
+
+                if(breakDayName == fullDayName){
+                    if (isTimeInRange(timePart1, timePart2, startTime, endTime)) {
+                        availability = false;
+                        console.log('Target time is within the range date and time');
+                    }
+                }
+            })
 
             return availability;
         } catch (error) {

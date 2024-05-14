@@ -18,12 +18,6 @@
 </head>
 
 <body>
-    <!-- Loadingscreen Start -->
-    <div id="loadingscreen">
-        <div class="spinner"></div>
-        <!-- <a class="cancel" href="#">Canel</a> -->
-    </div>
-    <!-- Loadingscreen End -->
     <!------------------------------>
     <!-- Header Start -->
     <!------------------------------>

@@ -17,7 +17,7 @@ class CheckSubscription
     public function handle(Request $request, Closure $next): Response
     {
         // Check if the user is authenticated and has a subscription
-        if (Auth::check() && Auth::user()->subscription()->exists()) {
+        if (Auth::check() && Auth::user()->subscribed()) {
             // User has a subscription, proceed to the next middleware or route handler
             return $next($request);
         }

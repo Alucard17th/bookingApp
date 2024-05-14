@@ -8,6 +8,8 @@ use Laravel\Paddle\Events\WebhookReceived;
 use Illuminate\Support\Facades\Log;
 use App\Models\Product;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserSubscribed;
 
 class PaddleEventListener
 {
@@ -37,7 +39,7 @@ class PaddleEventListener
             $user->consommation = 0;
             $user->max_consommation = $consommable;
             $user->save();
-            Log::info($user);
+            Mail::to($user->email)->send(new UserSubscribed($user));
         }
     }
 }

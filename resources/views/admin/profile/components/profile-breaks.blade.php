@@ -117,9 +117,9 @@
         var timeEndDatepair = new Datepair(timePicker);
 
         const resetButtons = document.querySelectorAll('.reset');
-        resetButtons.forEach(button => button.addEventListener('click', handleResetClick));
+        resetButtons.forEach(button => button.addEventListener('click', handleBreaksResetClick));
 
-        function handleResetClick(event) {
+        function handleBreaksResetClick(event) {
             const resetButton = event.target;
             const timePicker = resetButton.closest('.breaks-time-picker-row');
             const startTimeInput = timePicker.querySelector('.start');
@@ -191,7 +191,7 @@
             });
 
             // Reset button click event listener for the cloned row
-            clonedRow.find('.reset').click(handleResetClick);
+            clonedRow.find('.reset').click(handleBreaksResetClick);
 
             clonedRow.find('.reset-break').click(function() {
                 // Set start and end time inputs to "00:00"

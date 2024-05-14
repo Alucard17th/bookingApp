@@ -16,6 +16,11 @@ use App\Models\Product;
 use App\Http\Controllers\FrontServiceController;
 
 
+// TO DELETE JUST FOR TEST 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserRegistered;
+use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +31,12 @@ use App\Http\Controllers\FrontServiceController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// TO DELETE JUST FOR TEST START
+Route::get('/test-email', function () {
+    $user = User::first();
+    Mail::to('test@mail.com')->send(new UserRegistered($user));
+});
+// TO DELETE JUST FOR TEST END
 
 Route::get('/', function () {
     $products = Product::where('name', '!=', 'Free')->orderBy('bookings', 'asc')->get();
@@ -34,18 +45,17 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/choose-plan', function () {
-    // dd(auth()->user()->subscription()->quantity);
-
-    dd(Product::all());
     $products = Product::where('name', '!=', 'Free')->orderBy('bookings', 'asc')->get();
     $freeProducts = Product::where('name', 'Free')->get();
     return view('front.choose-plan', compact('products', 'freeProducts'));
 })->name('choose.plan');
 
 Route::get('markAllNotificationsAsRead', [ProfileController::class, 'markAllNotificationsAsRead'])->name('markAllNotificationsAsRead');
+Route::post('/profile/contact', [ProfileController::class, 'contact'])->name('profile.contact');
 
 // Admin
-// Route::middleware(['middleware' => 'checkSubscription'])->group(function () {
+
+Route::middleware(['middleware' => 'checkSubscription'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
     Route::resource('events', EventController::class);
     Route::resource('services', ServiceController::class);
@@ -57,7 +67,7 @@ Route::get('markAllNotificationsAsRead', [ProfileController::class, 'markAllNoti
     Route::resource('timeoffs', TimeOffController::class);
 
     Route::put('workinghours/{id}', 'App\Http\Controllers\WorkingHoursController@update')->name('workinghours.update');
-// });
+});
 
 Route::resource('reviews', ReviewController::class);
 
@@ -149,6 +159,7 @@ Route::get('/import-plans-features', function () {
 });
 
 Route::get('paddle-pay/{price_id}', [App\Http\Controllers\PaddlePaymentController::class, 'pay'])->name('paddle.pay')->middleware('registered');
+Route::get('paddle-success/{product}', [App\Http\Controllers\PaddlePaymentController::class, 'success'])->name('paddle.success')->middleware('registered');
 Route::any('/paddle-webhook', [App\Http\Controllers\PaddlePaymentController::class, 'handle'])->name('paddle.handle');
 
 // SOCIALITE 

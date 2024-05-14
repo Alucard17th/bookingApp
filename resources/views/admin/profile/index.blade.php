@@ -45,19 +45,19 @@
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-            @include('components.profile', compact('user'))
+            @include('admin.profile.components.profile', compact('user'))
         </div>
         <div class="tab-pane fade" id="pills-working-hours" role="tabpanel" aria-labelledby="pills-working-hours-tab">
-            @include('components.profile-working-hours', compact('user', 'workingHours'))
+            @include('admin.profile.components.profile-working-hours', compact('user', 'workingHours'))
         </div>
         <div class="tab-pane fade" id="pills-breaks" role="tabpanel" aria-labelledby="pills-breaks-tab">
-            @include('components.profile-breaks', compact('user', 'workingHours'))
+            @include('admin.profile.components.profile-breaks', compact('user', 'workingHours'))
         </div>
         <div class="tab-pane fade" id="pills-timeoff" role="tabpanel" aria-labelledby="pills-timeoff-tab">
-            @include('components.profile-timeoff', compact('user', 'workingHours'))
+            @include('admin.profile.components.profile-timeoff', compact('user', 'workingHours'))
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-            @include('components.contact', compact('user'))
+            @include('admin.profile.components.profile-contact', compact('user'))
         </div>
     </div>
 

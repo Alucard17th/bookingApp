@@ -22,7 +22,7 @@
 <div class="container">
     <div class="row mb-3">
         <!-- ADD RETURTN BUTTON -->
-        <a href="{{ route('services.index') }}" class="">Back to Events</a>
+        <a href="{{ route('services.index') }}" class="">Back to Services</a>
     </div>
     <div class="card">
         <div class="card-header">

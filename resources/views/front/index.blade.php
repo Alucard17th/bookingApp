@@ -24,6 +24,13 @@
 @endpush
 
 @section('content')
+   
+ <!-- Loadingscreen Start -->
+ <div id="loadingscreen">
+    <div class="spinner"></div>
+    <!-- <a class="cancel" href="#">Canel</a> -->
+</div>
+<!-- Loadingscreen End -->
 <!------------------------------>
 <!--- Hero Banner Start--------->
 <!------------------------------>
@@ -304,25 +311,6 @@
             <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
                 <small class="fs-7 d-block">Pricing Plan</small>
                 <h2 class="fs-3 pricing-head text-black mb-0 position-relative">Our Packs</h2>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
-                <div class="card position-relative shadow-lg border-0 h-100">
-                    <div class="card-body p-2" id="price-plan">
-                        <small class="fs-7 d-block text-warning text-center">For individuals</small>
-                        <h2 class="mb-4 text-center position-relative"><sub class="fs-2 text-black">FREE</sub></h2>
-                        <p class="fs-7 text-center fw-500">Get started for free and get {{$freeProducts[0]->bookings}}
-                            bookings</p>
-                    </div>
-                    <div class="card-action text-center pb-2 mb-2">
-                        <!-- <a href="{{ route('paddle.pay', ['price_id' => $freeProducts[0]->paddle_price_id]) }}"
-                            class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a> -->
-                        <a href="{{ route('register') }}"
-                            class="btn btn-warning btn-hover-secondery text-capitalize">Get Started</a>
-                    </div>
-                </div>
             </div>
         </div>
 

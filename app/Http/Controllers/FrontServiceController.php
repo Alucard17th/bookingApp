@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Service;
 use App\Models\Appointment;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AppointmentCreated;
+use App\Notifications\AppointmentCreated as AppointmentCreatedNotification;
 class FrontServiceController extends Controller
 {
     //
@@ -21,7 +23,13 @@ class FrontServiceController extends Controller
     public function indexNew($id){
         //
         $user = User::findOrFail($id);
-        return view('booking.service', compact('user'));
+        $services = $user->services;
+        $allUserAppointments = [];
+        foreach ($user->services as $service) {
+            $allUserAppointments = array_merge($allUserAppointments, $service->appointments->toArray());
+        }
+        // dd($services, $allUserAppointments);
+        return view('booking.service', compact('user', 'allUserAppointments'));
     }
 
     public function store(Request $request){
@@ -46,6 +54,10 @@ class FrontServiceController extends Controller
             $user->consommation++;
             $user->save(); // Explicitly save the subscription
             $appointment->save(); // Save the booking after successful decrement
+            Mail::to($user->email)->send(new AppointmentCreated($appointment, 'owner'));
+            Mail::to($appointment->email)->send(new AppointmentCreated($appointment, 'client'));
+            $user->notify(new AppointmentCreatedNotification($appointment));
+
         } else {
           // Handle the case where the user doesn't have a subscription (e.g., error message)
           return dd(['error' => 'User does not have a subscription']);
