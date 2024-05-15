@@ -79,7 +79,7 @@ a {
 <div class="content">
     <h2>Hi, {{ $appointment->name }}!</h2>
     <p>
-        You have scheduled an appointment for the service : <b>{{ $service->name }}</b>
+        You have a scheduled appointment for the service : <b>{{ $service->name }}</b>
     </p>
     <h4>Appointment Details</h4>
     <p>

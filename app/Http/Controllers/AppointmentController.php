@@ -6,6 +6,7 @@ use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AppointmentCreated;
+use App\Mail\AppointmentStatusUpdatedClientsMail;
 use App\Notifications\AppointmentCreated as AppointmentCreatedNotification;
 
 class AppointmentController extends Controller
@@ -61,6 +62,7 @@ class AppointmentController extends Controller
             // Mail::to($appointment->email)->send(new AppointmentCreated($appointment));
             $user = auth()->user();
             $user->notify(new AppointmentCreatedNotification($appointment));
+            Mail::to($appointment->email)->send(new AppointmentCreated($appointment, 'client'));
 
             return redirect()->route('appointments.index')->with('success', 'Appointment created successfully.');
         }catch(Exception $e){
@@ -101,6 +103,8 @@ class AppointmentController extends Controller
             // 'service_id' => $request->service_id,
             'status' => $request->status && $request->status == 'on' ? 'active' : 'cancelled',
         ]);
+
+        Mail::to($appointment->email)->send(new AppointmentStatusUpdatedClientsMail($appointment, $appointment->name));
     
         return redirect()->route('appointments.index')->with('success', 'Appointment updated successfully.');
     }

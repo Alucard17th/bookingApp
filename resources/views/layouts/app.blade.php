@@ -154,6 +154,16 @@
                     </main>
                 </div>
             </div>
+
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div id="liveToast" class="toast bg-dark text-white" role="alert" 
+                aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+                    <div class="toast-body">
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto close float-end" data-bs-dismiss="toast" aria-label="Close"></button>
+                        Link copied to clipboard
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -182,12 +192,14 @@
                             .columns()
                             .every(function() {
                                 let column = this;
+                                let columnContent = column.header().textContent
                                 // Check if column footer exists
-                                if (column.footer()) {
+                                if (column.footer() && columnContent != 'Action' && columnContent != 'ID') {
                                     let title = column.footer().textContent;
 
                                     // Create input element
                                     let input = document.createElement('input');
+                                    input.classList.add('form-control');
                                     input.placeholder = title;
                                     column.footer().replaceChildren(input);
 
@@ -200,6 +212,15 @@
                                     input.addEventListener('click', (e) => {
                                         e.stopPropagation();
                                     });
+                                    const parentElement = input.parentElement;
+                                    parentElement.addEventListener('click', (e) => {
+                                        e.stopPropagation();
+                                    })
+                                }else{
+                                    column.footer().replaceChildren();
+                                    column.footer().addEventListener('click', (e) => {
+                                        e.stopPropagation();
+                                    })
                                 }
                             });
 

@@ -10,11 +10,20 @@
                     Dashboard
                 </a>
             </li>
-            <li class="nav-item mb-1 {{ request()->is('appointments-calendar') ? 'active' : '' }}">
-                <a class="nav-link p-2" href="{{ route('user.appointments.calendar') }}">
+            <li class="nav-item mb-1">
+                <a class="nav-link p-2 toggle-submenu {{ request()->is('appointments-calendar') || request()->is('events-calendar') ? 'active' : '' }}"
+                    href="#" data-bs-toggle="collapse" data-bs-target="#calendarsSubMenu" aria-expanded="false">
                     <i class="me-1 fas fa-calendar-alt"></i>
                     Calendars
+                    <span class="arrow"></span>
                 </a>
+                <ul class="ps-4 list-unstyled collapse {{ request()->is('appointments-calendar') || request()->is('events-calendar') ? 'show' : '' }}"
+                    id="calendarsSubMenu">
+                    <li><a class="p-2 dropdown-item {{ request()->is('events-calendar') ? 'active' : '' }}"
+                            href="{{ route('user.events.calendar') }}">Events</a></li>
+                    <li><a class="p-2 dropdown-item {{ request()->is('appointments-calendar') ? 'active' : '' }}"
+                            href="{{ route('user.appointments.calendar') }}">Appointments</a></li>
+                </ul>
             </li>
             <li class="nav-item mb-1">
                 <a class="nav-link p-2 toggle-submenu {{ request()->is('services') || request()->is('appointments') ? 'active' : '' }}"
@@ -31,6 +40,21 @@
                             href="{{ route('appointments.index') }}">Appointments</a></li>
                 </ul>
             </li>
+            {{-- <li class="nav-item mb-1">
+                <a class="nav-link p-2 mb-1 toggle-submenu {{ request()->is('events') || request()->is('bookings') ? 'active' : '' }}"
+                    href="#" data-bs-toggle="collapse" data-bs-target="#eventsSubMenu" aria-expanded="false">
+                    <i class="me-1 fas fa-people-line"></i>
+                    Events
+                    <span class="arrow"></span>
+                </a>
+                <ul class="ps-4 list-unstyled collapse {{ request()->is('events') || request()->is('bookings') ? 'show' : '' }}"
+                    id="eventsSubMenu">
+                    <li><a class="p-2 dropdown-item {{ request()->is('events') ? 'active' : '' }}"
+                            href="{{ route('events.index') }}">My Events</a></li>
+                    <li><a class="p-2 dropdown-item {{ request()->is('bookings') ? 'active' : '' }}"
+                            href="{{ route('bookings.index') }}">Bookings</a></li>
+                </ul>
+            </li> --}}
             <li class="nav-item mb-1 {{ request()->is('profile*') ? 'active' : '' }}">
                 <a class="nav-link p-2 " href="{{ route('profile.index') }}"  role="button">
                     <i class="me-1 fas fa-cog"></i>
@@ -40,18 +64,8 @@
         </ul>
 
     </div>
-
-    <div class="row mt-5 mb-3">
-        <div class="col-12 text-center">
-            <button class="btn btn-light btn-sm copy-link-btn w-100" style="color:#1642B9;"
-                data-link="{{ url('/') }}/service-booking/{{auth()->user()->id}}"
-                data-toggle="tooltip" title="Copy link to this service to share with customers.">
-                <i class="fas fa-user me-2"></i>
-                Get your appointment link
-            </button>
-        </div>
-    </div>
 </nav>
+
 
 <style>
 .arrow {
@@ -81,25 +95,5 @@
             // Toggle the rotation of the arrow when the submenu is clicked
             toggle.querySelector('.arrow').style.transform = toggle.getAttribute('aria-expanded') === 'true' ? 'rotate(-180deg)' : 'rotate(0deg)';
         });
-    });
-
-    let copyLinkBtn = document.querySelector('.copy-link-btn');
-    copyLinkBtn.addEventListener('click', function() {
-        var link = this.getAttribute('data-link');
-        // Create a temporary input element
-        var tempInput = document.createElement('input');
-        tempInput.value = link;
-        document.body.appendChild(tempInput);
-
-        // Select the input field
-        tempInput.select();
-        tempInput.setSelectionRange(0, 99999); /* For mobile devices */
-
-        // Copy the text inside the input field
-        document.execCommand('copy');
-
-        // Remove the temporary input element
-        document.body.removeChild(tempInput);
-        $("#liveToast").toast("show");
     });
 </script>

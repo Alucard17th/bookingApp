@@ -81,6 +81,7 @@ Route::post('/user-service-json', [App\Http\Controllers\FrontServiceController::
 Route::middleware(['middleware' => 'canUserReceiveBookings'])->group(function () {
     // SERVICES BOOKING 
     Route::get('/service-booking/{id}', [App\Http\Controllers\FrontServiceController::class, 'indexNew'])->name('front.service.new.book');
+    Route::get('/service-booking-single/{serviceId}/{id}', [App\Http\Controllers\FrontServiceController::class, 'indexSingleService'])->name('front.single.service.new.book');
     Route::get('/book-service/{id}/{serviceId}', [App\Http\Controllers\FrontServiceController::class, 'index'])->name('front.service.book');
     // EVENTS BOOKING
     Route::get('/book-event/{id}/{eventId}', [App\Http\Controllers\FrontEventController::class, 'index'])->name('front.event.book');

@@ -30,7 +30,13 @@
                 @foreach($appointments as $appointment)
                 <tr>
                     <td>{{ $appointment->id }}</td>
-                    <td>{{ $appointment->name }}</td>
+                    <td>
+                        @if($appointment->status != 'active')
+                            <span class="badge bg-danger rounded rounded-pill" data-bs-toggle="tooltip" data-bs-placement="top" title="Cancelled" style="height:15px;"><i class="d-none fas fa-times"></i></span>
+                        @else
+                            <span class="badge bg-success rounded rounded-pill" data-bs-toggle="tooltip" data-bs-placement="top" title="Active" style="height:15px;"><i class="d-none fas fa-check"></i></span>
+                        @endif
+                        {{ $appointment->name }}</td>
                     <td>{{ $appointment->email }}</td>
                     <td>{{ $appointment->phone }}</td>
                     <td>{{ $appointment->date }}</td>

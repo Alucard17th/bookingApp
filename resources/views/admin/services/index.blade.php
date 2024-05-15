@@ -26,9 +26,20 @@
             </thead>
             <tbody>
                 @foreach($services as $service)
-                <tr>
+                <tr class="">
                     <td>{{ $service->id }}</td>
-                    <td>{{ $service->name }}</td>
+                    <td>
+                        @if($service->is_active == 0) 
+                        <span class="badge bg-danger rounded rounded-pill" data-bs-toggle="tooltip" data-bs-placement="top" title="Cancelled" style="height:15px;">
+                            <i class="d-none fas fa-times"></i>
+                        </span>
+                        @elseif($service->is_active == 1)
+                        <span class="badge bg-success rounded rounded-pill" data-bs-toggle="tooltip" data-bs-placement="top" title="Active" style="height:15px;">
+                            <i class="d-none fas fa-check"></i>
+                        </span>
+                        @endif
+                        {{ $service->name }}
+                    </td>
                     <td>{{ \Illuminate\Support\Str::limit($service->description,20) }}</td>
                     <td>{{ $service->duration }} min</td>
                     <td>{{ $service->cost }} $</td>
@@ -46,9 +57,11 @@
                                 onclick="return confirm('Are you sure you want to delete this service?')"><i
                                     class="fas fa-trash"></i></button>
                         </form>
+                        
                         <button class="btn btn-light btn-sm ms-3 copy-link-btn"
-                            data-link="{{ url('/') }}/service-booking/{{ $service->user->id }}"
-                            data-toggle="tooltip" title="Copy link to this service to share with customers.">
+                            data-link="{{ url('/') }}/service-booking-single/{{ $service->id }}/{{ $service->user->id }}"
+                            data-toggle="tooltip" title="Copy link to this service to share with customers." 
+                            @if($service->is_active == 0) disabled @endif>
                             <i class="fas fa-link me-2"></i>
                             Get link
                         </button>
@@ -96,8 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Remove the temporary input element
             document.body.removeChild(tempInput);
-
-            console.log('Link copied to clipboard: ' + link);
+            $("#liveToast").toast("show");
         });
     });
 });

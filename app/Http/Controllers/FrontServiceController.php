@@ -32,6 +32,13 @@ class FrontServiceController extends Controller
         return view('booking.service', compact('user', 'allUserAppointments'));
     }
 
+    public function indexSingleService($serviceId, $id){
+        $service = Service::find($serviceId);
+        $user = User::findOrFail($id);
+        $allUserAppointments = $service->appointments;
+        return view('booking.service-single', compact('user', 'allUserAppointments', 'service'));
+    }
+
     public function store(Request $request){
         //
         $service = Service::find($request->service_id);

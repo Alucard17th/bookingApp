@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Service;
+use App\Notifications\EventStatusUpdated;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ServiceStatusUpdatedMail;	
 
 class ServiceController extends Controller
 {
@@ -127,6 +130,15 @@ class ServiceController extends Controller
     
         // Save the updated service
         $service->save();
+
+        foreach($service->appointments as $appointment) {
+            $appointment->status = $request->is_active ? 'active' : 'cancelled';   
+            $appointment->save();
+            // Send email to clients
+            Mail::to($appointment->email)->send(new ServiceStatusUpdatedMail($service, $appointment->name));
+        }
+        // Send event status update notification    
+        $service->user->notify(new EventStatusUpdated($service));
     
         return redirect()->route('services.index')->with('success', 'Service updated successfully.');
     }

@@ -145,11 +145,9 @@ class HomeController extends Controller
             ->with('appointments') // Load bookings for each event
             ->get()
             ->flatMap(function ($service) {
-                return $service->appointments->take(3); // Take last 10 bookings
+                return $service->appointments; // Take last 10 bookings
             })
-            ->sortByDesc('created_at'); // Sort by creation date
-
-        
+            ->sortByDesc('created_at')->take(6); // Sort by creation date
        
         return view('home', compact('totalServicesCount', 'totalAppointments', 'serviceOptions', 'optionsAppointments', 'lastAppointments', 'appointmentsByStatus'));
     }
