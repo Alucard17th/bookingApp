@@ -90,4 +90,25 @@ class FrontServiceController extends Controller
         $service = Service::findOrFail($request->service_id);
         return response()->json($service);
     }
+
+    public function displayAppointment($id){
+        $appointment = Appointment::findOrFail($id);
+        // $appointment->status = 'cancelled';
+        // $appointment->save();
+        // $service = $appointment->service;
+        // $user = $service->user;
+        // $user->consommation++;
+        // $user->save();
+        // $appointment->delete();
+        return view('booking.cancel-appointment', compact('appointment'));
+    }
+
+    public function cancelAppointment(Request $request){
+        $appointment = Appointment::findOrFail($request->appointment_id);
+        $appointment->status = 'cancelled';
+        $appointment->save();
+
+        return redirect()->back()->with('success', 'Appointment cancelled successfully!');
+
+    }
 }

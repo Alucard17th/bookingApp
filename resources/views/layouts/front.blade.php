@@ -12,9 +12,10 @@
     <link href="{{asset('libs/OwlCarousel-2/dist/assets/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/iconfont/tabler-icons.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    
+    <link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
     @paddleJS
     @stack('styles')
+    
 </head>
 
 <body>
@@ -42,6 +43,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-capitalize" href="{{url('/')}}#price-plan">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-capitalize @if(request()->is('all-services')) active @endif" href="{{route('front.services')}}">Services</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-capitalize" href="{{url('/')}}#faq">FAQ</a>
@@ -135,9 +139,9 @@
                     <h5 class="text-white">Company</h5>
                     <ul class="list-unstyled mb-0 pl-0">
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Affiliates</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Legal & Privacy</a></li>
+                        <li><a href="{{ route('front.privacy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ route('front.terms') }}">Terms of Use</a></li>
+                        <a href="javascript:void(0)" class="js-lcc-settings-toggle">@lang('cookie-consent::texts.alert_settings')</a>
                     </ul>
                 </div>
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
@@ -161,10 +165,11 @@
             </div>
         </div>
     </footer>
+    @include('cookie-consent::index')
+
     <!------------------------------>
     <!-------Footer End------------->
     <!------------------------------>
-
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('libs/OwlCarousel-2/dist/owl.carousel.min.js')}}"></script>
@@ -204,8 +209,6 @@
     </script>
 
     @stack('scripts')
-
-
 </body>
 
 </html>

@@ -11772,13 +11772,18 @@ textarea.form-control {
 .bk-bg-blue{
   background-color: #1642B9 !important;
 }
+.bk-bg-blue:hover{
+  background-color: #0f2666 !important;
+}
 .bk-orange{
   color: #EE7B11 !important;
 }
 .bk-bg-orange{
   background-color: #EE7B11 !important;
 }
-
+.bk-bg-orange:hover{
+  background-color: #ca690e !important;
+}
 #navbarSupportedContent > ul > li > a.active {
   color: #92ACF2;
 }
@@ -11942,4 +11947,20 @@ tfoot input {
 }
 
 
+.services {
+  padding: 150px 0;
+}
+.services::before {
+  position: absolute;
+  content: "";
+  top: -40px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-image: url(../assets/images/price-plans/price-plan-background-icons.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
 /*END OF NRD STYLES */

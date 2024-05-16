@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Service;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -13,10 +14,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -150,5 +151,57 @@ class HomeController extends Controller
             ->sortByDesc('created_at')->take(6); // Sort by creation date
        
         return view('home', compact('totalServicesCount', 'totalAppointments', 'serviceOptions', 'optionsAppointments', 'lastAppointments', 'appointmentsByStatus'));
+    }
+
+    public function listServices(){
+        $services = Service::paginate(8);
+        return view('front.services', compact('services'));
+    }
+    public function searchServices(Request $request)
+    {
+        $filters = $request->all(); // Get all filter parameters
+
+        $query = Service::query();
+
+        // Filter by location (if provided)
+        if (isset($filters['locationFilter']) && $filters['locationFilter'] !== '') {
+            $query->where('location', $filters['locationFilter']);
+        }
+
+        // Filter by minimum duration (if provided)
+        if (isset($filters['durationFilter']) && $filters['durationFilter'] !== '') {
+            $query->where('duration', '>=', $filters['durationFilter']);
+        }
+
+        // Filter by maximum duration (if provided)
+        if (isset($filters['durationFilter']) && $filters['durationFilter'] !== '') {
+            $query->where('duration', '<=', $filters['durationFilter']);
+        }
+
+        // Filter by cost range (if provided)
+        if (isset($filters['costFilterMin']) && isset($filters['costFilterMax'])) {
+            $query->whereBetween('cost', [$filters['costFilterMin'], $filters['costFilterMax']]);
+        }
+
+        $services = $query->paginate(10); // Paginate results (optional)
+        return view('front.services', compact('services'));
+    }
+
+    public function showService($id)
+    {
+        $service = Service::find($id);
+        return view('front.service', compact('service'));
+    }
+
+    public function privacy(){
+        return view('front.privacy-policy');
+    }
+
+    public function terms(){
+        return view('front.terms-of-use');
+    }
+
+    public function about(){
+        return view('front.about');
     }
 }

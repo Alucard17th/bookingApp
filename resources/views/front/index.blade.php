@@ -314,7 +314,7 @@
             </div>
         </div>
 
-        <div class="row justify-content-center price-plan">
+        <div class="row justify-content-center price-plan" id="price-plan">
             @foreach($products as $product)
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                 <div

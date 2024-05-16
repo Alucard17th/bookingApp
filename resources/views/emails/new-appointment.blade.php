@@ -15,22 +15,13 @@
 }
 
 .cta-action-btn {
-    text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
-    user-select: none;
-    background-color: #EE7B11;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    padding: 18px 35px;
-    border-radius: 15px;
     font-size: 17px;
     cursor: pointer;
-    color: #fff;
+    color: #EE7B11;
 }
 
 .cta-action-btn:hover {
-    color: #fff;
-    background-color: #000;
+    text-decoration: underline;
 }
 
 a {
@@ -97,6 +88,7 @@ a {
     </p>
 </div>
 <div class="cta">
+    <p>You can cancel or reschedule your appointment <a class="cta-action-btn" href="{{ route('front.appointment.display', $appointment->id) }}" target="_blank">here</a>.</p>
     <p>Have questions? Don't hesitate to contact us at [your email address] or visit our Help Center at [link to
         help center].</p>
 </div>

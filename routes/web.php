@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // Admin Controllers
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AppointmentController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\BreakController;
 use App\Http\Controllers\TimeOffController;
 use App\Models\Product;
+use App\Models\Service;
 //Front Controllers
 use App\Http\Controllers\FrontServiceController;
 
@@ -43,6 +45,15 @@ Route::get('/', function () {
     $freeProducts = Product::where('name', 'Free')->get();
     return view('front.index', compact('products', 'freeProducts'));
 })->name('home');
+
+
+Route::get('/about', [HomeController::class, 'about'])->name('front.about');
+Route::get('/privacy-policy', [HomeController::class, 'privacy'])->name('front.privacy');
+Route::get('/terms-of-use', [HomeController::class, 'terms'])->name('front.terms');
+Route::get('/all-services', [HomeController::class, 'listServices'])->name('front.services');
+Route::get('/all-services', [HomeController::class, 'listServices'])->name('front.services');
+Route::get('/all-services/search', [HomeController::class, 'searchServices'])->name('front.services.search');
+Route::get('/services-single/{id}', [HomeController::class, 'showService'])->name('front.service.single');
 
 Route::get('/choose-plan', function () {
     $products = Product::where('name', '!=', 'Free')->orderBy('bookings', 'asc')->get();
@@ -91,6 +102,9 @@ Route::middleware(['middleware' => 'canUserReceiveBookings'])->group(function ()
 Route::post('/book-service', [App\Http\Controllers\FrontServiceController::class, 'store'])->name('front.service.booking.store');
 Route::get('/service-booked-thanks-page', [App\Http\Controllers\FrontServiceController::class, 'thanks'])->name('front.service.booking.thanks');
 Route::get('/check-availability/{day}', [App\Http\Controllers\FrontServiceController::class, 'checkAvailability'])->name('front.service.get.appointment');
+Route::get('/cancel-appointment/{id}', [App\Http\Controllers\FrontServiceController::class, 'displayAppointment'])->name('front.appointment.display');
+Route::post('/cancel-appointment/', [App\Http\Controllers\FrontServiceController::class, 'cancelAppointment'])->name('front.appointment.cancel');
+
 // EVENTS BOOKING
 Route::post('/book-event', [App\Http\Controllers\FrontEventController::class, 'store'])->name('front.event.booking.store');
 
