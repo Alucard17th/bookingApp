@@ -8,13 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install SSH key
-        run: |
-          mkdir -p ~/.ssh/
-          echo "${{ secrets.SSHKEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -t rsa -p ${{ secrets.PORT }} ${{ secrets.HOST }} >> ~/.ssh/known_hosts
-
       - name: Pull code on server
         uses: appleboy/ssh-action@master
         with:
