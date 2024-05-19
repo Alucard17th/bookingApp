@@ -272,6 +272,10 @@
                                     </div>
                                     <div id="test-form-2" role="tabpanel" class="bs-stepper-pane fade dstepper-none"
                                         aria-labelledby="stepperFormTrigger2">
+                                            <a id="" type="button" class="link-primary my-2 btn-previous-form">
+                                                <i class="fas fa-chevron-left me-2"></i>
+                                                Select Another Service
+                                            </a>
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <div class="calender"></div>
@@ -281,7 +285,6 @@
                                                 <div class="availabilities mt-3"></div>
                                             </div>
                                         </div>
-                                        <button class="btn bk-bg-blue btn-previous-form mt-5">Previous</button>
                                     </div>
                                     <div id="test-form-3" role="tabpanel" class="bs-stepper-pane fade dstepper-none"
                                         aria-labelledby="stepperFormTrigger3">

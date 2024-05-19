@@ -270,7 +270,9 @@ tfoot input {
 .dataTable > thead > tr:nth-child(1) span.dt-column-title{
     padding-right:20px;
 }
-
+.bk-orange{
+    color: #EE7B11 !important;
+}
 .bk-bg-blue{
     background-color: #1642B9 !important;
 }

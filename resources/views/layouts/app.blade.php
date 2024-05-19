@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <link rel="icon" type="image/x-icon" href="{{asset('assets/images/fav-icon.png')}}"> 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -41,7 +41,13 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <!-- {{ config('app.name', 'Laravel') }} -->
-                    <img src="../assets/images/logo.png" alt="">
+                    <div class="logo">
+                        <a class="navbar-brand py-0 me-0" href="{{url('/')}}">
+                            <div class="text-black fw-bold fs-4">
+                                <span class="bk-orange">Z</span>en<span class="bk-bg-blue px-1 text-white">A</span>ppoint
+                            </div>
+                        </a>
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

@@ -7,6 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" type="image/x-icon" href="{{asset('assets/images/fav-icon.png')}}"> 
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -36,15 +37,18 @@
     <div id="app">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-xl py-0">
-                <div class="logo">
-                    <a class="navbar-brand py-0 me-0" href="{{url('/')}}"><img src="{{asset('assets/images/logo.png')}}"
-                            alt="" class="mt-4"></a>
-                </div>
+            <div class="logo">
+                        <a class="navbar-brand py-0 me-0" href="{{url('/')}}">
+                            <div class="text-black fw-bold fs-4">
+                                <span class="bk-orange">Z</span>en<span class="bk-bg-blue px-1 text-white">A</span>ppoint
+                            </div>
+                        </a>
+                    </div>
                 <a class="d-inline-block d-lg-block d-xl-none d-xxl-none  nav-toggler text-decoration-none"
                     data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">
                     <i class="ti ti-menu-2 text-warning"></i>
                 </a>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <!-- <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <div class="d-flex align-items-center">
                         @if(!auth()->check())
                         <a class="text-capitalize me-3 login-btn" href="{{route('login')}}">login</a>
@@ -59,7 +63,7 @@
                         </form>
                         @endif
                     </div>
-                </div>
+                </div> -->
             </nav>
         </div>
         <main class="py-4 @if(request()->route()->getName() === 'login') bg-blue @endif" style="min-height: 100vh;">
