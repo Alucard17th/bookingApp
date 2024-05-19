@@ -18,7 +18,8 @@ jobs:
           script: |
             cd htdocs
             cd zenappoint.com
-            git pull
+            git remote set-url origin git@github.com:Alucard17th/bookingApp.git
+            git fetch
 
 # name: Deploy
 
