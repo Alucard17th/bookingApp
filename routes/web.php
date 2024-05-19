@@ -79,6 +79,7 @@ Route::middleware(['middleware' => 'checkSubscription'])->group(function () {
     Route::resource('breaks', BreakController::class);
     Route::resource('timeoffs', TimeOffController::class);
 
+    Route::post('save-integrations', 'App\Http\Controllers\ProfileController@saveIntegrations')->name('profile.saveIntegrations');
     Route::put('workinghours/{id}', 'App\Http\Controllers\WorkingHoursController@update')->name('workinghours.update');
 });
 

@@ -68,4 +68,13 @@ class ProfileController extends Controller
 
         return redirect()->back()->with('success', 'Profile updated successfully.');
     }
+
+    public function saveIntegrations(Request $request)
+    {
+        $user = auth()->user();
+        $user->google_calendar_id = $request->google_calendar_id;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Integrations parameters updated successfully.');
+    }
 }

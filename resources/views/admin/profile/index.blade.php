@@ -42,6 +42,10 @@
             <button class="nav-link text-muted" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
                 type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
         </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link text-muted" id="pills-integrations-tab" data-bs-toggle="pill" data-bs-target="#pills-integrations"
+                type="button" role="tab" aria-controls="pills-integrations" aria-selected="false">Integrations</button>
+        </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -58,6 +62,9 @@
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
             @include('admin.profile.components.profile-contact', compact('user'))
+        </div>
+        <div class="tab-pane fade" id="pills-integrations" role="tabpanel" aria-labelledby="pills-integrations-tab">
+            @include('admin.profile.components.profile-integrations', compact('user'))
         </div>
     </div>
 
@@ -101,5 +108,28 @@
             }
         });
     });
+</script>
+<script>
+$(document).ready(function() {
+    // Gets the video src from the data-src on each button
+
+    var $videoSrc;
+    $('.video-btn').click(function() {
+        $videoSrc = $(this).data("src");
+    });
+    console.log($videoSrc);
+
+    // when the modal is opened autoplay it  
+    $('#exampleModal').on('shown.bs.modal', function(e) {
+        // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+        $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+    })
+
+    // stop playing the youtube video when I close the modal
+    $('#exampleModal').on('hide.bs.modal', function(e) {
+        // a poor man's stop video
+        $("#video").attr('src', $videoSrc);
+    })
+})
 </script>
 @endpush
