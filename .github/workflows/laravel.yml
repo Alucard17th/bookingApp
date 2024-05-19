@@ -1,13 +1,16 @@
 on: push
-
-name: Deploy Website on Push
+name: 🚀 Deploy website on push
 jobs:
-  build:
-    name: Deploy
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2.3.2
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: 57.129.7.12:21
+        username: nordinbookedftp
+        password: 2foMhT3ZMAIGlKFG48m6
