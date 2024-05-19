@@ -41,7 +41,7 @@ section{
                     </li>
                     <li>
                         <p><strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;,
-                            &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to {{ config('app.name') }}.</p>
+                            &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to {{ config('app.name') }} by Noureddine Eddallal.</p>
                     </li>
                     <li>
                         <p><strong>Cookies</strong> are small files that are placed on Your computer, mobile device or
@@ -80,8 +80,8 @@ section{
                     </li>
                     <li>
                         <p><strong>Website</strong> refers to {{ config('app.name') }}, accessible from <a
-                                href="https://aptscheduled.chickenkiller.com/" rel="external nofollow noopener"
-                                target="_blank">https://aptscheduled.chickenkiller.com/</a></p>
+                                href="{{ config('app.url') }}" rel="external nofollow noopener"
+                                target="_blank">{{ config('app.url') }}</a></p>
                     </li>
                     <li>
                         <p><strong>You</strong> means the individual accessing or using the Service, or the company, or
@@ -341,9 +341,9 @@ section{
                 <h2>Contact Us</h2>
                 <p>If you have any questions about this Privacy Policy, You can contact us:</p>
                 <ul>
-                    <li>By visiting this page on our website: <a href="https://aptscheduled.chickenkiller.com/contact"
+                    <li>By clicking this link: <a href="mailto:{{ env('MAIL_FROM_ADDRESS') }}"
                             rel="external nofollow noopener"
-                            target="_blank">https://aptscheduled.chickenkiller.com/contact</a></li>
+                            target="_blank">{{ config('app.name') }}</a></li>
                 </ul>
             </div>
 

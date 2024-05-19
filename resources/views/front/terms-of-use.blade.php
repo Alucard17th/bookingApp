@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @push('styles')
 <style>
-section{
+section {
     line-height: 30px;
 }
 </style>
@@ -16,8 +16,9 @@ section{
 
                 <p>Version 1.0</p>
 
-                <p>The {{ config('app.name') }} website located at https://aptscheduled.chickenkiller.com/ is a copyrighted work
-                    belonging to {{ config('app.name') }}Certain features of the Site may be subject to additional guidelines, terms,
+                <p>The {{ config('app.name') }} by Noureddine Eddallal website located at {{ config('app.url') }} is a copyrighted work
+                    belonging to Noureddine Eddallal. Certain features of the Site may be subject to additional
+                    guidelines, terms,
                     or rules, which will be posted on the Site in connection with such features.</p>
 
                 <p>All such additional terms, guidelines, and rules are incorporated by reference into these Terms.</p>
@@ -152,7 +153,8 @@ section{
                     executing the release, which if known by him or her must have materially affected his or her
                     settlement with the debtor."</p>
 
-                <p><strong>Cookies and Web Beacons.</strong> Like any other website, {{ config('app.name') }} uses ‘cookies'. These
+                <p><strong>Cookies and Web Beacons.</strong> Like any other website, {{ config('app.name') }} by Noureddine Eddallal uses
+                    ‘cookies'. These
                     cookies are used to store information including visitors' preferences, and the pages on the website
                     that the visitor accessed or visited. The information is used to optimize the users' experience by
                     customizing our web page content based on visitors' browser type and/or other information.</p>
@@ -209,6 +211,48 @@ section{
                     will not have any liability whatsoever to you for any termination of your rights under these Terms. 
                     Even after your rights under these Terms are terminated, the following provisions of these Terms
                     will remain in effect: Sections 2 through 2.5, Section 3 and Sections 4 through 10.</p>
+
+                <!-- Refund and Cancellation Policy Start -->
+                <h2>Refund and Cancellation Policy</h2>
+                <p>We strive to provide the best service possible, but we understand that there may be instances where
+                    you need to request a refund or cancel a service. Please read our refund and cancellation policy
+                    carefully to understand your rights and obligations.</p>
+
+                <h3>Refund Policy</h3>
+                <p>If you are not satisfied with your purchase, you may be eligible for a refund within 14 days of the
+                    purchase date. To request a refund, please contact our support team at <a
+                        href="mailto:eddallal.noureddine@gmail.com">eddallal.noureddine@gmail.com</a> with your order details and the
+                    reason for your request. We will review your request and notify you of the approval or rejection of
+                    your refund.</p>
+                <p>Approved refunds will be processed within 7-10 business days and will be applied to your original
+                    method of payment.</p>
+
+                <h3>Cancellation Policy</h3>
+                <p>You may cancel your subscription or service at any time. To cancel, please log into your account and
+                    follow the cancellation procedures, or contact our support team at <a
+                        href="mailto:eddallal.noureddine@gmail.com">eddallal.noureddine@gmail.com</a>. Please note that cancellations
+                    will take effect at the end of your current billing cycle, and no prorated refunds will be provided
+                    for the remaining period of the subscription.</p>
+
+                <h3>Exceptions</h3>
+                <p>Our refund and cancellation policy does not cover issues caused by user error or misuse.
+                    Additionally, we reserve the right to refuse a refund or cancellation request if we determine that
+                    there has been any violation of our Terms of Use or if there is any evidence of fraudulent activity.
+                </p>
+
+                <h3>Changes to This Policy</h3>
+                <p>We reserve the right to modify this refund and cancellation policy at any time, so please review it
+                    frequently. Changes and clarifications will take effect immediately upon their posting on the
+                    website. If we make material changes to this policy, we will notify you here that it has been
+                    updated.</p>
+
+                <h2>Access to the Site</h2>
+                <p>Subject to these Terms, Company grants you a non-transferable, non-exclusive, revocable, limited
+                    license to access the Site solely for your own personal, noncommercial use.</p>
+
+                <p>If you have any questions about our refund and cancellation policy, please contact us at <a
+                        href="mailto:eddallal.noureddine@gmail.com">eddallal.noureddine@gmail.com</a>.</p>
+                <!-- Refund and Cancellation Policy END -->
 
                 <h2>Copyright Policy.</h2>
 
