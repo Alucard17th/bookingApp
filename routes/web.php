@@ -22,6 +22,8 @@ use App\Http\Controllers\FrontServiceController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserRegistered;
 use App\Models\User;
+// TO REMOVE AND PUT IN CONTROLLER LATER !!!
+use Spatie\GoogleCalendar\Event;
 
 /*
 |--------------------------------------------------------------------------
@@ -180,3 +182,9 @@ Route::any('/paddle-webhook', [App\Http\Controllers\PaddlePaymentController::cla
 // SOCIALITE 
 Route::get('/google/redirect', [App\Http\Controllers\SocialiteLoginController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/google/callback', [App\Http\Controllers\SocialiteLoginController::class, 'handleGoogleCallback'])->name('google.callback');
+
+Route::get('/google-events',function(){
+    $googleEvents = Event::get();
+
+    dd($googleEvents);
+})->name('google.events');

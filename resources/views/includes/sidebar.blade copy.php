@@ -1,6 +1,3 @@
-<!-- <div class="my-2">
-    <button class="btn bk-bg-orange toggle-sidebar"><i class="fas fa-arrow-left"></i></button>
-</div> -->
 <nav class="sidebar bg-white mt-3" id="secondary-navbar">
     <div class="navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav flex-column">
@@ -62,7 +59,6 @@
                 </a>
             </li>
         </ul>
-
     </div>
 </nav>
 

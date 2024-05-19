@@ -20,6 +20,10 @@
     opacity: 1;
 }
 
+.team-card-text{
+    color: #fff !important;
+}
+
 </style>
 @endpush
 
@@ -31,20 +35,17 @@
     <!-- <a class="cancel" href="#">Canel</a> -->
 </div>
 <!-- Loadingscreen End -->
-<!------------------------------>
 <!--- Hero Banner Start--------->
-<!------------------------------>
 <section class="hero-banner position-relative overflow-hidden">
     <div class="container">
         <div class="row d-flex flex-wrap align-items-center">
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="position-relative left-hero-color">
-                    <h1 class="mb-0 fw-bold fs-3">
-                        Unlock <span class="bk-orange">Effortless</span> Appointment Scheduling
+                    <h1 class="mb-0 fw-bold">
+                    Simplify Your Schedule with the <span class="bk-orange">Best</span> Online Appointment Scheduling Software
                     </h1>
-                    <div class="text-muted py-3">Simplify appointment scheduling for both you and your customers.<br>
-                        With our user-friendly
-                        interface, appointments can be booked in just a few clicks.</div>
+                    <div class="text-muted py-3">Manage appointments effortlessly, streamline communication, 
+                        and grow your business with our user-friendly appointment scheduling software.</div>
                     <form action="" class="py-2 mb-2">
                         <div class="row">
                             <div class="col-8">
@@ -76,13 +77,9 @@
         </div>
     </div>
 </section>
-<!------------------------------>
 <!--- Hero Banner End--------->
-<!------------------------------>
 
-<!------------------------------>
 <!--- Service sectin Start------>
-<!------------------------------>
 <section class="service position-relative overflow-hidden" id="howitworks">
     <div class="container position-relative">
         <img src="{{asset('assets/images/service/dot-shape.png')}}" class="shape position-absolute">
@@ -90,8 +87,7 @@
             <div class="col-12"><small class="fs-7 d-block">Working Process</small></div>
             <div
                 class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
-                <h2 class="fs-2 text-black mb-0">Our Featured Service<br> that We Provide</h2>
-                <a href="#" class="btn btn-warning btn-hover-secondery section-btn">All Services</a>
+                <h2 class="fs-2 text-black mb-0">How it works</h2>
             </div>
         </div>
         <div class="row d-flex flex-wrap justify-content-center step-row">
@@ -100,9 +96,12 @@
                     <div class="card-body">
                         <img src="{{asset('assets/images/icons/calendar.png')}}" alt="">
                         <h5 class="mb-0 fw-500">Step 1</h5>
-                        <h3 class="fs-4">Arrange your availability</h3>
-                        <p class="fs-7 mb-0 fw-500">Specify your timetable, synchronize it with your calendar, and
-                            witness the appropriate times displayed on your booking page.</p>
+                        <h3 class="fs-4">Set Up Your Availability in Minutes</h3>
+                        <p class="fs-7 mb-0 fw-500">
+                            Simply define your work hours and synchronize them with your existing calendar. 
+                            This ensures your booking page only displays the times you're truly available, 
+                            saving you and your clients valuable time.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -111,9 +110,12 @@
                     <div class="card-body">
                         <img src="{{asset('assets/images/icons/social.png')}}" alt="">
                         <h5 class="mb-0 fw-500">Step 2</h5>
-                        <h3 class="fs-4">Share your scheduling link</h3>
-                        <p class="fs-7 mb-0 fw-500">Disseminate your booking page through email, text, social media
-                            platforms, or embed it seamlessly on your website.</p>
+                        <h3 class="fs-4">Share Your Booking Link & Get Found</h3>
+                        <p class="fs-7 mb-0 fw-500">
+                            Spread the word! Share your booking link through email, text messages, social media platforms, 
+                            or embed it directly on your website. This makes it easy for potential clients to find you and schedule 
+                            appointments at their convenience.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -122,22 +124,21 @@
                     <div class="card-body">
                         <img src="{{asset('assets/images/icons/thank-you.png')}}" alt="">
                         <h5 class="mb-0 fw-500">Step 3</h5>
-                        <h3 class="fs-4">Now Start your Journey</h3>
-                        <p class="fs-7 mb-0 fw-500">As individuals commence scheduling time with you, our application
-                            furnishes a dashboard for efficient management of bookings.</p>
+                        <h3 class="fs-4">Manage Bookings & Focus on What Matters</h3>
+                        <p class="fs-7 mb-0 fw-500">
+                            As clients book appointments, they'll automatically appear on your central dashboard. 
+                            This streamlined system allows you to manage your schedule efficiently and focus on delivering a 
+                            fantastic service to each client.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!------------------------------>
 <!--- Service sectin Start------>
-<!------------------------------>
 
-<!---------------------------------->
 <!--- Our Service sectin Start------>
-<!---------------------------------->
 <section class="our-service position-relative overflow-hidden">
     <div class="container">
 
@@ -154,39 +155,42 @@
             <div
                 class="col-xxl-4 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ps-xxl-0 ps-xl-0 ps-lg-3 ps-md-3 ps-sm-3 ps-3">
                 <small class="fs-7 d-block">Why Choose Us</small>
-                <h2 class="text-black mb-0">Ensure the success of your business meetings through efficient online
-                    scheduling.</h2>
+                <h2 class="text-black mb-0">Ensure the success of your business meetings through efficient online appointment booking system.</h2>
                 <p class="mb-0 fw-500 fs-7">
-                    Guard against attendee no-shows by sending automatic confirmations and reminders packed with all the
-                    info they need. Provide clear meeting instructions, including preparation tips and access details.
-                    Start simplifying your meeting process today – it's free!
+                    Our user-friendly appointment calendar software keeps your schedule organized in one central location.
+                    Schedule appointments, set automated reminders for both you and your contacts,
+                    and access important details – all at your fingertips.
+                    This eliminates the stress of juggling appointments and ensures you stay on top of your busy schedule.
                 </p>
                 <ul class="list-unstyled mb-0 pl-0">
                     <li class="d-flex flex-wrap align-items-start">
                         <i class="ti ti-circle-check fs-4 pe-2"></i>
-                        <span class="fs-7 text-black">Set up automated confirmation and reminder messages.</span>
+                        <span class="fs-7 text-black">Manage appointments efficiently with a centralized calendar.</span>
                     </li>
                     <li class="d-flex flex-wrap align-items-start">
                         <i class="ti ti-circle-check fs-4 pe-2"></i>
-                        <span class="fs-7 text-black">Communicate clear meeting instructions to attendees.</span>
+                        <span class="fs-7 text-black">Offer clients a seamless online booking experience.</span>
                     </li>
                     <li class="d-flex flex-wrap align-items-start">
                         <i class="ti ti-circle-check fs-4 pe-2"></i>
-                        <span class="fs-7 text-black">Ensure all necessary details are included in the
-                            communication.</span>
+                        <span class="fs-7 text-black">Reduce no-shows with automated appointment reminders.</span>
+                    </li>
+                    <li class="d-flex flex-wrap align-items-start">
+                        <i class="ti ti-circle-check fs-4 pe-2"></i>
+                        <span class="fs-7 text-black">Free up valuable time for you and your staff to focus on core tasks.</span>
                     </li>
                 </ul>
+                <a href="#price-plan" 
+                class="btn btn-warning btn-hover-secondery text-capitalize mt-2 w-auto contact-btn position-relative">
+                    Get Started
+                </a>
             </div>
         </div>
     </div>
 </section>
-<!------------------------------>
 <!--- Our Service sectin End---->
-<!------------------------------>
 
-<!------------------------------>
 <!-- Portfolio section Start---->
-<!------------------------------>
 <section class="portfolio position-relative bg-primary overflow-hidden" id="services">
     <div class="container position-relative">
         <div class="row">
@@ -194,89 +198,123 @@
             <div
                 class="col-12 d-xxl-flex d-xl-flex d-lg-flex d-md-flex d-sm-block d-block align-items-center justify-content-xxl-between justify-content-xl-between justify-content-lg-between justify-content-md-between justify-content-sm-between justify-content-sm-center ">
                 <h2 class="fs-3 text-white mb-0">How teams can use our product<br> to manage their appointments.</h2>
-                <a href="#" class="btn btn-warning btn-hover-secondery section-btn">Open Portfolio</a>
             </div>
         </div>
-        <div class="row d-flex flex-wrap justify-content-center step-row">
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
+        <div class="row d-flex flex-wrap justify-content-center step-row gy-4">
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 text-center">
                 <div class="card bg-transparent teams-card">
-                    <div class="card-body p-2">
+                    <div class="card-body p-3">
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-briefcase text-white"></i></div>
                         <h3 class="fs-4 text-white">Small Business Owners</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Small business owners can use your service to manage
-                            their
-                            appointment bookings. They can schedule meetings with clients, consultations with vendors,
+                        <p class="fs-7 mb-0 fw-500 team-card-text">{{config('app.name')}} is the best 
+                            booking system for small business. You can schedule meetings with clients, 
+                            consultations with vendors,
                             and other business-related appointments, ensuring efficient time management.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 text-center">
                 <div class="card bg-transparent teams-card">
-                    <div class="card-body p-2">
+                    <div class="card-body p-3">
                         <div class="icon  mx-auto rounded-circle d-flex justify-content-center align-items-center">
                             <i class="ti ti-user text-white"></i>
                         </div>
                         <h3 class="fs-4 text-white">Freelancers</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Freelancers can benefit from your platform by
+                        <p class="fs-7 mb-0 fw-500 team-card-text">Freelancers can benefit from {{config('app.name')}} by
                             scheduling client
-                            meetings, project consultations, and other work-related appointments. They can use the
-                            service to maintain a professional image and manage their workload effectively.</p>
+                            meetings, project consultations, and other work-related appointments. Use the
+                            service to maintain a professional image and manage your workload effectively.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center">
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 text-center">
                 <div class="card bg-transparent teams-card">
-                    <div class="card-body p-2">
+                    <div class="card-body p-3">
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
-                                class="ti ti-calendar text-white"></i></div>
-                        <h3 class="fs-4 text-white">Event Planners</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Event planners can use your service to schedule
-                            appointments with
-                            clients, vendors, and venues. They can manage their event planning tasks more efficiently
-                            and ensure timely communication with all stakeholders.</p>
+                                class="ti ti-cut text-white"></i></div>
+                        <h3 class="fs-4 text-white">Barber Shop</h3>
+                        <p class="fs-7 mb-0 fw-500 team-card-text">
+                        This all-in-one hair barber scheduling app is designed for hair salons, barbers, and stylists.
+                        It can help you manage appointments
+                        to simplify your day and keep your clients happy and satisfied. 
+                        </p>
                     </div>
                 </div>
             </div>
-
-
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 text-center">
                 <div class="card bg-transparent teams-card">
-                    <div class="card-body p-2">
+                    <div class="card-body p-3">
+                        <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
+                                class="ti ti-brush text-white"></i></div>
+                        <h3 class="fs-4 text-white">Beauty Salons</h3>
+                        <p class="fs-7 mb-0 fw-500 team-card-text">The ideal beauty salon booking software and
+                        salon reservation software for beauty. {{config('app.name')}} 
+                        delivers a win-win situation for both you and your clients by simplifying appointment scheduling, boosting client satisfaction, and increasing efficiency.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 text-center">
+                <div class="card bg-transparent teams-card">
+                    <div class="card-body p-3">
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-heart text-white"></i></div>
-                        <h3 class="fs-4 text-white">Medical Professionals</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Doctors, therapists, and other healthcare
-                            professionals can
-                            utilize your platform to manage patient appointments. They can schedule consultations,
-                            treatments, and follow-up appointments, improving patient care and satisfaction.</p>
+                        <h3 class="fs-4 text-white">Medical Practitioners</h3>
+                        <p class="fs-7 mb-0 fw-500 team-card-text">
+                            Streamline your practice and prioritize patient care with our medical scheduling software. 
+                            Reduce appointment confusion, free up staff time, and improve patient satisfaction.  
+                            This user-friendly app lets you manage appointments, 
+                            send automated reminders, and access patient information – all in one place.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 text-center">
                 <div class="card bg-transparent teams-card">
-                    <div class="card-body p-2">
+                    <div class="card-body p-3">
+                        <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
+                                class="ti ti-home-2 text-white"></i></div>
+                        <h3 class="fs-4 text-white">Dentists</h3>
+                        <p class="fs-7 mb-0 fw-500 team-card-text">
+                            Revamp your dental practice with our intuitive dental scheduling software! 
+                            Eliminate appointment chaos and wasted time for your staff.  
+                            Focus on providing exceptional dental care while our software keeps your practice running smoothly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 text-center">
+                <div class="card bg-transparent teams-card">
+                    <div class="card-body p-3">
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-book text-white"></i></div>
-                        <h3 class="fs-4 text-white">Educational Institutions</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Schools, colleges, and universities can use your
-                            service to
-                            schedule student appointments for academic advising, counseling, and other student
-                            services. This can help improve student engagement and retention.</p>
+                        <h3 class="fs-4 text-white">Events Planners</h3>
+                        <p class="fs-7 mb-0 fw-500 team-card-text">
+                        Manage client communication, vendor bookings, venue logistics, and more – all from one central meeting scheduling tool.  
+                        This intuitive platform helps you stay organized, save time, 
+                        and impress clients with seamless event execution. 
+                        Focus on creating unforgettable experiences, 
+                        while we take care of the behind-the-scenes coordination.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 text-center mt-4">
+
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 text-center">
                 <div class="card bg-transparent teams-card">
-                    <div class="card-body p-2">
+                    <div class="card-body p-3">
                         <div class="icon mx-auto rounded-circle d-flex justify-content-center align-items-center"><i
                                 class="ti ti-home text-white"></i></div>
-                        <h3 class="fs-4 text-white">Real Estate Agents</h3>
-                        <p class="fs-7 mb-0 fw-500 team-card-text">Real estate agents can benefit from your platform by
-                            scheduling
-                            appointments for property showings, client meetings, and other real estate-related
-                            activities. This can help them manage their listings more efficiently and provide better
-                            service to their clients.</p>
+                        <h3 class="fs-4 text-white">Spas and Massage Practitioners</h3>
+                        <p class="fs-7 mb-0 fw-500 team-card-text">
+                        All-in-one massage appointment scheduling 
+                        software and spa booking software! Simplify your day by offering convenient online booking 
+                        for both massages and spa services.  
+                        Streamline appointments, reduces no-shows with automated reminders, 
+                        and keeps your client information organized.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -298,13 +336,9 @@
         </div>
     </div>
 </section>
-<!------------------------------>
 <!-- Portfolio section End ----->
-<!------------------------------>
 
-<!------------------------------>
 <!-- Pricing section Start------>
-<!------------------------------>
 <section class="pricing position-relative overflow-hidden" id="pricing">
     <div class="container position-relative">
         <div class="row justify-content-center">
@@ -385,13 +419,9 @@
         </div>
     </div>
 </section>
-<!------------------------------>
 <!-- Pricing section End-------->
-<!------------------------------>
 
-<!------------------------------>
 <!------ FAQ section Start------>
-<!------------------------------>
 <section class="faq position-relative overflow-hidden" id="faq">
     <div class="container position-relative">
         <div class="row justify-content-center">
@@ -408,15 +438,16 @@
                             <button class="accordion-button text-black fs-7" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                                 aria-controls="panelsStayOpen-collapseOne">
-                                How does our platform help businesses manage appointments and bookings?
+                                How does our appointment scheduling software / booking platform help businesses manage appointments and bookings?
                             </button>
                         </h2>
                         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                             aria-labelledby="panelsStayOpen-headingOne">
                             <div class="accordion-body fs-7 fw-500 pt-0">
-                                Our platform provides businesses with a centralized solution to efficiently manage
-                                appointments and bookings. It offers tools for scheduling, calendar integration, and
-                                customizable booking pages tailored to each business's needs.
+                                Our appointment scheduling software / booking platform provides businesses with a centralized solution 
+                                to efficiently manage appointments, bookings, and client scheduling. 
+                                It offers tools for online appointment scheduling, calendar integration, 
+                                and customizable booking pages tailored to each business's specific needs.
                             </div>
                         </div>
                     </div>
@@ -425,16 +456,16 @@
                             <button class="accordion-button collapsed text-black fs-7" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
                                 aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                What are the benefits of having a custom booking page for clients?
+                                How does our platform handle booking confirmations and notifications?
                             </button>
                         </h2>
                         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
                             aria-labelledby="panelsStayOpen-headingTwo">
                             <div class="accordion-body fs-7 fw-500 pt-0">
-                                A custom booking page allows businesses to showcase their brand identity and provide a
-                                seamless booking experience for clients. It enhances professionalism, promotes brand
-                                recognition, and simplifies the appointment scheduling process for both businesses and
-                                clients.
+                                Our platform automates appointment confirmations and notifications, 
+                                sending emails to both businesses and clients once a booking is made. 
+                                It also provides email reminders and calendar events to ensure that both parties 
+                                are informed and prepared for upcoming appointments. This helps to reduce appointment no-shows.
                             </div>
                         </div>
                     </div>
@@ -443,15 +474,15 @@
                             <button class="accordion-button collapsed text-black fs-7" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree"
                                 aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                How does our platform handle booking confirmations and notifications?
+                                What are the benefits of having a custom booking page for clients?
                             </button>
                         </h2>
                         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
                             aria-labelledby="panelsStayOpen-headingThree">
                             <div class="accordion-body fs-7 fw-500 pt-0">
-                                Our platform automatically sends confirmation emails to businesses and clients once a
-                                booking is made. It also provides email reminders and calendar events to ensure that
-                                both parties are informed and prepared for upcoming appointments.
+                                A custom booking page allows businesses to showcase their brand identity and provide a 
+                                seamless online appointment scheduling experience for clients. It enhances professionalism, promotes brand recognition, 
+                                and simplifies the appointment scheduling process for both businesses and clients.
                             </div>
                         </div>
                     </div>
@@ -468,9 +499,8 @@
                         <div id="panelsStayOpen-collapsefour" class="accordion-collapse collapse"
                             aria-labelledby="panelsStayOpen-headingfour">
                             <div class="accordion-body fs-7 fw-500 pt-0">
-                                Yes, our platform offers integrations with popular third-party applications such as CRM
-                                systems, email marketing tools, and payment gateways. This allows businesses to
-                                streamline their workflow and maximize efficiency.
+                            Yes, our appointment scheduling software / booking platform offers integrations with popular 
+                            third-party applications such as CRM systems, email marketing tools, and payment gateways.
                             </div>
                         </div>
                     </div>
@@ -503,7 +533,7 @@
                             aria-labelledby="panelsStayOpen-headingsix">
                             <div class="accordion-body fs-7 fw-500 pt-0">
                                 We offer flexible pricing plans to accommodate businesses of all sizes. Our plans
-                                include both free and premium options, with features such as unlimited bookings, custom
+                                include features such as unlimited bookings, custom
                                 branding, and advanced integrations. Businesses can choose the plan that best suits
                                 their needs and budget.
                             </div>
@@ -514,13 +544,9 @@
         </div>
     </div>
 </section>
-<!------------------------------>
 <!------ FAQ section End------>
-<!------------------------------>
 
-<!------------------------------>
 <!-----Contact section Start---->
-<!------------------------------>
 <section class="contact bg-primary position-relative overflow-hidden">
     <div class="container position-relative">
         <div class="dots-shape-left position-absolute"><img src="{{asset('assets/images/service/dot-shape.png')}}"></div>
@@ -528,21 +554,20 @@
         <div class="row">
             <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
                 <small class="fs-7 d-block text-warning">Join us Now</small>
-                <h2 class="fs-3 text-white mb-0">Ready to try the product for free?</h2>
+                <h2 class="fs-3 text-white mb-0">Ready to try {{config('app.name')}}?</h2>
                 <div class="owl-carousel owl-theme testimonial">
                     <div class="item">
                         <div class="details position-relative">
                             <p class="fs-5 fw-light blue-light mb-4">
-                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                piece”
+                                This software is amazing! Saved me tons of time managing appointments. Super easy to use and clients loves it.
                             </p>
                             <div class="d-flex align-items-center">
                                 <div class="avtar-img rounded-circle overflow-hidden"><img
                                         src="{{asset('assets/images/contact/testimonial-image.png')}}" class="img-fluid">
                                 </div>
                                 <div class="name ps-3">
-                                    <h6 class="text-white">Merky Lester</h6>
-                                    <small class="d-block blue-light fw-500 fs-10 pb-0">Managers</small>
+                                    <h6 class="text-white">Sarah S.</h6>
+                                    <small class="d-block blue-light fw-500 fs-10 pb-0">Hairdresser</small>
                                 </div>
                             </div>
                         </div>
@@ -550,16 +575,15 @@
                     <div class="item">
                         <div class="details position-relative">
                             <p class="fs-5 fw-light blue-light mb-4">
-                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                piece”
+                                Great platform for my massage practice! Keeps my schedule organized and reduces no-shows with appointment reminders. Highly recommend!
                             </p>
                             <div class="d-flex align-items-center">
                                 <div class="avtar-img rounded-circle overflow-hidden"><img
                                         src="{{asset('assets/images/contact/testimonial-image.png')}}" class="img-fluid">
                                 </div>
                                 <div class="name ps-3">
-                                    <h6 class="text-white">Merky Lester</h6>
-                                    <small class="d-block blue-light fw-500 fs-10 pb-0">Managers</small>
+                                    <h6 class="text-white">David L.</h6>
+                                    <small class="d-block blue-light fw-500 fs-10 pb-0">Massage Therapist</small>
                                 </div>
                             </div>
                         </div>
@@ -600,13 +624,12 @@
                         </div>
 
                         <div class="agree fs-7 fw-500">
-                            By clicking on the Sign Up button, you agree to Rakon.<br><a href="#"
+                            By clicking on the Sign Up button, you agree to {{ config('app.name') }}<br><a href="{{ route('front.terms') }}"
                                 class="text-warning text-decoration-none">terms and conditions of use.</a>
                         </div>
                         <div class="col-12">
                             <button
-                                class="btn btn-warning btn-hover-secondery text-capitalize mt-2 w-auto contact-btn">Try
-                                for Free</button>
+                                class="btn btn-warning btn-hover-secondery text-capitalize mt-2 w-auto contact-btn">Start now</button>
                         </div>
                     </div>
                 </form>
@@ -615,7 +638,7 @@
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog pt-5">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable pt-5">
             <div class="modal-content bg-transparent">
                 <div class="modal-body">
                     <div class="embed-responsive embed-responsive-16by9">
@@ -629,9 +652,7 @@
     </div>
 
 </section>
-<!------------------------------>
 <!-----Contact section End----->
-<!------------------------------>
 @endsection
 
 @push('scripts')

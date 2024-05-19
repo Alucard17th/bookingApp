@@ -30,6 +30,7 @@ class User extends Authenticatable
         'phone',
         'consommation',
         'max_consommation',
+        'google_calendar_id',
     ];
 
     /**

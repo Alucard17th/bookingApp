@@ -16,4 +16,18 @@ class Appointment extends Model
     public function service(){
         return $this->belongsTo(Service::class);
     }
+
+    public function getStartTime(){
+        $timeString = $this->time; // Assuming $appointment is your object
+
+        // $timeParts = explode('-', $timeString);
+
+        // $startTime = strtotime($timeParts[0]);
+        // $endTime = strtotime($timeParts[1]);
+
+        // $startHour = date('H', $startTime); // Get hour in 24-hour format
+        // $endHour = date('H', $endTime);
+
+        return $timeString;
+    }
 }

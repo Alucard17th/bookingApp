@@ -28,7 +28,7 @@
         <div class="card-header">
             <a href="#" class="me-3" id="back-button" style="display: none" role="button"><i
                     class="fas fa-arrow-left"></i></a>
-            New Services
+            New Service
         </div>
 
         <div class="card-body p-2" id="service-form-container">
@@ -63,7 +63,7 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" rows="3"
+                            <textarea class="form-control" id="description" name="description" rows="1"
                                 required></textarea>
                             @error('description')
                             <span class="invalid-feedback" role="alert">

@@ -13,7 +13,6 @@
                     </div>
                     <form method="POST" action="{{ route('login') }}" class="mt-5">
                         @csrf
-
                         <div class="row mb-2">
                             <label for="email"
                                 class="col-md-4 col-form-label text-md-end text-muted">{{ __('Email Address') }}</label>

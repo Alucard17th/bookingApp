@@ -25,10 +25,10 @@
                     <p class="card-text"><strong>Status:</strong> {{ $service->is_active ? 'Active' : 'Inactive' }}</p>
                 </div>
 
-                <div class="col-6">
+                <div class="col-6 d-flex justify-content-center">
                     @if($service->image)
                     <img src="{{$service->getImagePathAttribute()}}" alt="Service Image"
-                        class="img-fluid rounded d-block service-image">
+                        class="img-fluid rounded d-block service-image" width="250">
                     @else
                     <p>No image available</p>
                     @endif

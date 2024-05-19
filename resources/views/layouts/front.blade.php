@@ -117,8 +117,10 @@
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <div class="footer-logo-col">
                         <a href="#"><img src="{{asset('assets/images/logo.png')}}"></a>
-                        <p class="blue-light mb-0 fs-7 fw-500">Rakon is a simple, elegant, and secure way to build your
-                            bitcoin and crypto portfolio.</p>
+                        <p class="blue-light mb-0 fs-7 fw-500">
+                            {{config('app.name')}} offers a simple, elegant, and secure solution for managing appointments. 
+                            Effortlessly take control of your schedule, allowing clients to book appointments at their convenience.
+                        </p>
                         <div class="callus text-white fw-500 fs-7">
                             1989 Don Jackson Lane
                             <div class="blue-light">Call us: <a href="#"
@@ -130,18 +132,15 @@
                     <h5 class="text-white">Social</h5>
                     <ul class="list-unstyled mb-0 pl-0">
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
+                        <li><a href="mailto:eddallal.noureddine@gmail.com">Support</a></li>
                     </ul>
                 </div>
                 <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-12">
                     <h5 class="text-white">Company</h5>
                     <ul class="list-unstyled mb-0 pl-0">
-                        <li><a href="#">About</a></li>
+                        <li><a href="{{ route('front.about') }}">About</a></li>
                         <li><a href="{{ route('front.privacy') }}">Privacy Policy</a></li>
                         <li><a href="{{ route('front.terms') }}">Terms of Use</a></li>
-                        <a href="javascript:void(0)" class="js-lcc-settings-toggle">@lang('cookie-consent::texts.alert_settings')</a>
                     </ul>
                 </div>
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">

@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\AppointmentCreated;
 use App\Mail\AppointmentStatusUpdatedClientsMail;
 use App\Notifications\AppointmentCreated as AppointmentCreatedNotification;
-
+use Spatie\GoogleCalendar\Event as GoogleCalendarEvent;
+use Carbon\Carbon;
+use Config;
 class AppointmentController extends Controller
 {
     /**
@@ -59,10 +61,40 @@ class AppointmentController extends Controller
             $appointment->service_id = $request->service_id;
             $appointment->save();
 
+            // Get the request time as a string
+            $requestTimeString = $request->time;
+            // Get the appointment duration in minutes
+            $appointmentDuration = $appointment->service->duration;
+            // Convert the request time string to a Carbon DateTime object
+            // Assuming time zone is irrelevant for this calculation
+            $requestTime = Carbon::parse($requestTimeString);
+            // Add the appointment duration to the request time
+            $appointmentEndTime = $requestTime->addMinutes($appointmentDuration);
+            // Format the end time as a string in "HH:MM" format
+            $endTimeString = $appointmentEndTime->format('H:i');
+            // You can now use $endTimeString for further processing
+            // dd(Carbon::parse($appointment->date . ' ' . $appointment->time), Carbon::parse($endTimeString));
+
             // Mail::to($appointment->email)->send(new AppointmentCreated($appointment));
             $user = auth()->user();
             $user->notify(new AppointmentCreatedNotification($appointment));
             Mail::to($appointment->email)->send(new AppointmentCreated($appointment, 'client'));
+
+            Config::set('google-calendar', [
+                'calendar_id' => auth()->user()->google_calendar_id,
+            ] + config('google-calendar'));
+
+            $googleEvent = new GoogleCalendarEvent();
+            $googleEvent->name = "Appointment for the service: " . $appointment->service->name;
+            $googleEvent->description = $appointment->service->name;
+            $googleEvent->startDateTime = Carbon::parse($appointment->date . ' ' . $appointment->time);
+            $googleEvent->endDateTime = Carbon::parse($appointment->date . ' ' . $endTimeString);
+            $googleEvent->save();
+            
+            //// GET USER CALENDAR EVENTS
+            // $calendarId = auth()->user()->google_calendar_id;
+            // $calendarEvents = GoogleCalendarEvent::get(null, null, [], $calendarId);
+            // dd($calendarEvents);
 
             return redirect()->route('appointments.index')->with('success', 'Appointment created successfully.');
         }catch(Exception $e){

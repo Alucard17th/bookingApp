@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.4",
         "spatie/laravel-cookie-consent": "^3.3",
+        "spatie/laravel-google-calendar": "^3.8",
         "stripe/stripe-php": "^14.1",
         "yoeunes/toastr": "^2.3"
     },
