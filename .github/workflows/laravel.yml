@@ -47,4 +47,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           # key: ${{ secrets.SSHKEY }}
-          script: "cd /htdocs/aptscheduled.chickenkiller.com/ && ./deployer.sh"
+          script: "cd htdocs/aptscheduled.chickenkiller.com/ && ./deployer.sh"
