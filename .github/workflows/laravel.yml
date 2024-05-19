@@ -17,7 +17,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd htdocs
-            cd zenappoint
+            cd zenappoint.com
             git pull
 
 # name: Deploy
