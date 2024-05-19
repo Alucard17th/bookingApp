@@ -11,6 +11,6 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        server: "57.129.7.12:21"
+        server: aptscheduled.chickenkiller.com
         username: nordinbookedftp
         password: 2foMhT3ZMAIGlKFG48m6
