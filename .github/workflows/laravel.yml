@@ -1,16 +1,44 @@
+# on: push
+# name: 🚀 Deploy website on push
+# jobs:
+#   web-deploy:
+#     name: 🎉 Deploy
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: 🚚 Get latest code
+#       uses: actions/checkout@v2.3.2
+    
+#     - name: 📂 Sync files
+#       uses: SamKirkland/FTP-Deploy-Action@4.0.0
+#       with:
+#         server: aptscheduled.chickenkiller.com
+#         username: nordinbookedftp
+#         password: 2foMhT3ZMAIGlKFG48m6
+
+name: Deploy
+
+# Trigger the workflow on push and 
+# pull request events on the production branch
 on: push
-name: 🚀 Deploy website on push
+  # push:
+  #   branches:
+      - 
+  # pull_request:
+  #   branches:
+  #     - production
+      
+# Authenticate to the the server via ssh 
+# and run our deployment script 
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2.3.2
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: aptscheduled.chickenkiller.com
-        username: nordinbookedftp
-        password: 2foMhT3ZMAIGlKFG48m6
+      - uses: actions/checkout@v2
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSHKEY }}
+          script: "cd /var/www/html && ./deploy.sh"
