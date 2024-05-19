@@ -93,7 +93,7 @@
                 @endforeach
             @endif
         </div>
-        <div class="col-6">
+        <div class="col-12">
             Days where time is --:-- will be ignored
         </div>
     </div>

@@ -352,7 +352,7 @@
             @foreach($products as $product)
             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                 <div
-                    class="card position-relative shadow border-0 h-100 {{ $product->name == 'Standard' ? 'highlighted-card' : '' }}">
+                    class="card position-relative shadow-lg border-0 h-100 {{ $product->name == 'Standard' ? 'highlighted-card' : '' }}">
                     <div class="card-body pb-4 pt-4">
                         <small class="fs-7 d-block text-warning text-center">{{$product->name}}</small>
                         <h2 class="mb-4 text-center position-relative"><sub
@@ -360,7 +360,7 @@
                                 class="fs-6 position-absolute">$</sup></h2>
                         <p class="fs-7 text-center fw-500">For individuals looking for a simple CRM solution</p>
                         <ul class="list-unstyled mb-0 pl-0">
-                            <li class="d-flex align-items-start pb-2">
+                            <li class="d-flex align-items-start pb-1">
                                 <i class="ti ti-circle-check bk-orange fs-4 pe-2"></i>
                                 <span class="fs-7 text-black">{{$product->bookings}} Bookings</span>
                             </li>
@@ -369,35 +369,35 @@
                             @switch($key)
 
                             @case('admin_dashboard')
-                            <li class="d-flex align-items-start pb-2">
+                            <li class="d-flex align-items-start pb-1">
                                 <i
                                     class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
                                 <span class="fs-7 text-black">Admin Dashboard</span>
                             </li>
                             @break
                             @case('white_label')
-                            <li class="d-flex align-items-start pb-2">
+                            <li class="d-flex align-items-start pb-1">
                                 <i
                                     class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
                                 <span class="fs-7 text-black">White Label</span>
                             </li>
                             @break
                             @case('list_in_booked_directory')
-                            <li class="d-flex align-items-start pb-2">
+                            <li class="d-flex align-items-start pb-1">
                                 <i
                                     class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
                                 <span class="fs-7 text-black">List in Booked</span>
                             </li>
                             @break
                             @case('widget')
-                            <li class="d-flex align-items-start pb-2">
+                            <li class="d-flex align-items-start pb-1">
                                 <i
                                     class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
                                 <span class="fs-7 text-black">Widget</span>
                             </li>
                             @break
                             @case('services_and_events_providers')
-                            <li class="d-flex align-items-start pb-2">
+                            <li class="d-flex align-items-start pb-1">
                                 <i class="ti ti-circle-check bk-orange fs-4 pe-2"></i>
                                 <span class="fs-7 text-black">Services/Events Providers : {{ $feature }}</span>
                             </li>

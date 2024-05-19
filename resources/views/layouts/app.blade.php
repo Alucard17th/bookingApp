@@ -87,16 +87,19 @@
                             </a>
 
                             @if(Auth()->user()->unreadNotifications->count() > 0)
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="min-width: 15rem;">
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" 
+                            style="min-width: 15rem; max-height: 400px; overflow-y: auto;">
                                 <div class="d-flex justify-content-between align-items-center px-2 py-0">
                                     <h6 class="mb-0">Notifications</h6>
-                                    <a href="{{route('markAllNotificationsAsRead')}}"><i class="fas fa-check"></i> Mark all as read</a>
+                                    <a class="bk-orange" href="{{route('markAllNotificationsAsRead')}}"><i class="fas fa-check"></i> Mark all as read</a>
                                 </div>
                                 <hr class="dropdown-divider">
                                 @foreach(Auth()->user()->unreadNotifications as $notification)
                                 <a class="dropdown-item" href="{{ $notification->data['url'] }}"> 
-                                    {{ $notification->data['message'] }}
+                                    {{ $notification->data['message'] }}  <br>
+                                    <small class="text-muted"> {{ $notification->created_at->diffForHumans() }} </small>
                                 </a>
+                                <hr class="dropdown-divider">
                                 @endforeach
                             </div>
                             @else

@@ -44,7 +44,6 @@ section {
                         </svg>
                     </div>
                     <h4>Integrity</h4>
-                    <p>Years of expertise in website design</p>
                 </div>
                 <div class="col-md-4 col-sm-6 mb-3 mb-md-0">
                     <div class="mb-3">
@@ -56,7 +55,6 @@ section {
                         </svg>
                     </div>
                     <h4>Customer Focus</h4>
-                    <p>Users believe our code snippets</p>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="mb-3">
@@ -68,7 +66,6 @@ section {
                         </svg>
                     </div>
                     <h4>Innovation</h4>
-                    <p>Great efforts to take Designing Next Level</p>
                 </div>
             </div>
         </div>

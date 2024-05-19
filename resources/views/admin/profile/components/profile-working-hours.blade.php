@@ -129,13 +129,13 @@
             }
         });
 
-        $('input[name="startHour[Monday]"]').on('change', function() {
-            if($('input[name="startHour[Monday]"]').val() && $('input[name="endHour[Monday]"]').val()) {
-                $('.working-hours-apply-to-all').hide();
-            }else{
-                $('.working-hours-apply-to-all').show();
-            }
-        })
+        // $('input[name="startHour[Monday]"]').on('change', function() {
+        //     if($('input[name="startHour[Monday]"]').val() && $('input[name="endHour[Monday]"]').val()) {
+        //         $('.working-hours-apply-to-all').hide();
+        //     }else{
+        //         $('.working-hours-apply-to-all').show();
+        //     }
+        // })
        
         $('.working-hours-apply-to-all').click(function() {
             let startHour = $('input[name="startHour[Monday]"]').val()

@@ -26,8 +26,11 @@
         <div class="container">
             <nav class="navbar navbar-expand-xl py-0">
                 <div class="logo">
-                    <a class="navbar-brand py-0 me-0" href="{{url('/')}}"><img src="{{asset('assets/images/logo.png')}}"
-                            alt=""></a>
+                    <a class="navbar-brand py-0 me-0" href="{{url('/')}}">
+                        <div class="text-black fw-bold fs-4">
+                            <span class="bk-orange">Z</span>en<span class="bk-bg-blue px-1 text-white">A</span>ppoint
+                        </div>
+                    </a>
                 </div>
                 <a class="d-inline-block d-lg-block d-xl-none d-xxl-none  nav-toggler text-decoration-none"
                     data-bs-toggle="offcanvas" href="#offcanvasExample" aria-controls="offcanvasExample">
@@ -116,26 +119,29 @@
             <div class="row">
                 <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <div class="footer-logo-col">
-                        <a href="#"><img src="{{asset('assets/images/logo.png')}}"></a>
+                        <a href="#">
+                            <div class="text-white fw-bold fs-4">
+                                <span class="bk-orange">Z</span>en<span class="bk-bg-blue">A</span>ppoint
+                            </div>
+                        </a>
                         <p class="blue-light mb-0 fs-7 fw-500">
                             {{config('app.name')}} offers a simple, elegant, and secure solution for managing appointments. 
                             Effortlessly take control of your schedule, allowing clients to book appointments at their convenience.
                         </p>
                         <div class="callus text-white fw-500 fs-7">
-                            1989 Don Jackson Lane
-                            <div class="blue-light">Call us: <a href="#"
-                                    class="text-warning fw-500 fs-7 text-decoration-none">808-956-9599</a></div>
+                            <div class="blue-light">Join me here <a href="https://x.com/EddallalNordin"
+                                    class="text-warning fw-500 fs-7 text-decoration-none" target="_blank">Noureddine Eddallal</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-12">
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <h5 class="text-white">Social</h5>
                     <ul class="list-unstyled mb-0 pl-0">
-                        <li><a href="#">Blog</a></li>
+                        <!-- <li><a href="#">Blog</a></li> -->
                         <li><a href="mailto:eddallal.noureddine@gmail.com">Support</a></li>
                     </ul>
                 </div>
-                <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-12">
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <h5 class="text-white">Company</h5>
                     <ul class="list-unstyled mb-0 pl-0">
                         <li><a href="{{ route('front.about') }}">About</a></li>
@@ -143,7 +149,7 @@
                         <li><a href="{{ route('front.terms') }}">Terms of Use</a></li>
                     </ul>
                 </div>
-                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <!-- <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <div class="subscribe">
                         <h5 class="text-white">Subscribe</h5>
                         <p class="blue-light fw-500">Subscribe to get the latest news form us
@@ -156,7 +162,7 @@
                                 type="button" id="button-addon2">Register</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="copyrights text-center blue-light  fw-500">@<span id="autodate">2023</span> - All Rights
                 Reserved by <a href="https://adminmart.com/" class="blue-light text-decoration-none">adminmart.com</a>
