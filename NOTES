@@ -30,4 +30,36 @@ DOMAIS
 #         username: nordinbookedftp
 #         password: 2foMhT3ZMAIGlKFG48m6
 
+
+____________________________________________________
+
+
+name: Deploy
+
+# Trigger the workflow on push and 
+# pull request events on the production branch
+on: push
+  # push:
+  #   branches:
+  #     - 
+  # pull_request:
+  #   branches:
+  #     - production
+      
+# Authenticate to the the server via ssh 
+# and run our deployment script 
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          # key: ${{ secrets.SSHKEY }}
+          script: "cd /htdocs/aptscheduled.chickenkiller.com/ && ./deployer.sh"
   
