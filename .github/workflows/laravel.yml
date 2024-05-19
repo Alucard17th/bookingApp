@@ -17,9 +17,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd htdocs
-            cd zenappoint.com
-            git remote set-url origin git@github.com:Alucard17th/bookingApp.git
-            git fetch
+            cd zenappoint
+            git pull
 
 # name: Deploy
 
