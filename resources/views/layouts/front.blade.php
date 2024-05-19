@@ -5,10 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sasscandy</title>
-    <!-- <link rel="stylesheet" href="../assets/libs/OwlCarousel-2/dist/assets/owl.carousel.min.css"> -->
-    <!-- <link rel="stylesheet" href="../dist/css/iconfont/tabler-icons.css"> -->
-    <!-- <link rel="stylesheet" href="../dist/css/style.css"> -->
+    <title>{{config('app.name')}}</title>
     <link href="{{asset('libs/OwlCarousel-2/dist/assets/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/iconfont/tabler-icons.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
