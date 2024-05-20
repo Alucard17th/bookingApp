@@ -63,3 +63,10 @@ jobs:
           # key: ${{ secrets.SSHKEY }}
           script: "cd /htdocs/aptscheduled.chickenkiller.com/ && ./deployer.sh"
   
+
+
+
+  reminders emails
+paddle go live steps 
+white label
+list in Booked change to list in ZenAppoint + filter by plan 

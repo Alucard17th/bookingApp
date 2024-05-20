@@ -46,7 +46,7 @@
                             <a class="nav-link text-capitalize" href="{{url('/')}}#price-plan">Pricing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-capitalize @if(request()->is('all-services')) active @endif" href="{{route('front.services')}}">Services</a>
+                            <a class="nav-link text-capitalize @if(request()->is('all-services')) active @endif" href="{{route('front.services')}}">Listing</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-capitalize" href="{{url('/')}}#faq">FAQ</a>

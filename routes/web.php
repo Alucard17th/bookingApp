@@ -53,7 +53,6 @@ Route::get('/about', [HomeController::class, 'about'])->name('front.about');
 Route::get('/privacy-policy', [HomeController::class, 'privacy'])->name('front.privacy');
 Route::get('/terms-of-use', [HomeController::class, 'terms'])->name('front.terms');
 Route::get('/all-services', [HomeController::class, 'listServices'])->name('front.services');
-Route::get('/all-services', [HomeController::class, 'listServices'])->name('front.services');
 Route::get('/all-services/search', [HomeController::class, 'searchServices'])->name('front.services.search');
 Route::get('/services-single/{id}', [HomeController::class, 'showService'])->name('front.service.single');
 
@@ -186,6 +185,5 @@ Route::get('/google/callback', [App\Http\Controllers\SocialiteLoginController::c
 
 Route::get('/google-events',function(){
     $googleEvents = Event::get();
-
     dd($googleEvents);
 })->name('google.events');

@@ -154,9 +154,17 @@ class HomeController extends Controller
     }
 
     public function listServices(){
-        $services = Service::paginate(8);
+        $priceId = 'pri_01hxcvfyfza8sa9pm96jx8d055';
+        $subscribedUsers = User::whereHas('subscriptions', function ($query) use ($priceId) {
+            $query->whereHas('items', function ($query) use ($priceId) {
+                $query->whereNot('price_id', $priceId);
+            });
+        })->pluck('id')->toArray();
+        $services = Service::whereIn('user_id', $subscribedUsers)->paginate(8);
+
         return view('front.services', compact('services'));
     }
+
     public function searchServices(Request $request)
     {
         $filters = $request->all(); // Get all filter parameters
