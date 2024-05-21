@@ -38,7 +38,7 @@ use Spatie\GoogleCalendar\Event;
 // TO DELETE JUST FOR TEST START
 Route::get('/test-email', function () {
     $user = User::first();
-    Mail::to('test@mail.com')->send(new UserRegistered($user));
+    Mail::to('eddallal.noureddine@gmail.com')->send(new UserRegistered($user));
 });
 // TO DELETE JUST FOR TEST END
 
