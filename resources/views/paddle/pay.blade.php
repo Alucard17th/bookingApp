@@ -66,7 +66,7 @@
                                             <li class="d-flex align-items-start">
                                                 <i
                                                     class="ti fs-4 pe-2 {{ $feature == 1 ? 'ti-circle-check bk-orange' : 'ti-circle-x text-muted' }}"></i>
-                                                <span class="fs-7 text-black">List in Booked</span>
+                                                <span class="fs-7 text-black">List in {{ config('app.name') }}</span>
                                             </li>
                                             @break
                                             @case('widget')

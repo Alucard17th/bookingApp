@@ -72,7 +72,7 @@
     </div>
 
     <footer>
-        <p class="float-end mb-1">By <a href="https://github.com/abhishekbhatnagar">Booked</a></p>
+        <p class="float-end mb-1">By <a href="https://github.com/abhishekbhatnagar">{{ config('app.name') }}</a></p>
     </footer>
 
     @stack('scripts')
