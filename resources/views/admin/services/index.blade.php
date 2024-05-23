@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @push('styles')
+<style>
+.table tr {
+    cursor: pointer;
+}
+.hiddenRow {
+    padding: 0 4px !important;
+    background-color: #eeeeee;
+    font-size: 13px;
+}
+</style>
 @endpush
 
 @section('content')
@@ -26,7 +36,7 @@
             </thead>
             <tbody>
                 @foreach($services as $service)
-                <tr class="">
+                <tr class="" data-toggle="collapse" data-target="#data-{{ $service->id }}" class="accordion-toggle">
                     <td>{{ $service->id }}</td>
                     <td>
                         @if($service->is_active == 0) 
@@ -66,6 +76,19 @@
                             Get link
                         </button>
                     </td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="hiddenRow">
+                        <div class="accordian-body collapse" id="data-{{ $service->id }}"> 
+                            Demo Content1 
+                        </div> 
+                    </td>
+                    <td class="d-none">Name</td>
+                    <td class="d-none">Description</td>
+                    <td class="d-none">Duration</td>
+                    <td class="d-none">Cost</td>
+                    <td class="d-none">Location</td>
+                    <td class="d-none">Action</td>
                 </tr>
                 <!-- <tr class="spacer" style="height:5px; background:0 0;"></tr> -->
                 @endforeach
@@ -112,6 +135,13 @@ document.addEventListener('DOMContentLoaded', function() {
             $("#liveToast").toast("show");
         });
     });
+
+    $('.accordian-body').on('show.bs.collapse', function () {
+            $(this).closest("table")
+                .find(".collapse.in")
+                .not(this)
+                .collapse('toggle')
+        })
 });
 </script>
 @endpush

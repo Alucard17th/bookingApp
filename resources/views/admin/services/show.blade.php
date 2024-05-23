@@ -66,9 +66,9 @@
                                     <td>{{ $appointment->service->name }}</td>
                                     <td>
                                         <a href="{{ route('appointments.show', $appointment->id) }}"
-                                            class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                            class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-eye"></i></a>
                                         <a href="{{ route('appointments.edit', $appointment->id) }}"
-                                            class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+                                            class="btn btn-info btn-sm" target="_blank"><i class="fas fa-edit"></i></a>
                                         <form action="{{ route('appointments.destroy', $appointment->id) }}"
                                             method="POST" style="display: inline;">
                                             @csrf
