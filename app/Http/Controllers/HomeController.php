@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Service;
+use App\Models\Product;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -154,7 +155,7 @@ class HomeController extends Controller
     }
 
     public function listServices(){
-        $priceId = 'pri_01hxcvfyfza8sa9pm96jx8d055';
+        $priceId = Product::where('name', 'Basic')->first()->paddle_price_id;
         $subscribedUsers = User::whereHas('subscriptions', function ($query) use ($priceId) {
             $query->whereHas('items', function ($query) use ($priceId) {
                 $query->whereNot('price_id', $priceId);

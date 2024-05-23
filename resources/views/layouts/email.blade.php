@@ -43,7 +43,7 @@
 
     .header {
         text-align: center;
-        background-color: #EE7B11;
+        /* background-color: #EE7B11; */
         width: 100%;
         padding: 20px 0;
     }

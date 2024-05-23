@@ -18,7 +18,6 @@
             </div>
             <div class="create-an-accout">
                 <h2>Register</h2>
-                <div class="text-muted">Our free plan includes most features and 50 bookings. No credit card is needed.</div>
                 <form method="POST" action="{{ route('register') }}" class="mt-5">
                     @csrf
                     <div class="row mb-2">

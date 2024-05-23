@@ -24,7 +24,7 @@ use App\Mail\UserRegistered;
 use App\Models\User;
 // TO REMOVE AND PUT IN CONTROLLER LATER !!!
 use Spatie\GoogleCalendar\Event;
-
+use Spatie\Sitemap\SitemapGenerator;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +39,10 @@ use Spatie\GoogleCalendar\Event;
 Route::get('/test-email', function () {
     $user = User::first();
     Mail::to('eddallal.noureddine@gmail.com')->send(new UserRegistered($user));
+});
+Route::get('/sitemap', function () {
+    $path = public_path('sitemap.xml');
+    SitemapGenerator::create('https://zenappoint.com')->writeToFile($path);
 });
 // TO DELETE JUST FOR TEST END
 

@@ -179,6 +179,10 @@
 </style>
 @endpush
 
+@php
+    $layoutData = ['user' => $user];
+@endphp
+
 @section('content')
 <div class="container-fluid px-5">
     <div class="row">
@@ -200,12 +204,12 @@
                 <button class="nav-link text-start nav-item" id="v-pills-reviews-tab" data-bs-toggle="pill"
                     data-bs-target="#v-pills-reviews" type="button" role="tab" aria-controls="v-pills-reviews"
                     aria-selected="false">Reviews</button>
-                <button class="nav-link text-start nav-item" id="v-pills-messages-tab" data-bs-toggle="pill"
+                <!-- <button class="nav-link text-start nav-item" id="v-pills-messages-tab" data-bs-toggle="pill"
                     data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
                     aria-selected="false">Messages</button>
                 <button class="nav-link text-start nav-item" id="v-pills-settings-tab" data-bs-toggle="pill"
                     data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
-                    aria-selected="false">Settings</button>
+                    aria-selected="false">Settings</button> -->
             </div>
         </div>
 
@@ -270,6 +274,10 @@
                                     </div>
                                     <div id="test-form-2" role="tabpanel" class="bs-stepper-pane fade dstepper-none"
                                         aria-labelledby="stepperFormTrigger2">
+                                        <a id="" type="button" class="link-primary my-2 btn-previous-form">
+                                            <i class="fas fa-chevron-left me-2"></i>
+                                            Select Another Service
+                                        </a>
                                         <div class="row">
                                             <div class="col-lg-8">
                                                 <div class="calender"></div>
@@ -279,7 +287,6 @@
                                                 <div class="availabilities mt-3"></div>
                                             </div>
                                         </div>
-                                        <button class="btn bk-bg-blue btn-previous-form mt-5">Previous</button>
                                     </div>
                                     <div id="test-form-3" role="tabpanel" class="bs-stepper-pane fade dstepper-none"
                                         aria-labelledby="stepperFormTrigger3">
@@ -381,10 +388,10 @@
                             @endif
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                    <!-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
                         aria-labelledby="v-pills-messages-tab">...</div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
-                        aria-labelledby="v-pills-settings-tab">...</div>
+                        aria-labelledby="v-pills-settings-tab">...</div> -->
                 </div>
             </div>
         </div>

@@ -71,8 +71,13 @@
         </main>
     </div>
 
-    <footer>
-        <p class="float-end mb-1">By <a href="https://github.com/abhishekbhatnagar">{{ config('app.name') }}</a></p>
+    <footer class="px-2">
+        @if($layoutData['user']->product() != 'Premium')
+        <p class="float-end mb-1">
+            By 
+            <a href="https://github.com/abhishekbhatnagar">{{ config('app.name') }}</a>
+        </p>
+        @endif
     </footer>
 
     @stack('scripts')
