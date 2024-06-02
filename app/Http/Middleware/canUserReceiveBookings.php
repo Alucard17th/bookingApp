@@ -22,7 +22,11 @@ class canUserReceiveBookings
 
         // Perform your authorization logic here
         if (!$user->canBeBooked()) {
-            abort(403, 'This user cannot receive bookings.');
+            $data = [
+                'message' => 'This user cannot receive bookings.',
+                'user' => $user
+            ];
+            abort(403, json_encode($data));
         }
 
         // Pass control to the next middleware or controller action

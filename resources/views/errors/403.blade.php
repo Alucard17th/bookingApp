@@ -29,13 +29,18 @@
 </style>
 @endpush
 
+@php
+$layoutData = ['user' => \App\Models\User::find(json_decode($exception->getMessage())->user->id)];
+@endphp
+
 @section('content')
+
 <div class="error-container">
     <div class="card error-card">
         <div class="card-body">
             <i class="fas fa-exclamation-triangle error-icon"></i>
             <h5 class="card-title mt-3">Access Denied</h5>
-            <p class="card-text error-message">{{ $exception->getMessage() }}</p>
+            <p class="card-text error-message">{{ json_decode($exception->getMessage())->message }}</p>
         </div>
     </div>
 </div>

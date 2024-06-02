@@ -77,19 +77,6 @@
                         </button>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="6" class="hiddenRow">
-                        <div class="accordian-body collapse" id="data-{{ $service->id }}"> 
-                            Demo Content1 
-                        </div> 
-                    </td>
-                    <td class="d-none">Name</td>
-                    <td class="d-none">Description</td>
-                    <td class="d-none">Duration</td>
-                    <td class="d-none">Cost</td>
-                    <td class="d-none">Location</td>
-                    <td class="d-none">Action</td>
-                </tr>
                 <!-- <tr class="spacer" style="height:5px; background:0 0;"></tr> -->
                 @endforeach
             </tbody>

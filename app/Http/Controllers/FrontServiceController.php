@@ -28,7 +28,7 @@ class FrontServiceController extends Controller
         foreach ($user->services as $service) {
             $allUserAppointments = array_merge($allUserAppointments, $service->appointments->toArray());
         }
-        // dd($services, $allUserAppointments);
+       
         return view('booking.service', compact('user', 'allUserAppointments'));
     }
 

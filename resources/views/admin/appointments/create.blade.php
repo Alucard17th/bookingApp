@@ -70,8 +70,9 @@
                     </div>
 
                 </div>
-
+                @if(auth()->user()->canBeBooked())
                 <button type="submit" class="btn btn-primary mt-3">Create</button>
+                @endif
             </form>
 
         </div>

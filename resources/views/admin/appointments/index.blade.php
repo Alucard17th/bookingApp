@@ -7,9 +7,11 @@
 <div class="container-fluid">
     <div class="d-flex justify-content-between">
         <h5 class="card-title">Appointments</h5>
+        @if(auth()->user()->canBeBooked())
         <a href="{{ route('appointments.create') }}" class="btn add-btn">
             <i class="fa fa-plus"></i>
             Add Appointment</a>
+        @endif
     </div>
 
     <div class="table-responsive">

@@ -204,12 +204,6 @@
                 <button class="nav-link text-start nav-item" id="v-pills-reviews-tab" data-bs-toggle="pill"
                     data-bs-target="#v-pills-reviews" type="button" role="tab" aria-controls="v-pills-reviews"
                     aria-selected="false">Reviews</button>
-                <!-- <button class="nav-link text-start nav-item" id="v-pills-messages-tab" data-bs-toggle="pill"
-                    data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
-                    aria-selected="false">Messages</button>
-                <button class="nav-link text-start nav-item" id="v-pills-settings-tab" data-bs-toggle="pill"
-                    data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
-                    aria-selected="false">Settings</button> -->
             </div>
         </div>
 
@@ -218,7 +212,7 @@
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-book" role="tabpanel"
                         aria-labelledby="v-pills-book-tab">
-                        <h3>Form validation</h3>
+                        <h3>Services</h3>
                         <div id="stepperForm" class="bs-stepper linear">
                             <div class="bs-stepper-header" role="tablist">
                                 <div class="step active" data-target="#test-form-1">
@@ -390,10 +384,6 @@
                             @endif
                         </div>
                     </div>
-                    <!-- <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
-                        aria-labelledby="v-pills-messages-tab">...</div>
-                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
-                        aria-labelledby="v-pills-settings-tab">...</div> -->
                 </div>
             </div>
         </div>
@@ -426,7 +416,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Review</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
