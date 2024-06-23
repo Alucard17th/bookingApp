@@ -40,7 +40,7 @@
                             <a class="nav-link text-capitalize" aria-current="page" href="{{url('/')}}#howitworks">How it works</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-capitalize" href="{{url('/')}}#services">Services</a>
+                            <a class="nav-link text-capitalize" href="{{url('/')}}#services">Servicesd</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-capitalize" href="{{url('/')}}#price-plan">Pricing</a>
