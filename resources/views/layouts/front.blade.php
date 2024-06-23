@@ -123,7 +123,7 @@
                             </div>
                         </a>
                         <p class="blue-light mb-0 fs-7 fw-500">
-                            {{config('app.name')}} offers a simple, elegant, and secure solution for managing appointments. 
+                            {{config('app.name')}} offers a very simple, elegant, and secure solution for managing appointments. 
                             Effortlessly take control of your schedule, allowing clients to book appointments at their convenience.
                         </p>
                         <div class="callus text-white fw-500 fs-7">
