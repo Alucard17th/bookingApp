@@ -457,5 +457,4 @@ section {
         </div>
     </div>
 </section>
-
 @endsection
