@@ -40,13 +40,13 @@
                             <a class="nav-link text-capitalize" aria-current="page" href="{{url('/')}}#howitworks">How it works</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-capitalize" href="{{url('/')}}#services">Servicesd</a>
+                            <a class="nav-link text-capitalize" href="{{url('/')}}#services">Services</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-capitalize" href="{{url('/')}}#price-plan">Pricing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-capitalize @if(request()->is('all-services')) active @endif" href="{{route('front.services')}}">Listings</a>
+                            <a class="nav-link text-capitalize @if(request()->is('all-services')) active @endif" href="{{route('front.services')}}">Listing</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-capitalize" href="{{url('/')}}#faq">FAQ</a>
