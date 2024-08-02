@@ -173,7 +173,7 @@
     <!------------------------------>
     <!-------Footer End------------->
     <!------------------------------>
-    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('public/js/jquery.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('libs/OwlCarousel-2/dist/owl.carousel.min.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
