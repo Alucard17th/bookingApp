@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{config('app.name')}}</title>
-    <link rel="icon" type="image/x-icon" href="{{asset('assets/images/fav-icon.png')}}"> 
-    <link href="{{asset('libs/OwlCarousel-2/dist/assets/owl.carousel.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/iconfont/tabler-icons.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
+    <link rel="icon" type="image/x-icon" href="{{asset('public/assets/images/fav-icon.png')}}"> 
+    <link href="{{asset('public/libs/OwlCarousel-2/dist/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('public/css/iconfont/tabler-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('public/css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset("public/vendor/cookie-consent/css/cookie-consent.css")}}">
     @paddleJS
     @stack('styles')
     
@@ -74,7 +74,7 @@
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <div class="logo">
-                    <a class="navbar-brand py-0 me-0" href="#"><img src="{{asset('assets/images/logo.png')}}" alt=""></a>
+                    <a class="navbar-brand py-0 me-0" href="#"><img src="{{asset('public/assets/images/logo.png')}}" alt=""></a>
                 </div>
                 <button type="button" class="btn-close text-reset  ms-auto" data-bs-dismiss="offcanvas"
                     aria-label="Close"><i class="ti ti-x text-warning"></i></button>
@@ -173,10 +173,10 @@
     <!------------------------------>
     <!-------Footer End------------->
     <!------------------------------>
-    <script src="{{asset('js/jquery.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('libs/OwlCarousel-2/dist/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('js/custom.js')}}"></script>
+    <script src="{{asset('public/js/jquery.min.js')}}"></script>
+    <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('public/libs/OwlCarousel-2/dist/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('public/js/custom.js')}}"></script>
     <script>
     // when document is ready
     $(document).ready(function() {
