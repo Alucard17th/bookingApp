@@ -26,7 +26,7 @@
                 <div class="logo">
                     <a class="navbar-brand py-0 me-0" href="{{url('/')}}">
                         <div class="text-black fw-bold fs-4">
-                            <span class="bk-orange">Z</span>en<span class="bk-bg-blue px-1 text-white">A</span>ppoint
+                            <span class="bk-orange">Z</span>en<span class="bk-bg-blue px-1 text-white">A</span>ppointd
                         </div>
                     </a>
                 </div>
