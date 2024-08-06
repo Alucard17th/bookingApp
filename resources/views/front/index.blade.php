@@ -42,7 +42,7 @@
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="position-relative left-hero-color">
                     <h1 class="mb-0 fw-bold">
-                    Simplify Your Schedule with the <span class="bk-orange">Best</span> Online Appointment Scheduling Software
+                    Simplify Your Schedule with theD <span class="bk-orange">Best</span> Online Appointment Scheduling Software
                     </h1>
                     <div class="text-muted py-3">Manage appointments effortlessly, streamline communication, 
                         and grow your business with our user-friendly appointment scheduling software.</div>
