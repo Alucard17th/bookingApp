@@ -35,6 +35,7 @@
                 </tr>
             </thead>
             <tbody>
+                
                 @foreach($services as $service)
                 <tr class="" data-toggle="collapse" data-target="#data-{{ $service->id }}" class="accordion-toggle">
                     <td>{{ $service->id }}</td>
